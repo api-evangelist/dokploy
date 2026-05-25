@@ -1,0 +1,308 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — registry
+  description: 'Dokploy API — registry. 7 operations. Lead operation: registry.create. Self-contained Naftiko capability covering one Dokploy
+    business surface.'
+  tags:
+  - Dokploy
+  - registry
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-registry
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — registry business capability. Self-contained, no shared references.
+    resources:
+    - name: create
+      path: /registry.create
+      operations:
+      - name: registry-create
+        method: POST
+        description: registry-create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: remove
+      path: /registry.remove
+      operations:
+      - name: registry-remove
+        method: POST
+        description: registry-remove
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: update
+      path: /registry.update
+      operations:
+      - name: registry-update
+        method: POST
+        description: registry-update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: all
+      path: /registry.all
+      operations:
+      - name: registry-all
+        method: GET
+        description: registry-all
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: one
+      path: /registry.one
+      operations:
+      - name: registry-one
+        method: GET
+        description: registry-one
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: testRegistry
+      path: /registry.testRegistry
+      operations:
+      - name: registry-testRegistry
+        method: POST
+        description: registry-testRegistry
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: testRegistryById
+      path: /registry.testRegistryById
+      operations:
+      - name: registry-testRegistryById
+        method: POST
+        description: registry-testRegistryById
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+  exposes:
+  - type: rest
+    namespace: dokploy-registry-rest
+    port: 8080
+    description: REST adapter for Dokploy API — registry. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/registry.create
+      name: create
+      description: REST surface for create.
+      operations:
+      - method: POST
+        name: registry-create
+        description: registry-create
+        call: dokploy-registry.registry-create
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/registry.remove
+      name: remove
+      description: REST surface for remove.
+      operations:
+      - method: POST
+        name: registry-remove
+        description: registry-remove
+        call: dokploy-registry.registry-remove
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/registry.update
+      name: update
+      description: REST surface for update.
+      operations:
+      - method: POST
+        name: registry-update
+        description: registry-update
+        call: dokploy-registry.registry-update
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/registry.all
+      name: all
+      description: REST surface for all.
+      operations:
+      - method: GET
+        name: registry-all
+        description: registry-all
+        call: dokploy-registry.registry-all
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/registry.one
+      name: one
+      description: REST surface for one.
+      operations:
+      - method: GET
+        name: registry-one
+        description: registry-one
+        call: dokploy-registry.registry-one
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/registry.testRegistry
+      name: testRegistry
+      description: REST surface for testRegistry.
+      operations:
+      - method: POST
+        name: registry-testRegistry
+        description: registry-testRegistry
+        call: dokploy-registry.registry-testRegistry
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/registry.testRegistryById
+      name: testRegistryById
+      description: REST surface for testRegistryById.
+      operations:
+      - method: POST
+        name: registry-testRegistryById
+        description: registry-testRegistryById
+        call: dokploy-registry.registry-testRegistryById
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-registry-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — registry. One tool per consumed operation, routed inline through this capability’s consumes block.
+    tools:
+    - name: registry-create
+      description: registry-create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-registry.registry-create
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: registry-remove
+      description: registry-remove
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-registry.registry-remove
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: registry-update
+      description: registry-update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-registry.registry-update
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: registry-all
+      description: registry-all
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-registry.registry-all
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: registry-one
+      description: registry-one
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-registry.registry-one
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: registry-testRegistry
+      description: registry-testRegistry
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-registry.registry-testRegistry
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: registry-testRegistryById
+      description: registry-testRegistryById
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-registry.registry-testRegistryById
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

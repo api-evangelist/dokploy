@@ -1,0 +1,192 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — redirects
+  description: 'Dokploy API — redirects. 4 operations. Lead operation: redirects.create. Self-contained Naftiko capability covering one Dokploy
+    business surface.'
+  tags:
+  - Dokploy
+  - redirects
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-redirects
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — redirects business capability. Self-contained, no shared references.
+    resources:
+    - name: create
+      path: /redirects.create
+      operations:
+      - name: redirects-create
+        method: POST
+        description: redirects-create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: one
+      path: /redirects.one
+      operations:
+      - name: redirects-one
+        method: GET
+        description: redirects-one
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: delete
+      path: /redirects.delete
+      operations:
+      - name: redirects-delete
+        method: POST
+        description: redirects-delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: update
+      path: /redirects.update
+      operations:
+      - name: redirects-update
+        method: POST
+        description: redirects-update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+  exposes:
+  - type: rest
+    namespace: dokploy-redirects-rest
+    port: 8080
+    description: REST adapter for Dokploy API — redirects. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/redirects.create
+      name: create
+      description: REST surface for create.
+      operations:
+      - method: POST
+        name: redirects-create
+        description: redirects-create
+        call: dokploy-redirects.redirects-create
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/redirects.one
+      name: one
+      description: REST surface for one.
+      operations:
+      - method: GET
+        name: redirects-one
+        description: redirects-one
+        call: dokploy-redirects.redirects-one
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/redirects.delete
+      name: delete
+      description: REST surface for delete.
+      operations:
+      - method: POST
+        name: redirects-delete
+        description: redirects-delete
+        call: dokploy-redirects.redirects-delete
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/redirects.update
+      name: update
+      description: REST surface for update.
+      operations:
+      - method: POST
+        name: redirects-update
+        description: redirects-update
+        call: dokploy-redirects.redirects-update
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-redirects-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — redirects. One tool per consumed operation, routed inline through this capability’s consumes block.
+    tools:
+    - name: redirects-create
+      description: redirects-create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-redirects.redirects-create
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: redirects-one
+      description: redirects-one
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-redirects.redirects-one
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: redirects-delete
+      description: redirects-delete
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-redirects.redirects-delete
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: redirects-update
+      description: redirects-update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-redirects.redirects-update
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

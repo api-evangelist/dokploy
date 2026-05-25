@@ -1,0 +1,1287 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — application
+  description: 'Dokploy API — application. 31 operations. Lead operation: application.create. Self-contained Naftiko capability covering one Dokploy
+    business surface.'
+  tags:
+  - Dokploy
+  - application
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-application
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — application business capability. Self-contained, no shared references.
+    resources:
+    - name: create
+      path: /application.create
+      operations:
+      - name: application-create
+        method: POST
+        description: application-create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: one
+      path: /application.one
+      operations:
+      - name: application-one
+        method: GET
+        description: application-one
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: reload
+      path: /application.reload
+      operations:
+      - name: application-reload
+        method: POST
+        description: application-reload
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: delete
+      path: /application.delete
+      operations:
+      - name: application-delete
+        method: POST
+        description: application-delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: stop
+      path: /application.stop
+      operations:
+      - name: application-stop
+        method: POST
+        description: application-stop
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: start
+      path: /application.start
+      operations:
+      - name: application-start
+        method: POST
+        description: application-start
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: redeploy
+      path: /application.redeploy
+      operations:
+      - name: application-redeploy
+        method: POST
+        description: application-redeploy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: saveEnvironment
+      path: /application.saveEnvironment
+      operations:
+      - name: application-saveEnvironment
+        method: POST
+        description: application-saveEnvironment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: saveBuildType
+      path: /application.saveBuildType
+      operations:
+      - name: application-saveBuildType
+        method: POST
+        description: application-saveBuildType
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: saveGithubProvider
+      path: /application.saveGithubProvider
+      operations:
+      - name: application-saveGithubProvider
+        method: POST
+        description: application-saveGithubProvider
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: saveGitlabProvider
+      path: /application.saveGitlabProvider
+      operations:
+      - name: application-saveGitlabProvider
+        method: POST
+        description: application-saveGitlabProvider
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: saveBitbucketProvider
+      path: /application.saveBitbucketProvider
+      operations:
+      - name: application-saveBitbucketProvider
+        method: POST
+        description: application-saveBitbucketProvider
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: saveGiteaProvider
+      path: /application.saveGiteaProvider
+      operations:
+      - name: application-saveGiteaProvider
+        method: POST
+        description: application-saveGiteaProvider
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: saveDockerProvider
+      path: /application.saveDockerProvider
+      operations:
+      - name: application-saveDockerProvider
+        method: POST
+        description: application-saveDockerProvider
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: saveGitProvider
+      path: /application.saveGitProvider
+      operations:
+      - name: application-saveGitProvider
+        method: POST
+        description: application-saveGitProvider
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: disconnectGitProvider
+      path: /application.disconnectGitProvider
+      operations:
+      - name: application-disconnectGitProvider
+        method: POST
+        description: application-disconnectGitProvider
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: markRunning
+      path: /application.markRunning
+      operations:
+      - name: application-markRunning
+        method: POST
+        description: application-markRunning
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: update
+      path: /application.update
+      operations:
+      - name: application-update
+        method: POST
+        description: application-update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: refreshToken
+      path: /application.refreshToken
+      operations:
+      - name: application-refreshToken
+        method: POST
+        description: application-refreshToken
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: deploy
+      path: /application.deploy
+      operations:
+      - name: application-deploy
+        method: POST
+        description: application-deploy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: cleanQueues
+      path: /application.cleanQueues
+      operations:
+      - name: application-cleanQueues
+        method: POST
+        description: application-cleanQueues
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: clearDeployments
+      path: /application.clearDeployments
+      operations:
+      - name: application-clearDeployments
+        method: POST
+        description: application-clearDeployments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: killBuild
+      path: /application.killBuild
+      operations:
+      - name: application-killBuild
+        method: POST
+        description: application-killBuild
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: readTraefikConfig
+      path: /application.readTraefikConfig
+      operations:
+      - name: application-readTraefikConfig
+        method: GET
+        description: application-readTraefikConfig
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dropDeployment
+      path: /application.dropDeployment
+      operations:
+      - name: application-dropDeployment
+        method: POST
+        description: application-dropDeployment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: updateTraefikConfig
+      path: /application.updateTraefikConfig
+      operations:
+      - name: application-updateTraefikConfig
+        method: POST
+        description: application-updateTraefikConfig
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: readAppMonitoring
+      path: /application.readAppMonitoring
+      operations:
+      - name: application-readAppMonitoring
+        method: GET
+        description: application-readAppMonitoring
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: move
+      path: /application.move
+      operations:
+      - name: application-move
+        method: POST
+        description: application-move
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: cancelDeployment
+      path: /application.cancelDeployment
+      operations:
+      - name: application-cancelDeployment
+        method: POST
+        description: application-cancelDeployment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: search
+      path: /application.search
+      operations:
+      - name: application-search
+        method: GET
+        description: application-search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: readLogs
+      path: /application.readLogs
+      operations:
+      - name: application-readLogs
+        method: GET
+        description: application-readLogs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: dokploy-application-rest
+    port: 8080
+    description: REST adapter for Dokploy API — application. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/application.create
+      name: create
+      description: REST surface for create.
+      operations:
+      - method: POST
+        name: application-create
+        description: application-create
+        call: dokploy-application.application-create
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.one
+      name: one
+      description: REST surface for one.
+      operations:
+      - method: GET
+        name: application-one
+        description: application-one
+        call: dokploy-application.application-one
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.reload
+      name: reload
+      description: REST surface for reload.
+      operations:
+      - method: POST
+        name: application-reload
+        description: application-reload
+        call: dokploy-application.application-reload
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.delete
+      name: delete
+      description: REST surface for delete.
+      operations:
+      - method: POST
+        name: application-delete
+        description: application-delete
+        call: dokploy-application.application-delete
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.stop
+      name: stop
+      description: REST surface for stop.
+      operations:
+      - method: POST
+        name: application-stop
+        description: application-stop
+        call: dokploy-application.application-stop
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.start
+      name: start
+      description: REST surface for start.
+      operations:
+      - method: POST
+        name: application-start
+        description: application-start
+        call: dokploy-application.application-start
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.redeploy
+      name: redeploy
+      description: REST surface for redeploy.
+      operations:
+      - method: POST
+        name: application-redeploy
+        description: application-redeploy
+        call: dokploy-application.application-redeploy
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.saveEnvironment
+      name: saveEnvironment
+      description: REST surface for saveEnvironment.
+      operations:
+      - method: POST
+        name: application-saveEnvironment
+        description: application-saveEnvironment
+        call: dokploy-application.application-saveEnvironment
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.saveBuildType
+      name: saveBuildType
+      description: REST surface for saveBuildType.
+      operations:
+      - method: POST
+        name: application-saveBuildType
+        description: application-saveBuildType
+        call: dokploy-application.application-saveBuildType
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.saveGithubProvider
+      name: saveGithubProvider
+      description: REST surface for saveGithubProvider.
+      operations:
+      - method: POST
+        name: application-saveGithubProvider
+        description: application-saveGithubProvider
+        call: dokploy-application.application-saveGithubProvider
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.saveGitlabProvider
+      name: saveGitlabProvider
+      description: REST surface for saveGitlabProvider.
+      operations:
+      - method: POST
+        name: application-saveGitlabProvider
+        description: application-saveGitlabProvider
+        call: dokploy-application.application-saveGitlabProvider
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.saveBitbucketProvider
+      name: saveBitbucketProvider
+      description: REST surface for saveBitbucketProvider.
+      operations:
+      - method: POST
+        name: application-saveBitbucketProvider
+        description: application-saveBitbucketProvider
+        call: dokploy-application.application-saveBitbucketProvider
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.saveGiteaProvider
+      name: saveGiteaProvider
+      description: REST surface for saveGiteaProvider.
+      operations:
+      - method: POST
+        name: application-saveGiteaProvider
+        description: application-saveGiteaProvider
+        call: dokploy-application.application-saveGiteaProvider
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.saveDockerProvider
+      name: saveDockerProvider
+      description: REST surface for saveDockerProvider.
+      operations:
+      - method: POST
+        name: application-saveDockerProvider
+        description: application-saveDockerProvider
+        call: dokploy-application.application-saveDockerProvider
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.saveGitProvider
+      name: saveGitProvider
+      description: REST surface for saveGitProvider.
+      operations:
+      - method: POST
+        name: application-saveGitProvider
+        description: application-saveGitProvider
+        call: dokploy-application.application-saveGitProvider
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.disconnectGitProvider
+      name: disconnectGitProvider
+      description: REST surface for disconnectGitProvider.
+      operations:
+      - method: POST
+        name: application-disconnectGitProvider
+        description: application-disconnectGitProvider
+        call: dokploy-application.application-disconnectGitProvider
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.markRunning
+      name: markRunning
+      description: REST surface for markRunning.
+      operations:
+      - method: POST
+        name: application-markRunning
+        description: application-markRunning
+        call: dokploy-application.application-markRunning
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.update
+      name: update
+      description: REST surface for update.
+      operations:
+      - method: POST
+        name: application-update
+        description: application-update
+        call: dokploy-application.application-update
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.refreshToken
+      name: refreshToken
+      description: REST surface for refreshToken.
+      operations:
+      - method: POST
+        name: application-refreshToken
+        description: application-refreshToken
+        call: dokploy-application.application-refreshToken
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.deploy
+      name: deploy
+      description: REST surface for deploy.
+      operations:
+      - method: POST
+        name: application-deploy
+        description: application-deploy
+        call: dokploy-application.application-deploy
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.cleanQueues
+      name: cleanQueues
+      description: REST surface for cleanQueues.
+      operations:
+      - method: POST
+        name: application-cleanQueues
+        description: application-cleanQueues
+        call: dokploy-application.application-cleanQueues
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.clearDeployments
+      name: clearDeployments
+      description: REST surface for clearDeployments.
+      operations:
+      - method: POST
+        name: application-clearDeployments
+        description: application-clearDeployments
+        call: dokploy-application.application-clearDeployments
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.killBuild
+      name: killBuild
+      description: REST surface for killBuild.
+      operations:
+      - method: POST
+        name: application-killBuild
+        description: application-killBuild
+        call: dokploy-application.application-killBuild
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.readTraefikConfig
+      name: readTraefikConfig
+      description: REST surface for readTraefikConfig.
+      operations:
+      - method: GET
+        name: application-readTraefikConfig
+        description: application-readTraefikConfig
+        call: dokploy-application.application-readTraefikConfig
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.dropDeployment
+      name: dropDeployment
+      description: REST surface for dropDeployment.
+      operations:
+      - method: POST
+        name: application-dropDeployment
+        description: application-dropDeployment
+        call: dokploy-application.application-dropDeployment
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.updateTraefikConfig
+      name: updateTraefikConfig
+      description: REST surface for updateTraefikConfig.
+      operations:
+      - method: POST
+        name: application-updateTraefikConfig
+        description: application-updateTraefikConfig
+        call: dokploy-application.application-updateTraefikConfig
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.readAppMonitoring
+      name: readAppMonitoring
+      description: REST surface for readAppMonitoring.
+      operations:
+      - method: GET
+        name: application-readAppMonitoring
+        description: application-readAppMonitoring
+        call: dokploy-application.application-readAppMonitoring
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.move
+      name: move
+      description: REST surface for move.
+      operations:
+      - method: POST
+        name: application-move
+        description: application-move
+        call: dokploy-application.application-move
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.cancelDeployment
+      name: cancelDeployment
+      description: REST surface for cancelDeployment.
+      operations:
+      - method: POST
+        name: application-cancelDeployment
+        description: application-cancelDeployment
+        call: dokploy-application.application-cancelDeployment
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.search
+      name: search
+      description: REST surface for search.
+      operations:
+      - method: GET
+        name: application-search
+        description: application-search
+        call: dokploy-application.application-search
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application.readLogs
+      name: readLogs
+      description: REST surface for readLogs.
+      operations:
+      - method: GET
+        name: application-readLogs
+        description: application-readLogs
+        call: dokploy-application.application-readLogs
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-application-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — application. One tool per consumed operation, routed inline through this capability’s consumes
+      block.
+    tools:
+    - name: application-create
+      description: application-create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-create
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-one
+      description: application-one
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-application.application-one
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-reload
+      description: application-reload
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-reload
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-delete
+      description: application-delete
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-delete
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-stop
+      description: application-stop
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-stop
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-start
+      description: application-start
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-start
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-redeploy
+      description: application-redeploy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-redeploy
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-saveEnvironment
+      description: application-saveEnvironment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-saveEnvironment
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-saveBuildType
+      description: application-saveBuildType
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-saveBuildType
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-saveGithubProvider
+      description: application-saveGithubProvider
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-saveGithubProvider
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-saveGitlabProvider
+      description: application-saveGitlabProvider
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-saveGitlabProvider
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-saveBitbucketProvider
+      description: application-saveBitbucketProvider
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-saveBitbucketProvider
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-saveGiteaProvider
+      description: application-saveGiteaProvider
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-saveGiteaProvider
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-saveDockerProvider
+      description: application-saveDockerProvider
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-saveDockerProvider
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-saveGitProvider
+      description: application-saveGitProvider
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-saveGitProvider
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-disconnectGitProvider
+      description: application-disconnectGitProvider
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-disconnectGitProvider
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-markRunning
+      description: application-markRunning
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-markRunning
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-update
+      description: application-update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-update
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-refreshToken
+      description: application-refreshToken
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-refreshToken
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-deploy
+      description: application-deploy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-deploy
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-cleanQueues
+      description: application-cleanQueues
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-cleanQueues
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-clearDeployments
+      description: application-clearDeployments
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-clearDeployments
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-killBuild
+      description: application-killBuild
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-killBuild
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-readTraefikConfig
+      description: application-readTraefikConfig
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-application.application-readTraefikConfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-dropDeployment
+      description: application-dropDeployment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-dropDeployment
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-updateTraefikConfig
+      description: application-updateTraefikConfig
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-updateTraefikConfig
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-readAppMonitoring
+      description: application-readAppMonitoring
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-application.application-readAppMonitoring
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-move
+      description: application-move
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-move
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-cancelDeployment
+      description: application-cancelDeployment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-application.application-cancelDeployment
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-search
+      description: application-search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-application.application-search
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-readLogs
+      description: application-readLogs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-application.application-readLogs
+      outputParameters:
+      - type: object
+        mapping: $.

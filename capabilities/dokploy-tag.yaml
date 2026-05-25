@@ -1,0 +1,349 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — tag
+  description: 'Dokploy API — tag. 8 operations. Lead operation: tag.create. Self-contained Naftiko capability covering one Dokploy business surface.'
+  tags:
+  - Dokploy
+  - tag
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-tag
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — tag business capability. Self-contained, no shared references.
+    resources:
+    - name: create
+      path: /tag.create
+      operations:
+      - name: tag-create
+        method: POST
+        description: tag-create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: all
+      path: /tag.all
+      operations:
+      - name: tag-all
+        method: GET
+        description: tag-all
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: one
+      path: /tag.one
+      operations:
+      - name: tag-one
+        method: GET
+        description: tag-one
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: update
+      path: /tag.update
+      operations:
+      - name: tag-update
+        method: POST
+        description: tag-update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: remove
+      path: /tag.remove
+      operations:
+      - name: tag-remove
+        method: POST
+        description: tag-remove
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: assignToProject
+      path: /tag.assignToProject
+      operations:
+      - name: tag-assignToProject
+        method: POST
+        description: tag-assignToProject
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: removeFromProject
+      path: /tag.removeFromProject
+      operations:
+      - name: tag-removeFromProject
+        method: POST
+        description: tag-removeFromProject
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: bulkAssign
+      path: /tag.bulkAssign
+      operations:
+      - name: tag-bulkAssign
+        method: POST
+        description: tag-bulkAssign
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+  exposes:
+  - type: rest
+    namespace: dokploy-tag-rest
+    port: 8080
+    description: REST adapter for Dokploy API — tag. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/tag.create
+      name: create
+      description: REST surface for create.
+      operations:
+      - method: POST
+        name: tag-create
+        description: tag-create
+        call: dokploy-tag.tag-create
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tag.all
+      name: all
+      description: REST surface for all.
+      operations:
+      - method: GET
+        name: tag-all
+        description: tag-all
+        call: dokploy-tag.tag-all
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tag.one
+      name: one
+      description: REST surface for one.
+      operations:
+      - method: GET
+        name: tag-one
+        description: tag-one
+        call: dokploy-tag.tag-one
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tag.update
+      name: update
+      description: REST surface for update.
+      operations:
+      - method: POST
+        name: tag-update
+        description: tag-update
+        call: dokploy-tag.tag-update
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tag.remove
+      name: remove
+      description: REST surface for remove.
+      operations:
+      - method: POST
+        name: tag-remove
+        description: tag-remove
+        call: dokploy-tag.tag-remove
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tag.assignToProject
+      name: assignToProject
+      description: REST surface for assignToProject.
+      operations:
+      - method: POST
+        name: tag-assignToProject
+        description: tag-assignToProject
+        call: dokploy-tag.tag-assignToProject
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tag.removeFromProject
+      name: removeFromProject
+      description: REST surface for removeFromProject.
+      operations:
+      - method: POST
+        name: tag-removeFromProject
+        description: tag-removeFromProject
+        call: dokploy-tag.tag-removeFromProject
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tag.bulkAssign
+      name: bulkAssign
+      description: REST surface for bulkAssign.
+      operations:
+      - method: POST
+        name: tag-bulkAssign
+        description: tag-bulkAssign
+        call: dokploy-tag.tag-bulkAssign
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-tag-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — tag. One tool per consumed operation, routed inline through this capability’s consumes block.
+    tools:
+    - name: tag-create
+      description: tag-create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-tag.tag-create
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tag-all
+      description: tag-all
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-tag.tag-all
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tag-one
+      description: tag-one
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-tag.tag-one
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tag-update
+      description: tag-update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-tag.tag-update
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tag-remove
+      description: tag-remove
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-tag.tag-remove
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tag-assignToProject
+      description: tag-assignToProject
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-tag.tag-assignToProject
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tag-removeFromProject
+      description: tag-removeFromProject
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-tag.tag-removeFromProject
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tag-bulkAssign
+      description: tag-bulkAssign
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-tag.tag-bulkAssign
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

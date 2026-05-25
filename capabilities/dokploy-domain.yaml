@@ -1,0 +1,372 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — domain
+  description: 'Dokploy API — domain. 9 operations. Lead operation: domain.create. Self-contained Naftiko capability covering one Dokploy business
+    surface.'
+  tags:
+  - Dokploy
+  - domain
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-domain
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — domain business capability. Self-contained, no shared references.
+    resources:
+    - name: create
+      path: /domain.create
+      operations:
+      - name: domain-create
+        method: POST
+        description: domain-create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: byApplicationId
+      path: /domain.byApplicationId
+      operations:
+      - name: domain-byApplicationId
+        method: GET
+        description: domain-byApplicationId
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: byComposeId
+      path: /domain.byComposeId
+      operations:
+      - name: domain-byComposeId
+        method: GET
+        description: domain-byComposeId
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: generateDomain
+      path: /domain.generateDomain
+      operations:
+      - name: domain-generateDomain
+        method: POST
+        description: domain-generateDomain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: canGenerateTraefikMeDomains
+      path: /domain.canGenerateTraefikMeDomains
+      operations:
+      - name: domain-canGenerateTraefikMeDomains
+        method: GET
+        description: domain-canGenerateTraefikMeDomains
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: update
+      path: /domain.update
+      operations:
+      - name: domain-update
+        method: POST
+        description: domain-update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: one
+      path: /domain.one
+      operations:
+      - name: domain-one
+        method: GET
+        description: domain-one
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: delete
+      path: /domain.delete
+      operations:
+      - name: domain-delete
+        method: POST
+        description: domain-delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: validateDomain
+      path: /domain.validateDomain
+      operations:
+      - name: domain-validateDomain
+        method: POST
+        description: domain-validateDomain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+  exposes:
+  - type: rest
+    namespace: dokploy-domain-rest
+    port: 8080
+    description: REST adapter for Dokploy API — domain. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/domain.create
+      name: create
+      description: REST surface for create.
+      operations:
+      - method: POST
+        name: domain-create
+        description: domain-create
+        call: dokploy-domain.domain-create
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domain.byApplicationId
+      name: byApplicationId
+      description: REST surface for byApplicationId.
+      operations:
+      - method: GET
+        name: domain-byApplicationId
+        description: domain-byApplicationId
+        call: dokploy-domain.domain-byApplicationId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domain.byComposeId
+      name: byComposeId
+      description: REST surface for byComposeId.
+      operations:
+      - method: GET
+        name: domain-byComposeId
+        description: domain-byComposeId
+        call: dokploy-domain.domain-byComposeId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domain.generateDomain
+      name: generateDomain
+      description: REST surface for generateDomain.
+      operations:
+      - method: POST
+        name: domain-generateDomain
+        description: domain-generateDomain
+        call: dokploy-domain.domain-generateDomain
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domain.canGenerateTraefikMeDomains
+      name: canGenerateTraefikMeDomains
+      description: REST surface for canGenerateTraefikMeDomains.
+      operations:
+      - method: GET
+        name: domain-canGenerateTraefikMeDomains
+        description: domain-canGenerateTraefikMeDomains
+        call: dokploy-domain.domain-canGenerateTraefikMeDomains
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domain.update
+      name: update
+      description: REST surface for update.
+      operations:
+      - method: POST
+        name: domain-update
+        description: domain-update
+        call: dokploy-domain.domain-update
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domain.one
+      name: one
+      description: REST surface for one.
+      operations:
+      - method: GET
+        name: domain-one
+        description: domain-one
+        call: dokploy-domain.domain-one
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domain.delete
+      name: delete
+      description: REST surface for delete.
+      operations:
+      - method: POST
+        name: domain-delete
+        description: domain-delete
+        call: dokploy-domain.domain-delete
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domain.validateDomain
+      name: validateDomain
+      description: REST surface for validateDomain.
+      operations:
+      - method: POST
+        name: domain-validateDomain
+        description: domain-validateDomain
+        call: dokploy-domain.domain-validateDomain
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-domain-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — domain. One tool per consumed operation, routed inline through this capability’s consumes block.
+    tools:
+    - name: domain-create
+      description: domain-create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-domain.domain-create
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: domain-byApplicationId
+      description: domain-byApplicationId
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-domain.domain-byApplicationId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: domain-byComposeId
+      description: domain-byComposeId
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-domain.domain-byComposeId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: domain-generateDomain
+      description: domain-generateDomain
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-domain.domain-generateDomain
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: domain-canGenerateTraefikMeDomains
+      description: domain-canGenerateTraefikMeDomains
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-domain.domain-canGenerateTraefikMeDomains
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: domain-update
+      description: domain-update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-domain.domain-update
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: domain-one
+      description: domain-one
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-domain.domain-one
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: domain-delete
+      description: domain-delete
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-domain.domain-delete
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: domain-validateDomain
+      description: domain-validateDomain
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-domain.domain-validateDomain
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

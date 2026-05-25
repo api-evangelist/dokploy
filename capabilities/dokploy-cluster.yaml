@@ -1,0 +1,172 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — cluster
+  description: 'Dokploy API — cluster. 4 operations. Lead operation: cluster.getNodes. Self-contained Naftiko capability covering one Dokploy
+    business surface.'
+  tags:
+  - Dokploy
+  - cluster
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-cluster
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — cluster business capability. Self-contained, no shared references.
+    resources:
+    - name: getNodes
+      path: /cluster.getNodes
+      operations:
+      - name: cluster-getNodes
+        method: GET
+        description: cluster-getNodes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: removeWorker
+      path: /cluster.removeWorker
+      operations:
+      - name: cluster-removeWorker
+        method: POST
+        description: cluster-removeWorker
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: addWorker
+      path: /cluster.addWorker
+      operations:
+      - name: cluster-addWorker
+        method: GET
+        description: cluster-addWorker
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: addManager
+      path: /cluster.addManager
+      operations:
+      - name: cluster-addManager
+        method: GET
+        description: cluster-addManager
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: dokploy-cluster-rest
+    port: 8080
+    description: REST adapter for Dokploy API — cluster. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/cluster.getNodes
+      name: getNodes
+      description: REST surface for getNodes.
+      operations:
+      - method: GET
+        name: cluster-getNodes
+        description: cluster-getNodes
+        call: dokploy-cluster.cluster-getNodes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cluster.removeWorker
+      name: removeWorker
+      description: REST surface for removeWorker.
+      operations:
+      - method: POST
+        name: cluster-removeWorker
+        description: cluster-removeWorker
+        call: dokploy-cluster.cluster-removeWorker
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cluster.addWorker
+      name: addWorker
+      description: REST surface for addWorker.
+      operations:
+      - method: GET
+        name: cluster-addWorker
+        description: cluster-addWorker
+        call: dokploy-cluster.cluster-addWorker
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cluster.addManager
+      name: addManager
+      description: REST surface for addManager.
+      operations:
+      - method: GET
+        name: cluster-addManager
+        description: cluster-addManager
+        call: dokploy-cluster.cluster-addManager
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-cluster-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — cluster. One tool per consumed operation, routed inline through this capability’s consumes block.
+    tools:
+    - name: cluster-getNodes
+      description: cluster-getNodes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-cluster.cluster-getNodes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cluster-removeWorker
+      description: cluster-removeWorker
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-cluster.cluster-removeWorker
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cluster-addWorker
+      description: cluster-addWorker
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-cluster.cluster-addWorker
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cluster-addManager
+      description: cluster-addManager
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-cluster.cluster-addManager
+      outputParameters:
+      - type: object
+        mapping: $.

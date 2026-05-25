@@ -1,0 +1,849 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — user
+  description: 'Dokploy API — user. 23 operations. Lead operation: user.all. Self-contained Naftiko capability covering one Dokploy business surface.'
+  tags:
+  - Dokploy
+  - user
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-user
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — user business capability. Self-contained, no shared references.
+    resources:
+    - name: all
+      path: /user.all
+      operations:
+      - name: user-all
+        method: GET
+        description: user-all
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: one
+      path: /user.one
+      operations:
+      - name: user-one
+        method: GET
+        description: user-one
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: session
+      path: /user.session
+      operations:
+      - name: user-session
+        method: GET
+        description: user-session
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: get
+      path: /user.get
+      operations:
+      - name: user-get
+        method: GET
+        description: user-get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: getPermissions
+      path: /user.getPermissions
+      operations:
+      - name: user-getPermissions
+        method: GET
+        description: user-getPermissions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: haveRootAccess
+      path: /user.haveRootAccess
+      operations:
+      - name: user-haveRootAccess
+        method: GET
+        description: user-haveRootAccess
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: getBackups
+      path: /user.getBackups
+      operations:
+      - name: user-getBackups
+        method: GET
+        description: user-getBackups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: getServerMetrics
+      path: /user.getServerMetrics
+      operations:
+      - name: user-getServerMetrics
+        method: GET
+        description: user-getServerMetrics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: update
+      path: /user.update
+      operations:
+      - name: user-update
+        method: POST
+        description: user-update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: getUserByToken
+      path: /user.getUserByToken
+      operations:
+      - name: user-getUserByToken
+        method: GET
+        description: user-getUserByToken
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: getMetricsToken
+      path: /user.getMetricsToken
+      operations:
+      - name: user-getMetricsToken
+        method: GET
+        description: user-getMetricsToken
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: remove
+      path: /user.remove
+      operations:
+      - name: user-remove
+        method: POST
+        description: user-remove
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: assignPermissions
+      path: /user.assignPermissions
+      operations:
+      - name: user-assignPermissions
+        method: POST
+        description: user-assignPermissions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: getInvitations
+      path: /user.getInvitations
+      operations:
+      - name: user-getInvitations
+        method: GET
+        description: user-getInvitations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: getContainerMetrics
+      path: /user.getContainerMetrics
+      operations:
+      - name: user-getContainerMetrics
+        method: GET
+        description: user-getContainerMetrics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: generateToken
+      path: /user.generateToken
+      operations:
+      - name: user-generateToken
+        method: POST
+        description: user-generateToken
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: deleteApiKey
+      path: /user.deleteApiKey
+      operations:
+      - name: user-deleteApiKey
+        method: POST
+        description: user-deleteApiKey
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: createApiKey
+      path: /user.createApiKey
+      operations:
+      - name: user-createApiKey
+        method: POST
+        description: user-createApiKey
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: checkUserOrganizations
+      path: /user.checkUserOrganizations
+      operations:
+      - name: user-checkUserOrganizations
+        method: GET
+        description: user-checkUserOrganizations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: createUserWithCredentials
+      path: /user.createUserWithCredentials
+      operations:
+      - name: user-createUserWithCredentials
+        method: POST
+        description: user-createUserWithCredentials
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: sendInvitation
+      path: /user.sendInvitation
+      operations:
+      - name: user-sendInvitation
+        method: POST
+        description: user-sendInvitation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: getBookmarkedTemplates
+      path: /user.getBookmarkedTemplates
+      operations:
+      - name: user-getBookmarkedTemplates
+        method: GET
+        description: user-getBookmarkedTemplates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: toggleTemplateBookmark
+      path: /user.toggleTemplateBookmark
+      operations:
+      - name: user-toggleTemplateBookmark
+        method: POST
+        description: user-toggleTemplateBookmark
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+  exposes:
+  - type: rest
+    namespace: dokploy-user-rest
+    port: 8080
+    description: REST adapter for Dokploy API — user. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/user.all
+      name: all
+      description: REST surface for all.
+      operations:
+      - method: GET
+        name: user-all
+        description: user-all
+        call: dokploy-user.user-all
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.one
+      name: one
+      description: REST surface for one.
+      operations:
+      - method: GET
+        name: user-one
+        description: user-one
+        call: dokploy-user.user-one
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.session
+      name: session
+      description: REST surface for session.
+      operations:
+      - method: GET
+        name: user-session
+        description: user-session
+        call: dokploy-user.user-session
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.get
+      name: get
+      description: REST surface for get.
+      operations:
+      - method: GET
+        name: user-get
+        description: user-get
+        call: dokploy-user.user-get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.getPermissions
+      name: getPermissions
+      description: REST surface for getPermissions.
+      operations:
+      - method: GET
+        name: user-getPermissions
+        description: user-getPermissions
+        call: dokploy-user.user-getPermissions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.haveRootAccess
+      name: haveRootAccess
+      description: REST surface for haveRootAccess.
+      operations:
+      - method: GET
+        name: user-haveRootAccess
+        description: user-haveRootAccess
+        call: dokploy-user.user-haveRootAccess
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.getBackups
+      name: getBackups
+      description: REST surface for getBackups.
+      operations:
+      - method: GET
+        name: user-getBackups
+        description: user-getBackups
+        call: dokploy-user.user-getBackups
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.getServerMetrics
+      name: getServerMetrics
+      description: REST surface for getServerMetrics.
+      operations:
+      - method: GET
+        name: user-getServerMetrics
+        description: user-getServerMetrics
+        call: dokploy-user.user-getServerMetrics
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.update
+      name: update
+      description: REST surface for update.
+      operations:
+      - method: POST
+        name: user-update
+        description: user-update
+        call: dokploy-user.user-update
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.getUserByToken
+      name: getUserByToken
+      description: REST surface for getUserByToken.
+      operations:
+      - method: GET
+        name: user-getUserByToken
+        description: user-getUserByToken
+        call: dokploy-user.user-getUserByToken
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.getMetricsToken
+      name: getMetricsToken
+      description: REST surface for getMetricsToken.
+      operations:
+      - method: GET
+        name: user-getMetricsToken
+        description: user-getMetricsToken
+        call: dokploy-user.user-getMetricsToken
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.remove
+      name: remove
+      description: REST surface for remove.
+      operations:
+      - method: POST
+        name: user-remove
+        description: user-remove
+        call: dokploy-user.user-remove
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.assignPermissions
+      name: assignPermissions
+      description: REST surface for assignPermissions.
+      operations:
+      - method: POST
+        name: user-assignPermissions
+        description: user-assignPermissions
+        call: dokploy-user.user-assignPermissions
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.getInvitations
+      name: getInvitations
+      description: REST surface for getInvitations.
+      operations:
+      - method: GET
+        name: user-getInvitations
+        description: user-getInvitations
+        call: dokploy-user.user-getInvitations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.getContainerMetrics
+      name: getContainerMetrics
+      description: REST surface for getContainerMetrics.
+      operations:
+      - method: GET
+        name: user-getContainerMetrics
+        description: user-getContainerMetrics
+        call: dokploy-user.user-getContainerMetrics
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.generateToken
+      name: generateToken
+      description: REST surface for generateToken.
+      operations:
+      - method: POST
+        name: user-generateToken
+        description: user-generateToken
+        call: dokploy-user.user-generateToken
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.deleteApiKey
+      name: deleteApiKey
+      description: REST surface for deleteApiKey.
+      operations:
+      - method: POST
+        name: user-deleteApiKey
+        description: user-deleteApiKey
+        call: dokploy-user.user-deleteApiKey
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.createApiKey
+      name: createApiKey
+      description: REST surface for createApiKey.
+      operations:
+      - method: POST
+        name: user-createApiKey
+        description: user-createApiKey
+        call: dokploy-user.user-createApiKey
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.checkUserOrganizations
+      name: checkUserOrganizations
+      description: REST surface for checkUserOrganizations.
+      operations:
+      - method: GET
+        name: user-checkUserOrganizations
+        description: user-checkUserOrganizations
+        call: dokploy-user.user-checkUserOrganizations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.createUserWithCredentials
+      name: createUserWithCredentials
+      description: REST surface for createUserWithCredentials.
+      operations:
+      - method: POST
+        name: user-createUserWithCredentials
+        description: user-createUserWithCredentials
+        call: dokploy-user.user-createUserWithCredentials
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.sendInvitation
+      name: sendInvitation
+      description: REST surface for sendInvitation.
+      operations:
+      - method: POST
+        name: user-sendInvitation
+        description: user-sendInvitation
+        call: dokploy-user.user-sendInvitation
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.getBookmarkedTemplates
+      name: getBookmarkedTemplates
+      description: REST surface for getBookmarkedTemplates.
+      operations:
+      - method: GET
+        name: user-getBookmarkedTemplates
+        description: user-getBookmarkedTemplates
+        call: dokploy-user.user-getBookmarkedTemplates
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.toggleTemplateBookmark
+      name: toggleTemplateBookmark
+      description: REST surface for toggleTemplateBookmark.
+      operations:
+      - method: POST
+        name: user-toggleTemplateBookmark
+        description: user-toggleTemplateBookmark
+        call: dokploy-user.user-toggleTemplateBookmark
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-user-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — user. One tool per consumed operation, routed inline through this capability’s consumes block.
+    tools:
+    - name: user-all
+      description: user-all
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-user.user-all
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-one
+      description: user-one
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-user.user-one
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-session
+      description: user-session
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-user.user-session
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-get
+      description: user-get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-user.user-get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-getPermissions
+      description: user-getPermissions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-user.user-getPermissions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-haveRootAccess
+      description: user-haveRootAccess
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-user.user-haveRootAccess
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-getBackups
+      description: user-getBackups
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-user.user-getBackups
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-getServerMetrics
+      description: user-getServerMetrics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-user.user-getServerMetrics
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-update
+      description: user-update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-user.user-update
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-getUserByToken
+      description: user-getUserByToken
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-user.user-getUserByToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-getMetricsToken
+      description: user-getMetricsToken
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-user.user-getMetricsToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-remove
+      description: user-remove
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-user.user-remove
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-assignPermissions
+      description: user-assignPermissions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-user.user-assignPermissions
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-getInvitations
+      description: user-getInvitations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-user.user-getInvitations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-getContainerMetrics
+      description: user-getContainerMetrics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-user.user-getContainerMetrics
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-generateToken
+      description: user-generateToken
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-user.user-generateToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-deleteApiKey
+      description: user-deleteApiKey
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-user.user-deleteApiKey
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-createApiKey
+      description: user-createApiKey
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-user.user-createApiKey
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-checkUserOrganizations
+      description: user-checkUserOrganizations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-user.user-checkUserOrganizations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-createUserWithCredentials
+      description: user-createUserWithCredentials
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-user.user-createUserWithCredentials
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-sendInvitation
+      description: user-sendInvitation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-user.user-sendInvitation
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-getBookmarkedTemplates
+      description: user-getBookmarkedTemplates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-user.user-getBookmarkedTemplates
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: user-toggleTemplateBookmark
+      description: user-toggleTemplateBookmark
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-user.user-toggleTemplateBookmark
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

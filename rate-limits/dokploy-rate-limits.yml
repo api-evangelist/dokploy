@@ -1,0 +1,88 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Dokploy
+providerId: dokploy
+created: '2026-05-25'
+modified: '2026-05-25'
+tags:
+  - PaaS
+  - Self-Hosted
+  - Docker
+  - Rate Limiting
+  - Quotas
+  - Throttling
+description: Rate limit definitions for the Dokploy API. Dokploy is a self-hostable platform and the
+  upstream open-source distribution does not document per-key rate limits — operators are responsible
+  for sizing the host and applying their own reverse-proxy / API-gateway throttling. Dokploy Cloud
+  applies operational fair-use throttling but does not publish per-tier numeric limits at the time of
+  profiling. Values below are scaffold defaults consistent with a self-hosted PaaS control plane.
+headers:
+  limit: X-RateLimit-Limit
+  remaining: X-RateLimit-Remaining
+  reset: X-RateLimit-Reset
+  retryAfter: Retry-After
+  policy: RateLimit-Policy
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+  serviceUnavailable: 503
+limits:
+  - tier: self-hosted
+    name: Self-Hosted (Operator-Defined)
+    scope: operator
+    metric: requests_per_second
+    limit: -1
+    timeFrame: second
+    notes: The upstream open-source distribution does not enforce a documented per-key request limit.
+      Operators should configure Traefik, an upstream reverse proxy, or an API gateway to apply limits
+      appropriate to their hardware and tenant model.
+    applies:
+      - Dokploy
+  - tier: cloud-hobby
+    name: Cloud Hobby Fair Use
+    scope: api-key
+    metric: requests_per_minute
+    limit: 60
+    burst: 120
+    timeFrame: minute
+    notes: Scaffold value. Dokploy Cloud applies operational fair-use throttling but does not publish
+      a numeric per-minute ceiling for the Hobby tier.
+    applies:
+      - Dokploy
+  - tier: cloud-startup
+    name: Cloud Startup Fair Use
+    scope: api-key
+    metric: requests_per_minute
+    limit: 300
+    burst: 600
+    timeFrame: minute
+    notes: Scaffold value reflecting higher fair-use headroom for the Startup tier.
+    applies:
+      - Dokploy
+  - tier: cloud-enterprise
+    name: Cloud Enterprise Negotiated
+    scope: contract
+    metric: requests_per_minute
+    limit: -1
+    timeFrame: minute
+    notes: Negotiated as part of the MSA / SLA. Effectively uncapped subject to fair use and shared-infrastructure
+      protections.
+    applies:
+      - Dokploy
+policies:
+  - name: Backoff Strategy
+    description: Clients should implement exponential backoff with jitter and honor `Retry-After` when
+      a 429 or 503 response is received.
+  - name: Long-Running Operations
+    description: Deploys, builds, and database backups are long-running. Clients should poll deployment
+      status endpoints rather than retrying the trigger operation.
+  - name: Webhook and Schedule Loops
+    description: Avoid configuring webhook receivers or schedules that re-trigger the same deployment
+      faster than the build can complete; this can cascade into platform-level throttling.
+  - name: Self-Hosted Sizing
+    description: For self-hosted deployments, throughput is bounded by the host's CPU, memory, disk
+      I/O, and Docker daemon throughput rather than by application-level rate limits.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

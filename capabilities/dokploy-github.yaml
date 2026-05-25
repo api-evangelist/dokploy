@@ -1,0 +1,246 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — github
+  description: 'Dokploy API — github. 6 operations. Lead operation: github.one. Self-contained Naftiko capability covering one Dokploy business
+    surface.'
+  tags:
+  - Dokploy
+  - github
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-github
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — github business capability. Self-contained, no shared references.
+    resources:
+    - name: one
+      path: /github.one
+      operations:
+      - name: github-one
+        method: GET
+        description: github-one
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: getGithubRepositories
+      path: /github.getGithubRepositories
+      operations:
+      - name: github-getGithubRepositories
+        method: GET
+        description: github-getGithubRepositories
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: getGithubBranches
+      path: /github.getGithubBranches
+      operations:
+      - name: github-getGithubBranches
+        method: GET
+        description: github-getGithubBranches
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: githubProviders
+      path: /github.githubProviders
+      operations:
+      - name: github-githubProviders
+        method: GET
+        description: github-githubProviders
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: testConnection
+      path: /github.testConnection
+      operations:
+      - name: github-testConnection
+        method: POST
+        description: github-testConnection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: update
+      path: /github.update
+      operations:
+      - name: github-update
+        method: POST
+        description: github-update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+  exposes:
+  - type: rest
+    namespace: dokploy-github-rest
+    port: 8080
+    description: REST adapter for Dokploy API — github. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/github.one
+      name: one
+      description: REST surface for one.
+      operations:
+      - method: GET
+        name: github-one
+        description: github-one
+        call: dokploy-github.github-one
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/github.getGithubRepositories
+      name: getGithubRepositories
+      description: REST surface for getGithubRepositories.
+      operations:
+      - method: GET
+        name: github-getGithubRepositories
+        description: github-getGithubRepositories
+        call: dokploy-github.github-getGithubRepositories
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/github.getGithubBranches
+      name: getGithubBranches
+      description: REST surface for getGithubBranches.
+      operations:
+      - method: GET
+        name: github-getGithubBranches
+        description: github-getGithubBranches
+        call: dokploy-github.github-getGithubBranches
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/github.githubProviders
+      name: githubProviders
+      description: REST surface for githubProviders.
+      operations:
+      - method: GET
+        name: github-githubProviders
+        description: github-githubProviders
+        call: dokploy-github.github-githubProviders
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/github.testConnection
+      name: testConnection
+      description: REST surface for testConnection.
+      operations:
+      - method: POST
+        name: github-testConnection
+        description: github-testConnection
+        call: dokploy-github.github-testConnection
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/github.update
+      name: update
+      description: REST surface for update.
+      operations:
+      - method: POST
+        name: github-update
+        description: github-update
+        call: dokploy-github.github-update
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-github-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — github. One tool per consumed operation, routed inline through this capability’s consumes block.
+    tools:
+    - name: github-one
+      description: github-one
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-github.github-one
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: github-getGithubRepositories
+      description: github-getGithubRepositories
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-github.github-getGithubRepositories
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: github-getGithubBranches
+      description: github-getGithubBranches
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-github.github-getGithubBranches
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: github-githubProviders
+      description: github-githubProviders
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-github.github-githubProviders
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: github-testConnection
+      description: github-testConnection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-github.github-testConnection
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: github-update
+      description: github-update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-github.github-update
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

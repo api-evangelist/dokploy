@@ -1,0 +1,162 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — swarm
+  description: 'Dokploy API — swarm. 4 operations. Lead operation: swarm.getNodes. Self-contained Naftiko capability covering one Dokploy business
+    surface.'
+  tags:
+  - Dokploy
+  - swarm
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-swarm
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — swarm business capability. Self-contained, no shared references.
+    resources:
+    - name: getNodes
+      path: /swarm.getNodes
+      operations:
+      - name: swarm-getNodes
+        method: GET
+        description: swarm-getNodes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: getNodeInfo
+      path: /swarm.getNodeInfo
+      operations:
+      - name: swarm-getNodeInfo
+        method: GET
+        description: swarm-getNodeInfo
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: getNodeApps
+      path: /swarm.getNodeApps
+      operations:
+      - name: swarm-getNodeApps
+        method: GET
+        description: swarm-getNodeApps
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: getContainerStats
+      path: /swarm.getContainerStats
+      operations:
+      - name: swarm-getContainerStats
+        method: GET
+        description: swarm-getContainerStats
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: dokploy-swarm-rest
+    port: 8080
+    description: REST adapter for Dokploy API — swarm. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/swarm.getNodes
+      name: getNodes
+      description: REST surface for getNodes.
+      operations:
+      - method: GET
+        name: swarm-getNodes
+        description: swarm-getNodes
+        call: dokploy-swarm.swarm-getNodes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/swarm.getNodeInfo
+      name: getNodeInfo
+      description: REST surface for getNodeInfo.
+      operations:
+      - method: GET
+        name: swarm-getNodeInfo
+        description: swarm-getNodeInfo
+        call: dokploy-swarm.swarm-getNodeInfo
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/swarm.getNodeApps
+      name: getNodeApps
+      description: REST surface for getNodeApps.
+      operations:
+      - method: GET
+        name: swarm-getNodeApps
+        description: swarm-getNodeApps
+        call: dokploy-swarm.swarm-getNodeApps
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/swarm.getContainerStats
+      name: getContainerStats
+      description: REST surface for getContainerStats.
+      operations:
+      - method: GET
+        name: swarm-getContainerStats
+        description: swarm-getContainerStats
+        call: dokploy-swarm.swarm-getContainerStats
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-swarm-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — swarm. One tool per consumed operation, routed inline through this capability’s consumes block.
+    tools:
+    - name: swarm-getNodes
+      description: swarm-getNodes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-swarm.swarm-getNodes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: swarm-getNodeInfo
+      description: swarm-getNodeInfo
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-swarm.swarm-getNodeInfo
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: swarm-getNodeApps
+      description: swarm-getNodeApps
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-swarm.swarm-getNodeApps
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: swarm-getContainerStats
+      description: swarm-getContainerStats
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-swarm.swarm-getContainerStats
+      outputParameters:
+      - type: object
+        mapping: $.

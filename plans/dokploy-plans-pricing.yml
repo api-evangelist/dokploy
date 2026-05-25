@@ -1,0 +1,166 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Dokploy
+providerId: dokploy
+created: '2026-05-25'
+modified: '2026-05-25'
+tags:
+  - PaaS
+  - Self-Hosted
+  - Docker
+  - Docker Swarm
+  - Deployment
+description: Machine-readable plans and pricing for the Dokploy commercial offering. Dokploy is free
+  and Apache 2.0 when self-hosted; the company also operates Dokploy Cloud, a managed offering billed
+  per-server with annual discount. Values reflect the public pricing page at https://dokploy.com/pricing
+  and should be reconciled against the live page before any commercial decision.
+plans:
+  - id: dokploy-self-hosted
+    name: Self-Hosted (Open Source)
+    type: opensource
+    description: Free, self-hostable Dokploy distribution. Apache 2.0 licensed core with unlimited applications,
+      databases, deployments, and servers operated by the user on their own infrastructure. No vendor
+      fees; user pays only for the underlying compute, storage, and network.
+    entries:
+      - label: License Fee
+        description: No license fee for the open-source self-hosted distribution
+        name: license
+        type: flat
+        metric: license
+        limit: -1
+        timeFrame: month
+        geo: global
+        domains:
+          - https://github.com/Dokploy/dokploy
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Unlimited Servers (self-managed)
+      - name: Unlimited Applications
+      - name: Unlimited Databases
+      - name: Unlimited Deployments
+      - name: Community Support (Discord)
+      - name: Templates and Examples
+      - name: REST API, CLI, SDK, MCP Server
+  - id: dokploy-cloud-hobby
+    name: Cloud Hobby
+    type: paid
+    description: Dokploy Cloud entry tier intended for solo developers and side projects. Priced per-server
+      per-month; additional servers are billed at the same per-server rate.
+    entries:
+      - label: Server
+        description: Per-server monthly fee
+        name: server
+        type: flat
+        metric: server
+        limit: 1
+        timeFrame: month
+        geo: global
+        domains:
+          - https://dokploy.com
+        unit: 1
+        price: '4.50'
+        userMultiplied: false
+      - label: Additional Server
+        description: Each additional managed server beyond the first
+        name: extra_server
+        type: metered
+        metric: server
+        limit: -1
+        timeFrame: month
+        geo: global
+        domains:
+          - https://dokploy.com
+        unit: 1
+        price: '4.50'
+        userMultiplied: false
+    elements:
+      - name: 1 Server (additional at same rate)
+      - name: Unlimited Deployments
+      - name: Unlimited Databases
+      - name: Unlimited Applications
+      - name: 1 Organization
+      - name: 1 User
+      - name: 2 Environments
+      - name: Basic Backups
+      - name: Community Support
+  - id: dokploy-cloud-startup
+    name: Cloud Startup
+    type: paid
+    description: Dokploy Cloud team tier with multi-organization support, RBAC, 2FA, and email/chat support.
+      Starts at three included servers; additional servers billed per-server.
+    entries:
+      - label: Base
+        description: Starting monthly price including three servers
+        name: base
+        type: flat
+        metric: subscription
+        limit: 1
+        timeFrame: month
+        geo: global
+        domains:
+          - https://dokploy.com
+        unit: 1
+        price: '15.00'
+        userMultiplied: false
+      - label: Additional Server
+        description: Each additional managed server beyond three
+        name: extra_server
+        type: metered
+        metric: server
+        limit: -1
+        timeFrame: month
+        geo: global
+        domains:
+          - https://dokploy.com
+        unit: 1
+        price: '4.50'
+        userMultiplied: false
+    elements:
+      - name: 3 Servers Included
+      - name: 3 Organizations
+      - name: Unlimited Users
+      - name: Unlimited Environments
+      - name: Unlimited Backups
+      - name: Basic RBAC
+      - name: Two-Factor Authentication
+      - name: Email and Chat Support
+  - id: dokploy-cloud-enterprise
+    name: Cloud Enterprise
+    type: enterprise
+    description: Custom-negotiated tier for organizations requiring SSO/SAML, fine-grained RBAC, audit
+      logs, MSA/SLA, white-labeling, and priority support. Available as Cloud-hosted or self-hosted on
+      premise / private cloud.
+    entries:
+      - label: Negotiated
+        description: Pricing negotiated with sales
+        name: contract
+        type: flat
+        metric: subscription
+        limit: -1
+        timeFrame: month
+        geo: configurable
+        domains:
+          - https://dokploy.com
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Unlimited Servers and Organizations
+      - name: Fine-Grained RBAC
+      - name: SSO / SAML
+      - name: Audit Logs
+      - name: MSA / SLA
+      - name: White Labeling
+      - name: Priority Support
+      - name: Self-Hosted or Cloud Deployment
+discounts:
+  - name: Annual Billing Discount
+    description: Annual billing receives a 20% discount across all paid tiers
+    type: percentage
+    value: 20
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

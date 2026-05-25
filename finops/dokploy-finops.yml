@@ -1,0 +1,159 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+provider: Dokploy
+providerId: dokploy
+publisherName: Dokploy
+serviceCategory: PaaS
+created: '2026-05-25'
+modified: '2026-05-25'
+tags:
+  - PaaS
+  - Self-Hosted
+  - Docker
+  - Deployment
+  - FinOps
+  - Cost Management
+  - FOCUS
+description: FinOps framework definition for Dokploy. Captures the dual cost model — the underlying
+  infrastructure that runs a self-hosted Dokploy node (compute, storage, egress) and the Dokploy Cloud
+  managed offering billed per-server. Aligned with FOCUS v1.3 for cost allocation and unit-economics
+  reporting.
+principles:
+  - name: Visibility
+    description: Make per-server, per-application, and per-environment costs visible across engineering,
+      product, and finance — including the self-hosted infrastructure bill underneath Dokploy.
+  - name: Allocation
+    description: Tag every Dokploy project, application, environment, and managed database so cost can
+      be charged back to the consuming team.
+  - name: Optimization
+    description: Continuously evaluate server sizing, database tiers, idle preview deployments, and
+      backup retention to reduce cost per deployed application.
+  - name: Accountability
+    description: Establish per-organization budget owners and showback flows; Dokploy organizations and
+      environments map naturally to FinOps allocation dimensions.
+domains:
+  - name: Understand Usage and Cost
+    capabilities:
+      - Data Ingestion
+      - Allocation
+      - Reporting and Analytics
+      - Anomaly Management
+  - name: Quantify Business Value
+    capabilities:
+      - Planning and Estimating
+      - Forecasting
+      - Budgeting
+      - Benchmarking
+      - Unit Economics
+  - name: Optimize Usage and Cost
+    capabilities:
+      - Architecting for Cloud
+      - Rate Optimization
+      - Workload Optimization
+      - Cloud Sustainability
+      - Licensing and SaaS
+  - name: Manage the FinOps Practice
+    capabilities:
+      - FinOps Practice Operations
+      - FinOps Education and Enablement
+      - Invoicing and Chargeback
+      - Onboarding Workloads
+      - Intersecting Disciplines
+billingModel:
+  pricingCategory: Subscription
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+    - Tax
+    - Credit
+    - Adjustment
+  chargeFrequency: Recurring
+  notes: Dokploy Cloud bills per managed server per month with a 20% annual-billing discount. Self-hosted
+    Dokploy carries no license fee — cost is fully absorbed by the underlying infrastructure provider.
+focusColumns:
+  ServiceName: Dokploy
+  ServiceCategory: Developer Tools / PaaS
+  ProviderName: Dokploy
+  PublisherName: Dokploy
+  InvoiceIssuerName: Dokploy
+  PricingCategory: Subscription
+  PricingUnit: server-month
+  BillingCurrency: USD
+  ChargeCategory: Usage
+meters:
+  - name: managed_servers
+    description: Count of Dokploy-managed servers attached to the organization (Cloud tier)
+    unit: server-month
+    aggregation: sum
+    dimensions:
+      - tier
+      - organization
+      - region
+  - name: deployments
+    description: Count of application deployments executed
+    unit: deployment
+    aggregation: sum
+    dimensions:
+      - project
+      - environment
+      - application
+      - server
+  - name: managed_databases
+    description: Count of managed database instances (Postgres, MySQL, MariaDB, MongoDB, Redis, LibSQL)
+    unit: database-month
+    aggregation: sum
+    dimensions:
+      - engine
+      - project
+      - environment
+  - name: backup_storage
+    description: Storage consumed by Dokploy-managed backups in S3-compatible destinations
+    unit: GB-month
+    aggregation: sum
+    dimensions:
+      - destination
+      - project
+      - environment
+  - name: api_requests
+    description: Calls to the Dokploy control-plane API
+    unit: request
+    aggregation: sum
+    dimensions:
+      - tag
+      - operation
+      - api_key
+apis:
+  - name: Dokploy
+    baseURL: https://your-dokploy-instance.com/api
+    tags:
+      - PaaS
+      - Self-Hosted
+      - Docker
+      - Docker Swarm
+      - Deployment
+    serviceName: Dokploy
+    serviceCategory: PaaS
+unitEconomics:
+  - name: Cost per Server-Month
+    metric: billed_cost / managed_servers
+    target: TBD
+  - name: Cost per Deployment
+    metric: billed_cost / deployments
+    target: TBD
+  - name: Cost per Deployed Application
+    metric: billed_cost / active_applications
+    target: TBD
+  - name: Cost per Managed Database
+    metric: billed_cost / managed_databases
+    target: TBD
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

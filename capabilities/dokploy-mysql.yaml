@@ -1,0 +1,676 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — mysql
+  description: 'Dokploy API — mysql. 16 operations. Lead operation: mysql.create. Self-contained Naftiko capability covering one Dokploy business
+    surface.'
+  tags:
+  - Dokploy
+  - mysql
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-mysql
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — mysql business capability. Self-contained, no shared references.
+    resources:
+    - name: create
+      path: /mysql.create
+      operations:
+      - name: mysql-create
+        method: POST
+        description: mysql-create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: one
+      path: /mysql.one
+      operations:
+      - name: mysql-one
+        method: GET
+        description: mysql-one
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: start
+      path: /mysql.start
+      operations:
+      - name: mysql-start
+        method: POST
+        description: mysql-start
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: stop
+      path: /mysql.stop
+      operations:
+      - name: mysql-stop
+        method: POST
+        description: mysql-stop
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: saveExternalPort
+      path: /mysql.saveExternalPort
+      operations:
+      - name: mysql-saveExternalPort
+        method: POST
+        description: mysql-saveExternalPort
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: deploy
+      path: /mysql.deploy
+      operations:
+      - name: mysql-deploy
+        method: POST
+        description: mysql-deploy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: changeStatus
+      path: /mysql.changeStatus
+      operations:
+      - name: mysql-changeStatus
+        method: POST
+        description: mysql-changeStatus
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: reload
+      path: /mysql.reload
+      operations:
+      - name: mysql-reload
+        method: POST
+        description: mysql-reload
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: remove
+      path: /mysql.remove
+      operations:
+      - name: mysql-remove
+        method: POST
+        description: mysql-remove
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: saveEnvironment
+      path: /mysql.saveEnvironment
+      operations:
+      - name: mysql-saveEnvironment
+        method: POST
+        description: mysql-saveEnvironment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: update
+      path: /mysql.update
+      operations:
+      - name: mysql-update
+        method: POST
+        description: mysql-update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: changePassword
+      path: /mysql.changePassword
+      operations:
+      - name: mysql-changePassword
+        method: POST
+        description: mysql-changePassword
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: move
+      path: /mysql.move
+      operations:
+      - name: mysql-move
+        method: POST
+        description: mysql-move
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: rebuild
+      path: /mysql.rebuild
+      operations:
+      - name: mysql-rebuild
+        method: POST
+        description: mysql-rebuild
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: search
+      path: /mysql.search
+      operations:
+      - name: mysql-search
+        method: GET
+        description: mysql-search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: readLogs
+      path: /mysql.readLogs
+      operations:
+      - name: mysql-readLogs
+        method: GET
+        description: mysql-readLogs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: dokploy-mysql-rest
+    port: 8080
+    description: REST adapter for Dokploy API — mysql. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/mysql.create
+      name: create
+      description: REST surface for create.
+      operations:
+      - method: POST
+        name: mysql-create
+        description: mysql-create
+        call: dokploy-mysql.mysql-create
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mysql.one
+      name: one
+      description: REST surface for one.
+      operations:
+      - method: GET
+        name: mysql-one
+        description: mysql-one
+        call: dokploy-mysql.mysql-one
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mysql.start
+      name: start
+      description: REST surface for start.
+      operations:
+      - method: POST
+        name: mysql-start
+        description: mysql-start
+        call: dokploy-mysql.mysql-start
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mysql.stop
+      name: stop
+      description: REST surface for stop.
+      operations:
+      - method: POST
+        name: mysql-stop
+        description: mysql-stop
+        call: dokploy-mysql.mysql-stop
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mysql.saveExternalPort
+      name: saveExternalPort
+      description: REST surface for saveExternalPort.
+      operations:
+      - method: POST
+        name: mysql-saveExternalPort
+        description: mysql-saveExternalPort
+        call: dokploy-mysql.mysql-saveExternalPort
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mysql.deploy
+      name: deploy
+      description: REST surface for deploy.
+      operations:
+      - method: POST
+        name: mysql-deploy
+        description: mysql-deploy
+        call: dokploy-mysql.mysql-deploy
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mysql.changeStatus
+      name: changeStatus
+      description: REST surface for changeStatus.
+      operations:
+      - method: POST
+        name: mysql-changeStatus
+        description: mysql-changeStatus
+        call: dokploy-mysql.mysql-changeStatus
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mysql.reload
+      name: reload
+      description: REST surface for reload.
+      operations:
+      - method: POST
+        name: mysql-reload
+        description: mysql-reload
+        call: dokploy-mysql.mysql-reload
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mysql.remove
+      name: remove
+      description: REST surface for remove.
+      operations:
+      - method: POST
+        name: mysql-remove
+        description: mysql-remove
+        call: dokploy-mysql.mysql-remove
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mysql.saveEnvironment
+      name: saveEnvironment
+      description: REST surface for saveEnvironment.
+      operations:
+      - method: POST
+        name: mysql-saveEnvironment
+        description: mysql-saveEnvironment
+        call: dokploy-mysql.mysql-saveEnvironment
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mysql.update
+      name: update
+      description: REST surface for update.
+      operations:
+      - method: POST
+        name: mysql-update
+        description: mysql-update
+        call: dokploy-mysql.mysql-update
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mysql.changePassword
+      name: changePassword
+      description: REST surface for changePassword.
+      operations:
+      - method: POST
+        name: mysql-changePassword
+        description: mysql-changePassword
+        call: dokploy-mysql.mysql-changePassword
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mysql.move
+      name: move
+      description: REST surface for move.
+      operations:
+      - method: POST
+        name: mysql-move
+        description: mysql-move
+        call: dokploy-mysql.mysql-move
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mysql.rebuild
+      name: rebuild
+      description: REST surface for rebuild.
+      operations:
+      - method: POST
+        name: mysql-rebuild
+        description: mysql-rebuild
+        call: dokploy-mysql.mysql-rebuild
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mysql.search
+      name: search
+      description: REST surface for search.
+      operations:
+      - method: GET
+        name: mysql-search
+        description: mysql-search
+        call: dokploy-mysql.mysql-search
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mysql.readLogs
+      name: readLogs
+      description: REST surface for readLogs.
+      operations:
+      - method: GET
+        name: mysql-readLogs
+        description: mysql-readLogs
+        call: dokploy-mysql.mysql-readLogs
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-mysql-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — mysql. One tool per consumed operation, routed inline through this capability’s consumes block.
+    tools:
+    - name: mysql-create
+      description: mysql-create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mysql.mysql-create
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mysql-one
+      description: mysql-one
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-mysql.mysql-one
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mysql-start
+      description: mysql-start
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mysql.mysql-start
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mysql-stop
+      description: mysql-stop
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mysql.mysql-stop
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mysql-saveExternalPort
+      description: mysql-saveExternalPort
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mysql.mysql-saveExternalPort
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mysql-deploy
+      description: mysql-deploy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mysql.mysql-deploy
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mysql-changeStatus
+      description: mysql-changeStatus
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mysql.mysql-changeStatus
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mysql-reload
+      description: mysql-reload
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mysql.mysql-reload
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mysql-remove
+      description: mysql-remove
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mysql.mysql-remove
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mysql-saveEnvironment
+      description: mysql-saveEnvironment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mysql.mysql-saveEnvironment
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mysql-update
+      description: mysql-update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mysql.mysql-update
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mysql-changePassword
+      description: mysql-changePassword
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mysql.mysql-changePassword
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mysql-move
+      description: mysql-move
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mysql.mysql-move
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mysql-rebuild
+      description: mysql-rebuild
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mysql.mysql-rebuild
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mysql-search
+      description: mysql-search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-mysql.mysql-search
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mysql-readLogs
+      description: mysql-readLogs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-mysql.mysql-readLogs
+      outputParameters:
+      - type: object
+        mapping: $.

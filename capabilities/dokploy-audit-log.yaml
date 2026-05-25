@@ -1,0 +1,66 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — auditLog
+  description: 'Dokploy API — auditLog. 1 operations. Lead operation: auditLog.all. Self-contained Naftiko capability covering one Dokploy business
+    surface.'
+  tags:
+  - Dokploy
+  - auditLog
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-audit-log
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — auditLog business capability. Self-contained, no shared references.
+    resources:
+    - name: all
+      path: /auditLog.all
+      operations:
+      - name: auditLog-all
+        method: GET
+        description: auditLog-all
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: dokploy-audit-log-rest
+    port: 8080
+    description: REST adapter for Dokploy API — auditLog. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/auditLog.all
+      name: all
+      description: REST surface for all.
+      operations:
+      - method: GET
+        name: auditLog-all
+        description: auditLog-all
+        call: dokploy-audit-log.auditLog-all
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-audit-log-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — auditLog. One tool per consumed operation, routed inline through this capability’s consumes block.
+    tools:
+    - name: auditLog-all
+      description: auditLog-all
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-audit-log.auditLog-all
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,342 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — deployment
+  description: 'Dokploy API — deployment. 9 operations. Lead operation: deployment.all. Self-contained Naftiko capability covering one Dokploy
+    business surface.'
+  tags:
+  - Dokploy
+  - deployment
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-deployment
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — deployment business capability. Self-contained, no shared references.
+    resources:
+    - name: all
+      path: /deployment.all
+      operations:
+      - name: deployment-all
+        method: GET
+        description: deployment-all
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: allByCompose
+      path: /deployment.allByCompose
+      operations:
+      - name: deployment-allByCompose
+        method: GET
+        description: deployment-allByCompose
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: allByServer
+      path: /deployment.allByServer
+      operations:
+      - name: deployment-allByServer
+        method: GET
+        description: deployment-allByServer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: allCentralized
+      path: /deployment.allCentralized
+      operations:
+      - name: deployment-allCentralized
+        method: GET
+        description: deployment-allCentralized
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: queueList
+      path: /deployment.queueList
+      operations:
+      - name: deployment-queueList
+        method: GET
+        description: deployment-queueList
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: allByType
+      path: /deployment.allByType
+      operations:
+      - name: deployment-allByType
+        method: GET
+        description: deployment-allByType
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: killProcess
+      path: /deployment.killProcess
+      operations:
+      - name: deployment-killProcess
+        method: POST
+        description: deployment-killProcess
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: removeDeployment
+      path: /deployment.removeDeployment
+      operations:
+      - name: deployment-removeDeployment
+        method: POST
+        description: deployment-removeDeployment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: readLogs
+      path: /deployment.readLogs
+      operations:
+      - name: deployment-readLogs
+        method: GET
+        description: deployment-readLogs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: dokploy-deployment-rest
+    port: 8080
+    description: REST adapter for Dokploy API — deployment. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/deployment.all
+      name: all
+      description: REST surface for all.
+      operations:
+      - method: GET
+        name: deployment-all
+        description: deployment-all
+        call: dokploy-deployment.deployment-all
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/deployment.allByCompose
+      name: allByCompose
+      description: REST surface for allByCompose.
+      operations:
+      - method: GET
+        name: deployment-allByCompose
+        description: deployment-allByCompose
+        call: dokploy-deployment.deployment-allByCompose
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/deployment.allByServer
+      name: allByServer
+      description: REST surface for allByServer.
+      operations:
+      - method: GET
+        name: deployment-allByServer
+        description: deployment-allByServer
+        call: dokploy-deployment.deployment-allByServer
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/deployment.allCentralized
+      name: allCentralized
+      description: REST surface for allCentralized.
+      operations:
+      - method: GET
+        name: deployment-allCentralized
+        description: deployment-allCentralized
+        call: dokploy-deployment.deployment-allCentralized
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/deployment.queueList
+      name: queueList
+      description: REST surface for queueList.
+      operations:
+      - method: GET
+        name: deployment-queueList
+        description: deployment-queueList
+        call: dokploy-deployment.deployment-queueList
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/deployment.allByType
+      name: allByType
+      description: REST surface for allByType.
+      operations:
+      - method: GET
+        name: deployment-allByType
+        description: deployment-allByType
+        call: dokploy-deployment.deployment-allByType
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/deployment.killProcess
+      name: killProcess
+      description: REST surface for killProcess.
+      operations:
+      - method: POST
+        name: deployment-killProcess
+        description: deployment-killProcess
+        call: dokploy-deployment.deployment-killProcess
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/deployment.removeDeployment
+      name: removeDeployment
+      description: REST surface for removeDeployment.
+      operations:
+      - method: POST
+        name: deployment-removeDeployment
+        description: deployment-removeDeployment
+        call: dokploy-deployment.deployment-removeDeployment
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/deployment.readLogs
+      name: readLogs
+      description: REST surface for readLogs.
+      operations:
+      - method: GET
+        name: deployment-readLogs
+        description: deployment-readLogs
+        call: dokploy-deployment.deployment-readLogs
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-deployment-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — deployment. One tool per consumed operation, routed inline through this capability’s consumes block.
+    tools:
+    - name: deployment-all
+      description: deployment-all
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-deployment.deployment-all
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deployment-allByCompose
+      description: deployment-allByCompose
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-deployment.deployment-allByCompose
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deployment-allByServer
+      description: deployment-allByServer
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-deployment.deployment-allByServer
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deployment-allCentralized
+      description: deployment-allCentralized
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-deployment.deployment-allCentralized
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deployment-queueList
+      description: deployment-queueList
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-deployment.deployment-queueList
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deployment-allByType
+      description: deployment-allByType
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-deployment.deployment-allByType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deployment-killProcess
+      description: deployment-killProcess
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-deployment.deployment-killProcess
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deployment-removeDeployment
+      description: deployment-removeDeployment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-deployment.deployment-removeDeployment
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deployment-readLogs
+      description: deployment-readLogs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-deployment.deployment-readLogs
+      outputParameters:
+      - type: object
+        mapping: $.

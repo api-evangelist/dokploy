@@ -1,0 +1,320 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — stripe
+  description: 'Dokploy API — stripe. 8 operations. Lead operation: stripe.getCurrentPlan. Self-contained Naftiko capability covering one Dokploy
+    business surface.'
+  tags:
+  - Dokploy
+  - stripe
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-stripe
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — stripe business capability. Self-contained, no shared references.
+    resources:
+    - name: getCurrentPlan
+      path: /stripe.getCurrentPlan
+      operations:
+      - name: stripe-getCurrentPlan
+        method: GET
+        description: stripe-getCurrentPlan
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: getProducts
+      path: /stripe.getProducts
+      operations:
+      - name: stripe-getProducts
+        method: GET
+        description: stripe-getProducts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: createCheckoutSession
+      path: /stripe.createCheckoutSession
+      operations:
+      - name: stripe-createCheckoutSession
+        method: POST
+        description: stripe-createCheckoutSession
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: createCustomerPortalSession
+      path: /stripe.createCustomerPortalSession
+      operations:
+      - name: stripe-createCustomerPortalSession
+        method: POST
+        description: stripe-createCustomerPortalSession
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: upgradeSubscription
+      path: /stripe.upgradeSubscription
+      operations:
+      - name: stripe-upgradeSubscription
+        method: POST
+        description: stripe-upgradeSubscription
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: canCreateMoreServers
+      path: /stripe.canCreateMoreServers
+      operations:
+      - name: stripe-canCreateMoreServers
+        method: GET
+        description: stripe-canCreateMoreServers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: updateInvoiceNotifications
+      path: /stripe.updateInvoiceNotifications
+      operations:
+      - name: stripe-updateInvoiceNotifications
+        method: POST
+        description: stripe-updateInvoiceNotifications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: getInvoices
+      path: /stripe.getInvoices
+      operations:
+      - name: stripe-getInvoices
+        method: GET
+        description: stripe-getInvoices
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: dokploy-stripe-rest
+    port: 8080
+    description: REST adapter for Dokploy API — stripe. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/stripe.getCurrentPlan
+      name: getCurrentPlan
+      description: REST surface for getCurrentPlan.
+      operations:
+      - method: GET
+        name: stripe-getCurrentPlan
+        description: stripe-getCurrentPlan
+        call: dokploy-stripe.stripe-getCurrentPlan
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/stripe.getProducts
+      name: getProducts
+      description: REST surface for getProducts.
+      operations:
+      - method: GET
+        name: stripe-getProducts
+        description: stripe-getProducts
+        call: dokploy-stripe.stripe-getProducts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/stripe.createCheckoutSession
+      name: createCheckoutSession
+      description: REST surface for createCheckoutSession.
+      operations:
+      - method: POST
+        name: stripe-createCheckoutSession
+        description: stripe-createCheckoutSession
+        call: dokploy-stripe.stripe-createCheckoutSession
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/stripe.createCustomerPortalSession
+      name: createCustomerPortalSession
+      description: REST surface for createCustomerPortalSession.
+      operations:
+      - method: POST
+        name: stripe-createCustomerPortalSession
+        description: stripe-createCustomerPortalSession
+        call: dokploy-stripe.stripe-createCustomerPortalSession
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/stripe.upgradeSubscription
+      name: upgradeSubscription
+      description: REST surface for upgradeSubscription.
+      operations:
+      - method: POST
+        name: stripe-upgradeSubscription
+        description: stripe-upgradeSubscription
+        call: dokploy-stripe.stripe-upgradeSubscription
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/stripe.canCreateMoreServers
+      name: canCreateMoreServers
+      description: REST surface for canCreateMoreServers.
+      operations:
+      - method: GET
+        name: stripe-canCreateMoreServers
+        description: stripe-canCreateMoreServers
+        call: dokploy-stripe.stripe-canCreateMoreServers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/stripe.updateInvoiceNotifications
+      name: updateInvoiceNotifications
+      description: REST surface for updateInvoiceNotifications.
+      operations:
+      - method: POST
+        name: stripe-updateInvoiceNotifications
+        description: stripe-updateInvoiceNotifications
+        call: dokploy-stripe.stripe-updateInvoiceNotifications
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/stripe.getInvoices
+      name: getInvoices
+      description: REST surface for getInvoices.
+      operations:
+      - method: GET
+        name: stripe-getInvoices
+        description: stripe-getInvoices
+        call: dokploy-stripe.stripe-getInvoices
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-stripe-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — stripe. One tool per consumed operation, routed inline through this capability’s consumes block.
+    tools:
+    - name: stripe-getCurrentPlan
+      description: stripe-getCurrentPlan
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-stripe.stripe-getCurrentPlan
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: stripe-getProducts
+      description: stripe-getProducts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-stripe.stripe-getProducts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: stripe-createCheckoutSession
+      description: stripe-createCheckoutSession
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-stripe.stripe-createCheckoutSession
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: stripe-createCustomerPortalSession
+      description: stripe-createCustomerPortalSession
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-stripe.stripe-createCustomerPortalSession
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: stripe-upgradeSubscription
+      description: stripe-upgradeSubscription
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-stripe.stripe-upgradeSubscription
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: stripe-canCreateMoreServers
+      description: stripe-canCreateMoreServers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-stripe.stripe-canCreateMoreServers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: stripe-updateInvoiceNotifications
+      description: stripe-updateInvoiceNotifications
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-stripe.stripe-updateInvoiceNotifications
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: stripe-getInvoices
+      description: stripe-getInvoices
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-stripe.stripe-getInvoices
+      outputParameters:
+      - type: object
+        mapping: $.

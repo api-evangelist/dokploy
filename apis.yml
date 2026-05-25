@@ -1,0 +1,188 @@
+aid: dokploy
+name: Dokploy
+description: Dokploy is an open-source, self-hostable Platform-as-a-Service (PaaS) — an alternative to Heroku, Vercel, and
+  Netlify — that deploys applications, Docker Compose stacks, and managed databases across one or many servers using Docker
+  and Docker Swarm, with Traefik handling routing and TLS.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+- PaaS
+- Self-Hosted
+- Open Source
+- Docker
+- Docker Swarm
+- Deployment
+- Traefik
+- Databases
+url: https://raw.githubusercontent.com/api-evangelist/dokploy/refs/heads/main/apis.yml
+created: '2026-05-25'
+modified: '2026-05-25'
+specificationVersion: '0.19'
+apis:
+- aid: dokploy:dokploy
+  name: Dokploy
+  description: The Dokploy HTTP API exposes every operation the Dokploy UI can perform — projects, applications, Docker Compose
+    services, managed databases (Postgres, MySQL, MariaDB, MongoDB, Redis, LibSQL), domains, certificates, registries, Git
+    providers (GitHub, GitLab, Gitea, Bitbucket), servers, Docker Swarm clusters, backups, schedules, notifications, audit
+    logs, SSO, custom roles, white-labeling, and Stripe billing — across 526 endpoints generated from the project's canonical
+    OpenAPI 3.1 specification.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - PaaS
+  - Self-Hosted
+  - Docker
+  - Docker Swarm
+  - Traefik
+  - Deployment
+  - Databases
+  - Git Providers
+  - Domains
+  - Notifications
+  properties:
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: OpenAPI
+    url: openapi/dokploy-openapi.yml
+  - type: SDK
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: NaftikoCapability
+    url: capabilities/dokploy-admin.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-ai.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-application.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-audit-log.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-backup.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-bitbucket.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-certificates.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-cluster.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-compose.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-custom-role.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-deployment.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-destination.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-docker.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-domain.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-environment.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-git-provider.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-gitea.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-github.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-gitlab.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-libsql.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-license-key.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-mariadb.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-mongo.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-mounts.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-mysql.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-notification.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-organization.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-patch.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-port.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-postgres.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-preview-deployment.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-project.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-redirects.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-redis.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-registry.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-rollback.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-schedule.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-security.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-server.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-settings.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-ssh-key.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-sso.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-stripe.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-swarm.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-tag.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-user.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-volume-backups.yaml
+  - type: NaftikoCapability
+    url: capabilities/dokploy-whitelabeling.yaml
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+common:
+- type: Website
+  url: https://dokploy.com/
+- type: Documentation
+  url: https://docs.dokploy.com/
+- type: APIReference
+  url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+- type: Pricing
+  url: https://dokploy.com/pricing
+- type: GitHubOrg
+  url: https://github.com/Dokploy
+- type: GitHubRepository
+  url: https://github.com/Dokploy/dokploy
+- type: SDK
+  url: https://github.com/Dokploy/sdk
+- type: CLI
+  url: https://github.com/Dokploy/cli
+- type: MCP
+  url: https://github.com/Dokploy/mcp
+- type: Templates
+  url: https://github.com/Dokploy/templates
+- type: Examples
+  url: https://github.com/Dokploy/examples
+- type: Discord
+  url: https://discord.gg/2tBnJ3jDJc
+- type: License
+  url: https://github.com/Dokploy/dokploy/blob/canary/LICENSE.MD
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

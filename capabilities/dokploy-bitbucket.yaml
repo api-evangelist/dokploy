@@ -1,0 +1,288 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — bitbucket
+  description: 'Dokploy API — bitbucket. 7 operations. Lead operation: bitbucket.create. Self-contained Naftiko capability covering one Dokploy
+    business surface.'
+  tags:
+  - Dokploy
+  - bitbucket
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-bitbucket
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — bitbucket business capability. Self-contained, no shared references.
+    resources:
+    - name: create
+      path: /bitbucket.create
+      operations:
+      - name: bitbucket-create
+        method: POST
+        description: bitbucket-create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: one
+      path: /bitbucket.one
+      operations:
+      - name: bitbucket-one
+        method: GET
+        description: bitbucket-one
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bitbucketProviders
+      path: /bitbucket.bitbucketProviders
+      operations:
+      - name: bitbucket-bitbucketProviders
+        method: GET
+        description: bitbucket-bitbucketProviders
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: getBitbucketRepositories
+      path: /bitbucket.getBitbucketRepositories
+      operations:
+      - name: bitbucket-getBitbucketRepositories
+        method: GET
+        description: bitbucket-getBitbucketRepositories
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: getBitbucketBranches
+      path: /bitbucket.getBitbucketBranches
+      operations:
+      - name: bitbucket-getBitbucketBranches
+        method: GET
+        description: bitbucket-getBitbucketBranches
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: testConnection
+      path: /bitbucket.testConnection
+      operations:
+      - name: bitbucket-testConnection
+        method: POST
+        description: bitbucket-testConnection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: update
+      path: /bitbucket.update
+      operations:
+      - name: bitbucket-update
+        method: POST
+        description: bitbucket-update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+  exposes:
+  - type: rest
+    namespace: dokploy-bitbucket-rest
+    port: 8080
+    description: REST adapter for Dokploy API — bitbucket. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/bitbucket.create
+      name: create
+      description: REST surface for create.
+      operations:
+      - method: POST
+        name: bitbucket-create
+        description: bitbucket-create
+        call: dokploy-bitbucket.bitbucket-create
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bitbucket.one
+      name: one
+      description: REST surface for one.
+      operations:
+      - method: GET
+        name: bitbucket-one
+        description: bitbucket-one
+        call: dokploy-bitbucket.bitbucket-one
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bitbucket.bitbucketProviders
+      name: bitbucketProviders
+      description: REST surface for bitbucketProviders.
+      operations:
+      - method: GET
+        name: bitbucket-bitbucketProviders
+        description: bitbucket-bitbucketProviders
+        call: dokploy-bitbucket.bitbucket-bitbucketProviders
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bitbucket.getBitbucketRepositories
+      name: getBitbucketRepositories
+      description: REST surface for getBitbucketRepositories.
+      operations:
+      - method: GET
+        name: bitbucket-getBitbucketRepositories
+        description: bitbucket-getBitbucketRepositories
+        call: dokploy-bitbucket.bitbucket-getBitbucketRepositories
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bitbucket.getBitbucketBranches
+      name: getBitbucketBranches
+      description: REST surface for getBitbucketBranches.
+      operations:
+      - method: GET
+        name: bitbucket-getBitbucketBranches
+        description: bitbucket-getBitbucketBranches
+        call: dokploy-bitbucket.bitbucket-getBitbucketBranches
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bitbucket.testConnection
+      name: testConnection
+      description: REST surface for testConnection.
+      operations:
+      - method: POST
+        name: bitbucket-testConnection
+        description: bitbucket-testConnection
+        call: dokploy-bitbucket.bitbucket-testConnection
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bitbucket.update
+      name: update
+      description: REST surface for update.
+      operations:
+      - method: POST
+        name: bitbucket-update
+        description: bitbucket-update
+        call: dokploy-bitbucket.bitbucket-update
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-bitbucket-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — bitbucket. One tool per consumed operation, routed inline through this capability’s consumes block.
+    tools:
+    - name: bitbucket-create
+      description: bitbucket-create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-bitbucket.bitbucket-create
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: bitbucket-one
+      description: bitbucket-one
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-bitbucket.bitbucket-one
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: bitbucket-bitbucketProviders
+      description: bitbucket-bitbucketProviders
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-bitbucket.bitbucket-bitbucketProviders
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: bitbucket-getBitbucketRepositories
+      description: bitbucket-getBitbucketRepositories
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-bitbucket.bitbucket-getBitbucketRepositories
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: bitbucket-getBitbucketBranches
+      description: bitbucket-getBitbucketBranches
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-bitbucket.bitbucket-getBitbucketBranches
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: bitbucket-testConnection
+      description: bitbucket-testConnection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-bitbucket.bitbucket-testConnection
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: bitbucket-update
+      description: bitbucket-update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-bitbucket.bitbucket-update
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

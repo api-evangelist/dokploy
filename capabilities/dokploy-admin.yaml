@@ -1,0 +1,76 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — admin
+  description: 'Dokploy API — admin. 1 operations. Lead operation: admin.setupMonitoring. Self-contained Naftiko capability covering one Dokploy
+    business surface.'
+  tags:
+  - Dokploy
+  - admin
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-admin
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — admin business capability. Self-contained, no shared references.
+    resources:
+    - name: setupMonitoring
+      path: /admin.setupMonitoring
+      operations:
+      - name: admin-setupMonitoring
+        method: POST
+        description: admin-setupMonitoring
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+  exposes:
+  - type: rest
+    namespace: dokploy-admin-rest
+    port: 8080
+    description: REST adapter for Dokploy API — admin. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/admin.setupMonitoring
+      name: setupMonitoring
+      description: REST surface for setupMonitoring.
+      operations:
+      - method: POST
+        name: admin-setupMonitoring
+        description: admin-setupMonitoring
+        call: dokploy-admin.admin-setupMonitoring
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-admin-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — admin. One tool per consumed operation, routed inline through this capability’s consumes block.
+    tools:
+    - name: admin-setupMonitoring
+      description: admin-setupMonitoring
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-admin.admin-setupMonitoring
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,478 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — docker
+  description: 'Dokploy API — docker. 12 operations. Lead operation: docker.getContainers. Self-contained Naftiko capability covering one Dokploy
+    business surface.'
+  tags:
+  - Dokploy
+  - docker
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-docker
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — docker business capability. Self-contained, no shared references.
+    resources:
+    - name: getContainers
+      path: /docker.getContainers
+      operations:
+      - name: docker-getContainers
+        method: GET
+        description: docker-getContainers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: restartContainer
+      path: /docker.restartContainer
+      operations:
+      - name: docker-restartContainer
+        method: POST
+        description: docker-restartContainer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: startContainer
+      path: /docker.startContainer
+      operations:
+      - name: docker-startContainer
+        method: POST
+        description: docker-startContainer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: stopContainer
+      path: /docker.stopContainer
+      operations:
+      - name: docker-stopContainer
+        method: POST
+        description: docker-stopContainer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: killContainer
+      path: /docker.killContainer
+      operations:
+      - name: docker-killContainer
+        method: POST
+        description: docker-killContainer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: removeContainer
+      path: /docker.removeContainer
+      operations:
+      - name: docker-removeContainer
+        method: POST
+        description: docker-removeContainer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: getConfig
+      path: /docker.getConfig
+      operations:
+      - name: docker-getConfig
+        method: GET
+        description: docker-getConfig
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: getContainersByAppNameMatch
+      path: /docker.getContainersByAppNameMatch
+      operations:
+      - name: docker-getContainersByAppNameMatch
+        method: GET
+        description: docker-getContainersByAppNameMatch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: getContainersByAppLabel
+      path: /docker.getContainersByAppLabel
+      operations:
+      - name: docker-getContainersByAppLabel
+        method: GET
+        description: docker-getContainersByAppLabel
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: getStackContainersByAppName
+      path: /docker.getStackContainersByAppName
+      operations:
+      - name: docker-getStackContainersByAppName
+        method: GET
+        description: docker-getStackContainersByAppName
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: getServiceContainersByAppName
+      path: /docker.getServiceContainersByAppName
+      operations:
+      - name: docker-getServiceContainersByAppName
+        method: GET
+        description: docker-getServiceContainersByAppName
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: uploadFileToContainer
+      path: /docker.uploadFileToContainer
+      operations:
+      - name: docker-uploadFileToContainer
+        method: POST
+        description: docker-uploadFileToContainer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+  exposes:
+  - type: rest
+    namespace: dokploy-docker-rest
+    port: 8080
+    description: REST adapter for Dokploy API — docker. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/docker.getContainers
+      name: getContainers
+      description: REST surface for getContainers.
+      operations:
+      - method: GET
+        name: docker-getContainers
+        description: docker-getContainers
+        call: dokploy-docker.docker-getContainers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/docker.restartContainer
+      name: restartContainer
+      description: REST surface for restartContainer.
+      operations:
+      - method: POST
+        name: docker-restartContainer
+        description: docker-restartContainer
+        call: dokploy-docker.docker-restartContainer
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/docker.startContainer
+      name: startContainer
+      description: REST surface for startContainer.
+      operations:
+      - method: POST
+        name: docker-startContainer
+        description: docker-startContainer
+        call: dokploy-docker.docker-startContainer
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/docker.stopContainer
+      name: stopContainer
+      description: REST surface for stopContainer.
+      operations:
+      - method: POST
+        name: docker-stopContainer
+        description: docker-stopContainer
+        call: dokploy-docker.docker-stopContainer
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/docker.killContainer
+      name: killContainer
+      description: REST surface for killContainer.
+      operations:
+      - method: POST
+        name: docker-killContainer
+        description: docker-killContainer
+        call: dokploy-docker.docker-killContainer
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/docker.removeContainer
+      name: removeContainer
+      description: REST surface for removeContainer.
+      operations:
+      - method: POST
+        name: docker-removeContainer
+        description: docker-removeContainer
+        call: dokploy-docker.docker-removeContainer
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/docker.getConfig
+      name: getConfig
+      description: REST surface for getConfig.
+      operations:
+      - method: GET
+        name: docker-getConfig
+        description: docker-getConfig
+        call: dokploy-docker.docker-getConfig
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/docker.getContainersByAppNameMatch
+      name: getContainersByAppNameMatch
+      description: REST surface for getContainersByAppNameMatch.
+      operations:
+      - method: GET
+        name: docker-getContainersByAppNameMatch
+        description: docker-getContainersByAppNameMatch
+        call: dokploy-docker.docker-getContainersByAppNameMatch
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/docker.getContainersByAppLabel
+      name: getContainersByAppLabel
+      description: REST surface for getContainersByAppLabel.
+      operations:
+      - method: GET
+        name: docker-getContainersByAppLabel
+        description: docker-getContainersByAppLabel
+        call: dokploy-docker.docker-getContainersByAppLabel
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/docker.getStackContainersByAppName
+      name: getStackContainersByAppName
+      description: REST surface for getStackContainersByAppName.
+      operations:
+      - method: GET
+        name: docker-getStackContainersByAppName
+        description: docker-getStackContainersByAppName
+        call: dokploy-docker.docker-getStackContainersByAppName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/docker.getServiceContainersByAppName
+      name: getServiceContainersByAppName
+      description: REST surface for getServiceContainersByAppName.
+      operations:
+      - method: GET
+        name: docker-getServiceContainersByAppName
+        description: docker-getServiceContainersByAppName
+        call: dokploy-docker.docker-getServiceContainersByAppName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/docker.uploadFileToContainer
+      name: uploadFileToContainer
+      description: REST surface for uploadFileToContainer.
+      operations:
+      - method: POST
+        name: docker-uploadFileToContainer
+        description: docker-uploadFileToContainer
+        call: dokploy-docker.docker-uploadFileToContainer
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-docker-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — docker. One tool per consumed operation, routed inline through this capability’s consumes block.
+    tools:
+    - name: docker-getContainers
+      description: docker-getContainers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-docker.docker-getContainers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: docker-restartContainer
+      description: docker-restartContainer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-docker.docker-restartContainer
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: docker-startContainer
+      description: docker-startContainer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-docker.docker-startContainer
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: docker-stopContainer
+      description: docker-stopContainer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-docker.docker-stopContainer
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: docker-killContainer
+      description: docker-killContainer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-docker.docker-killContainer
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: docker-removeContainer
+      description: docker-removeContainer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-docker.docker-removeContainer
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: docker-getConfig
+      description: docker-getConfig
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-docker.docker-getConfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: docker-getContainersByAppNameMatch
+      description: docker-getContainersByAppNameMatch
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-docker.docker-getContainersByAppNameMatch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: docker-getContainersByAppLabel
+      description: docker-getContainersByAppLabel
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-docker.docker-getContainersByAppLabel
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: docker-getStackContainersByAppName
+      description: docker-getStackContainersByAppName
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-docker.docker-getStackContainersByAppName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: docker-getServiceContainersByAppName
+      description: docker-getServiceContainersByAppName
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-docker.docker-getServiceContainersByAppName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: docker-uploadFileToContainer
+      description: docker-uploadFileToContainer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-docker.docker-uploadFileToContainer
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

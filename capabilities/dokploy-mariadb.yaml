@@ -1,0 +1,676 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — mariadb
+  description: 'Dokploy API — mariadb. 16 operations. Lead operation: mariadb.create. Self-contained Naftiko capability covering one Dokploy business
+    surface.'
+  tags:
+  - Dokploy
+  - mariadb
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-mariadb
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — mariadb business capability. Self-contained, no shared references.
+    resources:
+    - name: create
+      path: /mariadb.create
+      operations:
+      - name: mariadb-create
+        method: POST
+        description: mariadb-create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: one
+      path: /mariadb.one
+      operations:
+      - name: mariadb-one
+        method: GET
+        description: mariadb-one
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: start
+      path: /mariadb.start
+      operations:
+      - name: mariadb-start
+        method: POST
+        description: mariadb-start
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: stop
+      path: /mariadb.stop
+      operations:
+      - name: mariadb-stop
+        method: POST
+        description: mariadb-stop
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: saveExternalPort
+      path: /mariadb.saveExternalPort
+      operations:
+      - name: mariadb-saveExternalPort
+        method: POST
+        description: mariadb-saveExternalPort
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: deploy
+      path: /mariadb.deploy
+      operations:
+      - name: mariadb-deploy
+        method: POST
+        description: mariadb-deploy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: changeStatus
+      path: /mariadb.changeStatus
+      operations:
+      - name: mariadb-changeStatus
+        method: POST
+        description: mariadb-changeStatus
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: remove
+      path: /mariadb.remove
+      operations:
+      - name: mariadb-remove
+        method: POST
+        description: mariadb-remove
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: saveEnvironment
+      path: /mariadb.saveEnvironment
+      operations:
+      - name: mariadb-saveEnvironment
+        method: POST
+        description: mariadb-saveEnvironment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: reload
+      path: /mariadb.reload
+      operations:
+      - name: mariadb-reload
+        method: POST
+        description: mariadb-reload
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: update
+      path: /mariadb.update
+      operations:
+      - name: mariadb-update
+        method: POST
+        description: mariadb-update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: changePassword
+      path: /mariadb.changePassword
+      operations:
+      - name: mariadb-changePassword
+        method: POST
+        description: mariadb-changePassword
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: move
+      path: /mariadb.move
+      operations:
+      - name: mariadb-move
+        method: POST
+        description: mariadb-move
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: rebuild
+      path: /mariadb.rebuild
+      operations:
+      - name: mariadb-rebuild
+        method: POST
+        description: mariadb-rebuild
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: search
+      path: /mariadb.search
+      operations:
+      - name: mariadb-search
+        method: GET
+        description: mariadb-search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: readLogs
+      path: /mariadb.readLogs
+      operations:
+      - name: mariadb-readLogs
+        method: GET
+        description: mariadb-readLogs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: dokploy-mariadb-rest
+    port: 8080
+    description: REST adapter for Dokploy API — mariadb. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/mariadb.create
+      name: create
+      description: REST surface for create.
+      operations:
+      - method: POST
+        name: mariadb-create
+        description: mariadb-create
+        call: dokploy-mariadb.mariadb-create
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mariadb.one
+      name: one
+      description: REST surface for one.
+      operations:
+      - method: GET
+        name: mariadb-one
+        description: mariadb-one
+        call: dokploy-mariadb.mariadb-one
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mariadb.start
+      name: start
+      description: REST surface for start.
+      operations:
+      - method: POST
+        name: mariadb-start
+        description: mariadb-start
+        call: dokploy-mariadb.mariadb-start
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mariadb.stop
+      name: stop
+      description: REST surface for stop.
+      operations:
+      - method: POST
+        name: mariadb-stop
+        description: mariadb-stop
+        call: dokploy-mariadb.mariadb-stop
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mariadb.saveExternalPort
+      name: saveExternalPort
+      description: REST surface for saveExternalPort.
+      operations:
+      - method: POST
+        name: mariadb-saveExternalPort
+        description: mariadb-saveExternalPort
+        call: dokploy-mariadb.mariadb-saveExternalPort
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mariadb.deploy
+      name: deploy
+      description: REST surface for deploy.
+      operations:
+      - method: POST
+        name: mariadb-deploy
+        description: mariadb-deploy
+        call: dokploy-mariadb.mariadb-deploy
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mariadb.changeStatus
+      name: changeStatus
+      description: REST surface for changeStatus.
+      operations:
+      - method: POST
+        name: mariadb-changeStatus
+        description: mariadb-changeStatus
+        call: dokploy-mariadb.mariadb-changeStatus
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mariadb.remove
+      name: remove
+      description: REST surface for remove.
+      operations:
+      - method: POST
+        name: mariadb-remove
+        description: mariadb-remove
+        call: dokploy-mariadb.mariadb-remove
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mariadb.saveEnvironment
+      name: saveEnvironment
+      description: REST surface for saveEnvironment.
+      operations:
+      - method: POST
+        name: mariadb-saveEnvironment
+        description: mariadb-saveEnvironment
+        call: dokploy-mariadb.mariadb-saveEnvironment
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mariadb.reload
+      name: reload
+      description: REST surface for reload.
+      operations:
+      - method: POST
+        name: mariadb-reload
+        description: mariadb-reload
+        call: dokploy-mariadb.mariadb-reload
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mariadb.update
+      name: update
+      description: REST surface for update.
+      operations:
+      - method: POST
+        name: mariadb-update
+        description: mariadb-update
+        call: dokploy-mariadb.mariadb-update
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mariadb.changePassword
+      name: changePassword
+      description: REST surface for changePassword.
+      operations:
+      - method: POST
+        name: mariadb-changePassword
+        description: mariadb-changePassword
+        call: dokploy-mariadb.mariadb-changePassword
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mariadb.move
+      name: move
+      description: REST surface for move.
+      operations:
+      - method: POST
+        name: mariadb-move
+        description: mariadb-move
+        call: dokploy-mariadb.mariadb-move
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mariadb.rebuild
+      name: rebuild
+      description: REST surface for rebuild.
+      operations:
+      - method: POST
+        name: mariadb-rebuild
+        description: mariadb-rebuild
+        call: dokploy-mariadb.mariadb-rebuild
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mariadb.search
+      name: search
+      description: REST surface for search.
+      operations:
+      - method: GET
+        name: mariadb-search
+        description: mariadb-search
+        call: dokploy-mariadb.mariadb-search
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/mariadb.readLogs
+      name: readLogs
+      description: REST surface for readLogs.
+      operations:
+      - method: GET
+        name: mariadb-readLogs
+        description: mariadb-readLogs
+        call: dokploy-mariadb.mariadb-readLogs
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-mariadb-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — mariadb. One tool per consumed operation, routed inline through this capability’s consumes block.
+    tools:
+    - name: mariadb-create
+      description: mariadb-create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mariadb.mariadb-create
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mariadb-one
+      description: mariadb-one
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-mariadb.mariadb-one
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mariadb-start
+      description: mariadb-start
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mariadb.mariadb-start
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mariadb-stop
+      description: mariadb-stop
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mariadb.mariadb-stop
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mariadb-saveExternalPort
+      description: mariadb-saveExternalPort
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mariadb.mariadb-saveExternalPort
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mariadb-deploy
+      description: mariadb-deploy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mariadb.mariadb-deploy
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mariadb-changeStatus
+      description: mariadb-changeStatus
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mariadb.mariadb-changeStatus
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mariadb-remove
+      description: mariadb-remove
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mariadb.mariadb-remove
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mariadb-saveEnvironment
+      description: mariadb-saveEnvironment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mariadb.mariadb-saveEnvironment
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mariadb-reload
+      description: mariadb-reload
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mariadb.mariadb-reload
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mariadb-update
+      description: mariadb-update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mariadb.mariadb-update
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mariadb-changePassword
+      description: mariadb-changePassword
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mariadb.mariadb-changePassword
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mariadb-move
+      description: mariadb-move
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mariadb.mariadb-move
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mariadb-rebuild
+      description: mariadb-rebuild
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-mariadb.mariadb-rebuild
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mariadb-search
+      description: mariadb-search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-mariadb.mariadb-search
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mariadb-readLogs
+      description: mariadb-readLogs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-mariadb.mariadb-readLogs
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,266 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — schedule
+  description: 'Dokploy API — schedule. 6 operations. Lead operation: schedule.create. Self-contained Naftiko capability covering one Dokploy
+    business surface.'
+  tags:
+  - Dokploy
+  - schedule
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-schedule
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — schedule business capability. Self-contained, no shared references.
+    resources:
+    - name: create
+      path: /schedule.create
+      operations:
+      - name: schedule-create
+        method: POST
+        description: schedule-create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: update
+      path: /schedule.update
+      operations:
+      - name: schedule-update
+        method: POST
+        description: schedule-update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: delete
+      path: /schedule.delete
+      operations:
+      - name: schedule-delete
+        method: POST
+        description: schedule-delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: list
+      path: /schedule.list
+      operations:
+      - name: schedule-list
+        method: GET
+        description: schedule-list
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: one
+      path: /schedule.one
+      operations:
+      - name: schedule-one
+        method: GET
+        description: schedule-one
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: runManually
+      path: /schedule.runManually
+      operations:
+      - name: schedule-runManually
+        method: POST
+        description: schedule-runManually
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+  exposes:
+  - type: rest
+    namespace: dokploy-schedule-rest
+    port: 8080
+    description: REST adapter for Dokploy API — schedule. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/schedule.create
+      name: create
+      description: REST surface for create.
+      operations:
+      - method: POST
+        name: schedule-create
+        description: schedule-create
+        call: dokploy-schedule.schedule-create
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/schedule.update
+      name: update
+      description: REST surface for update.
+      operations:
+      - method: POST
+        name: schedule-update
+        description: schedule-update
+        call: dokploy-schedule.schedule-update
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/schedule.delete
+      name: delete
+      description: REST surface for delete.
+      operations:
+      - method: POST
+        name: schedule-delete
+        description: schedule-delete
+        call: dokploy-schedule.schedule-delete
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/schedule.list
+      name: list
+      description: REST surface for list.
+      operations:
+      - method: GET
+        name: schedule-list
+        description: schedule-list
+        call: dokploy-schedule.schedule-list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/schedule.one
+      name: one
+      description: REST surface for one.
+      operations:
+      - method: GET
+        name: schedule-one
+        description: schedule-one
+        call: dokploy-schedule.schedule-one
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/schedule.runManually
+      name: runManually
+      description: REST surface for runManually.
+      operations:
+      - method: POST
+        name: schedule-runManually
+        description: schedule-runManually
+        call: dokploy-schedule.schedule-runManually
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-schedule-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — schedule. One tool per consumed operation, routed inline through this capability’s consumes block.
+    tools:
+    - name: schedule-create
+      description: schedule-create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-schedule.schedule-create
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: schedule-update
+      description: schedule-update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-schedule.schedule-update
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: schedule-delete
+      description: schedule-delete
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-schedule.schedule-delete
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: schedule-list
+      description: schedule-list
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-schedule.schedule-list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: schedule-one
+      description: schedule-one
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-schedule.schedule-one
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: schedule-runManually
+      description: schedule-runManually
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-schedule.schedule-runManually
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

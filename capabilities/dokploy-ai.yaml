@@ -1,0 +1,487 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — ai
+  description: 'Dokploy API — ai. 12 operations. Lead operation: ai.one. Self-contained Naftiko capability covering one Dokploy business surface.'
+  tags:
+  - Dokploy
+  - ai
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-ai
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — ai business capability. Self-contained, no shared references.
+    resources:
+    - name: one
+      path: /ai.one
+      operations:
+      - name: ai-one
+        method: GET
+        description: ai-one
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: getModels
+      path: /ai.getModels
+      operations:
+      - name: ai-getModels
+        method: GET
+        description: ai-getModels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: create
+      path: /ai.create
+      operations:
+      - name: ai-create
+        method: POST
+        description: ai-create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: update
+      path: /ai.update
+      operations:
+      - name: ai-update
+        method: POST
+        description: ai-update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: getAll
+      path: /ai.getAll
+      operations:
+      - name: ai-getAll
+        method: GET
+        description: ai-getAll
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: get
+      path: /ai.get
+      operations:
+      - name: ai-get
+        method: GET
+        description: ai-get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: delete
+      path: /ai.delete
+      operations:
+      - name: ai-delete
+        method: POST
+        description: ai-delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: getEnabledProviders
+      path: /ai.getEnabledProviders
+      operations:
+      - name: ai-getEnabledProviders
+        method: GET
+        description: ai-getEnabledProviders
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: analyzeLogs
+      path: /ai.analyzeLogs
+      operations:
+      - name: ai-analyzeLogs
+        method: POST
+        description: ai-analyzeLogs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: testConnection
+      path: /ai.testConnection
+      operations:
+      - name: ai-testConnection
+        method: POST
+        description: ai-testConnection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: suggest
+      path: /ai.suggest
+      operations:
+      - name: ai-suggest
+        method: POST
+        description: ai-suggest
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: deploy
+      path: /ai.deploy
+      operations:
+      - name: ai-deploy
+        method: POST
+        description: ai-deploy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+  exposes:
+  - type: rest
+    namespace: dokploy-ai-rest
+    port: 8080
+    description: REST adapter for Dokploy API — ai. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/ai.one
+      name: one
+      description: REST surface for one.
+      operations:
+      - method: GET
+        name: ai-one
+        description: ai-one
+        call: dokploy-ai.ai-one
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ai.getModels
+      name: getModels
+      description: REST surface for getModels.
+      operations:
+      - method: GET
+        name: ai-getModels
+        description: ai-getModels
+        call: dokploy-ai.ai-getModels
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ai.create
+      name: create
+      description: REST surface for create.
+      operations:
+      - method: POST
+        name: ai-create
+        description: ai-create
+        call: dokploy-ai.ai-create
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ai.update
+      name: update
+      description: REST surface for update.
+      operations:
+      - method: POST
+        name: ai-update
+        description: ai-update
+        call: dokploy-ai.ai-update
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ai.getAll
+      name: getAll
+      description: REST surface for getAll.
+      operations:
+      - method: GET
+        name: ai-getAll
+        description: ai-getAll
+        call: dokploy-ai.ai-getAll
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ai.get
+      name: get
+      description: REST surface for get.
+      operations:
+      - method: GET
+        name: ai-get
+        description: ai-get
+        call: dokploy-ai.ai-get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ai.delete
+      name: delete
+      description: REST surface for delete.
+      operations:
+      - method: POST
+        name: ai-delete
+        description: ai-delete
+        call: dokploy-ai.ai-delete
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ai.getEnabledProviders
+      name: getEnabledProviders
+      description: REST surface for getEnabledProviders.
+      operations:
+      - method: GET
+        name: ai-getEnabledProviders
+        description: ai-getEnabledProviders
+        call: dokploy-ai.ai-getEnabledProviders
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ai.analyzeLogs
+      name: analyzeLogs
+      description: REST surface for analyzeLogs.
+      operations:
+      - method: POST
+        name: ai-analyzeLogs
+        description: ai-analyzeLogs
+        call: dokploy-ai.ai-analyzeLogs
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ai.testConnection
+      name: testConnection
+      description: REST surface for testConnection.
+      operations:
+      - method: POST
+        name: ai-testConnection
+        description: ai-testConnection
+        call: dokploy-ai.ai-testConnection
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ai.suggest
+      name: suggest
+      description: REST surface for suggest.
+      operations:
+      - method: POST
+        name: ai-suggest
+        description: ai-suggest
+        call: dokploy-ai.ai-suggest
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ai.deploy
+      name: deploy
+      description: REST surface for deploy.
+      operations:
+      - method: POST
+        name: ai-deploy
+        description: ai-deploy
+        call: dokploy-ai.ai-deploy
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-ai-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — ai. One tool per consumed operation, routed inline through this capability’s consumes block.
+    tools:
+    - name: ai-one
+      description: ai-one
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-ai.ai-one
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ai-getModels
+      description: ai-getModels
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-ai.ai-getModels
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ai-create
+      description: ai-create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-ai.ai-create
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ai-update
+      description: ai-update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-ai.ai-update
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ai-getAll
+      description: ai-getAll
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-ai.ai-getAll
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ai-get
+      description: ai-get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-ai.ai-get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ai-delete
+      description: ai-delete
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-ai.ai-delete
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ai-getEnabledProviders
+      description: ai-getEnabledProviders
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-ai.ai-getEnabledProviders
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ai-analyzeLogs
+      description: ai-analyzeLogs
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-ai.ai-analyzeLogs
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ai-testConnection
+      description: ai-testConnection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-ai.ai-testConnection
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ai-suggest
+      description: ai-suggest
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-ai.ai-suggest
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ai-deploy
+      description: ai-deploy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-ai.ai-deploy
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

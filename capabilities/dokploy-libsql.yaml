@@ -1,0 +1,602 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — libsql
+  description: 'Dokploy API — libsql. 14 operations. Lead operation: libsql.create. Self-contained Naftiko capability covering one Dokploy business
+    surface.'
+  tags:
+  - Dokploy
+  - libsql
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-libsql
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — libsql business capability. Self-contained, no shared references.
+    resources:
+    - name: create
+      path: /libsql.create
+      operations:
+      - name: libsql-create
+        method: POST
+        description: libsql-create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: one
+      path: /libsql.one
+      operations:
+      - name: libsql-one
+        method: GET
+        description: libsql-one
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: start
+      path: /libsql.start
+      operations:
+      - name: libsql-start
+        method: POST
+        description: libsql-start
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: stop
+      path: /libsql.stop
+      operations:
+      - name: libsql-stop
+        method: POST
+        description: libsql-stop
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: saveExternalPorts
+      path: /libsql.saveExternalPorts
+      operations:
+      - name: libsql-saveExternalPorts
+        method: POST
+        description: libsql-saveExternalPorts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: deploy
+      path: /libsql.deploy
+      operations:
+      - name: libsql-deploy
+        method: POST
+        description: libsql-deploy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: changeStatus
+      path: /libsql.changeStatus
+      operations:
+      - name: libsql-changeStatus
+        method: POST
+        description: libsql-changeStatus
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: remove
+      path: /libsql.remove
+      operations:
+      - name: libsql-remove
+        method: POST
+        description: libsql-remove
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: saveEnvironment
+      path: /libsql.saveEnvironment
+      operations:
+      - name: libsql-saveEnvironment
+        method: POST
+        description: libsql-saveEnvironment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: reload
+      path: /libsql.reload
+      operations:
+      - name: libsql-reload
+        method: POST
+        description: libsql-reload
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: update
+      path: /libsql.update
+      operations:
+      - name: libsql-update
+        method: POST
+        description: libsql-update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: move
+      path: /libsql.move
+      operations:
+      - name: libsql-move
+        method: POST
+        description: libsql-move
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: rebuild
+      path: /libsql.rebuild
+      operations:
+      - name: libsql-rebuild
+        method: POST
+        description: libsql-rebuild
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: readLogs
+      path: /libsql.readLogs
+      operations:
+      - name: libsql-readLogs
+        method: GET
+        description: libsql-readLogs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: dokploy-libsql-rest
+    port: 8080
+    description: REST adapter for Dokploy API — libsql. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/libsql.create
+      name: create
+      description: REST surface for create.
+      operations:
+      - method: POST
+        name: libsql-create
+        description: libsql-create
+        call: dokploy-libsql.libsql-create
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/libsql.one
+      name: one
+      description: REST surface for one.
+      operations:
+      - method: GET
+        name: libsql-one
+        description: libsql-one
+        call: dokploy-libsql.libsql-one
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/libsql.start
+      name: start
+      description: REST surface for start.
+      operations:
+      - method: POST
+        name: libsql-start
+        description: libsql-start
+        call: dokploy-libsql.libsql-start
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/libsql.stop
+      name: stop
+      description: REST surface for stop.
+      operations:
+      - method: POST
+        name: libsql-stop
+        description: libsql-stop
+        call: dokploy-libsql.libsql-stop
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/libsql.saveExternalPorts
+      name: saveExternalPorts
+      description: REST surface for saveExternalPorts.
+      operations:
+      - method: POST
+        name: libsql-saveExternalPorts
+        description: libsql-saveExternalPorts
+        call: dokploy-libsql.libsql-saveExternalPorts
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/libsql.deploy
+      name: deploy
+      description: REST surface for deploy.
+      operations:
+      - method: POST
+        name: libsql-deploy
+        description: libsql-deploy
+        call: dokploy-libsql.libsql-deploy
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/libsql.changeStatus
+      name: changeStatus
+      description: REST surface for changeStatus.
+      operations:
+      - method: POST
+        name: libsql-changeStatus
+        description: libsql-changeStatus
+        call: dokploy-libsql.libsql-changeStatus
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/libsql.remove
+      name: remove
+      description: REST surface for remove.
+      operations:
+      - method: POST
+        name: libsql-remove
+        description: libsql-remove
+        call: dokploy-libsql.libsql-remove
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/libsql.saveEnvironment
+      name: saveEnvironment
+      description: REST surface for saveEnvironment.
+      operations:
+      - method: POST
+        name: libsql-saveEnvironment
+        description: libsql-saveEnvironment
+        call: dokploy-libsql.libsql-saveEnvironment
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/libsql.reload
+      name: reload
+      description: REST surface for reload.
+      operations:
+      - method: POST
+        name: libsql-reload
+        description: libsql-reload
+        call: dokploy-libsql.libsql-reload
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/libsql.update
+      name: update
+      description: REST surface for update.
+      operations:
+      - method: POST
+        name: libsql-update
+        description: libsql-update
+        call: dokploy-libsql.libsql-update
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/libsql.move
+      name: move
+      description: REST surface for move.
+      operations:
+      - method: POST
+        name: libsql-move
+        description: libsql-move
+        call: dokploy-libsql.libsql-move
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/libsql.rebuild
+      name: rebuild
+      description: REST surface for rebuild.
+      operations:
+      - method: POST
+        name: libsql-rebuild
+        description: libsql-rebuild
+        call: dokploy-libsql.libsql-rebuild
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/libsql.readLogs
+      name: readLogs
+      description: REST surface for readLogs.
+      operations:
+      - method: GET
+        name: libsql-readLogs
+        description: libsql-readLogs
+        call: dokploy-libsql.libsql-readLogs
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-libsql-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — libsql. One tool per consumed operation, routed inline through this capability’s consumes block.
+    tools:
+    - name: libsql-create
+      description: libsql-create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-libsql.libsql-create
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: libsql-one
+      description: libsql-one
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-libsql.libsql-one
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: libsql-start
+      description: libsql-start
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-libsql.libsql-start
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: libsql-stop
+      description: libsql-stop
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-libsql.libsql-stop
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: libsql-saveExternalPorts
+      description: libsql-saveExternalPorts
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-libsql.libsql-saveExternalPorts
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: libsql-deploy
+      description: libsql-deploy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-libsql.libsql-deploy
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: libsql-changeStatus
+      description: libsql-changeStatus
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-libsql.libsql-changeStatus
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: libsql-remove
+      description: libsql-remove
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-libsql.libsql-remove
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: libsql-saveEnvironment
+      description: libsql-saveEnvironment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-libsql.libsql-saveEnvironment
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: libsql-reload
+      description: libsql-reload
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-libsql.libsql-reload
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: libsql-update
+      description: libsql-update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-libsql.libsql-update
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: libsql-move
+      description: libsql-move
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-libsql.libsql-move
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: libsql-rebuild
+      description: libsql-rebuild
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-libsql.libsql-rebuild
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: libsql-readLogs
+      description: libsql-readLogs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-libsql.libsql-readLogs
+      outputParameters:
+      - type: object
+        mapping: $.

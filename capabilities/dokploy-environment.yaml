@@ -1,0 +1,299 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — environment
+  description: 'Dokploy API — environment. 7 operations. Lead operation: environment.create. Self-contained Naftiko capability covering one Dokploy
+    business surface.'
+  tags:
+  - Dokploy
+  - environment
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-environment
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — environment business capability. Self-contained, no shared references.
+    resources:
+    - name: create
+      path: /environment.create
+      operations:
+      - name: environment-create
+        method: POST
+        description: environment-create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: one
+      path: /environment.one
+      operations:
+      - name: environment-one
+        method: GET
+        description: environment-one
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: byProjectId
+      path: /environment.byProjectId
+      operations:
+      - name: environment-byProjectId
+        method: GET
+        description: environment-byProjectId
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: remove
+      path: /environment.remove
+      operations:
+      - name: environment-remove
+        method: POST
+        description: environment-remove
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: update
+      path: /environment.update
+      operations:
+      - name: environment-update
+        method: POST
+        description: environment-update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: duplicate
+      path: /environment.duplicate
+      operations:
+      - name: environment-duplicate
+        method: POST
+        description: environment-duplicate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: search
+      path: /environment.search
+      operations:
+      - name: environment-search
+        method: GET
+        description: environment-search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: dokploy-environment-rest
+    port: 8080
+    description: REST adapter for Dokploy API — environment. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/environment.create
+      name: create
+      description: REST surface for create.
+      operations:
+      - method: POST
+        name: environment-create
+        description: environment-create
+        call: dokploy-environment.environment-create
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/environment.one
+      name: one
+      description: REST surface for one.
+      operations:
+      - method: GET
+        name: environment-one
+        description: environment-one
+        call: dokploy-environment.environment-one
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/environment.byProjectId
+      name: byProjectId
+      description: REST surface for byProjectId.
+      operations:
+      - method: GET
+        name: environment-byProjectId
+        description: environment-byProjectId
+        call: dokploy-environment.environment-byProjectId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/environment.remove
+      name: remove
+      description: REST surface for remove.
+      operations:
+      - method: POST
+        name: environment-remove
+        description: environment-remove
+        call: dokploy-environment.environment-remove
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/environment.update
+      name: update
+      description: REST surface for update.
+      operations:
+      - method: POST
+        name: environment-update
+        description: environment-update
+        call: dokploy-environment.environment-update
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/environment.duplicate
+      name: duplicate
+      description: REST surface for duplicate.
+      operations:
+      - method: POST
+        name: environment-duplicate
+        description: environment-duplicate
+        call: dokploy-environment.environment-duplicate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/environment.search
+      name: search
+      description: REST surface for search.
+      operations:
+      - method: GET
+        name: environment-search
+        description: environment-search
+        call: dokploy-environment.environment-search
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-environment-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — environment. One tool per consumed operation, routed inline through this capability’s consumes
+      block.
+    tools:
+    - name: environment-create
+      description: environment-create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-environment.environment-create
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: environment-one
+      description: environment-one
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-environment.environment-one
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: environment-byProjectId
+      description: environment-byProjectId
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-environment.environment-byProjectId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: environment-remove
+      description: environment-remove
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-environment.environment-remove
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: environment-update
+      description: environment-update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-environment.environment-update
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: environment-duplicate
+      description: environment-duplicate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-environment.environment-duplicate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: environment-search
+      description: environment-search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-environment.environment-search
+      outputParameters:
+      - type: object
+        mapping: $.

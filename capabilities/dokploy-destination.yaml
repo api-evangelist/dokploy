@@ -1,0 +1,267 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — destination
+  description: 'Dokploy API — destination. 6 operations. Lead operation: destination.create. Self-contained Naftiko capability covering one Dokploy
+    business surface.'
+  tags:
+  - Dokploy
+  - destination
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-destination
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — destination business capability. Self-contained, no shared references.
+    resources:
+    - name: create
+      path: /destination.create
+      operations:
+      - name: destination-create
+        method: POST
+        description: destination-create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: testConnection
+      path: /destination.testConnection
+      operations:
+      - name: destination-testConnection
+        method: POST
+        description: destination-testConnection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: one
+      path: /destination.one
+      operations:
+      - name: destination-one
+        method: GET
+        description: destination-one
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: all
+      path: /destination.all
+      operations:
+      - name: destination-all
+        method: GET
+        description: destination-all
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: remove
+      path: /destination.remove
+      operations:
+      - name: destination-remove
+        method: POST
+        description: destination-remove
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: update
+      path: /destination.update
+      operations:
+      - name: destination-update
+        method: POST
+        description: destination-update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+  exposes:
+  - type: rest
+    namespace: dokploy-destination-rest
+    port: 8080
+    description: REST adapter for Dokploy API — destination. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/destination.create
+      name: create
+      description: REST surface for create.
+      operations:
+      - method: POST
+        name: destination-create
+        description: destination-create
+        call: dokploy-destination.destination-create
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/destination.testConnection
+      name: testConnection
+      description: REST surface for testConnection.
+      operations:
+      - method: POST
+        name: destination-testConnection
+        description: destination-testConnection
+        call: dokploy-destination.destination-testConnection
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/destination.one
+      name: one
+      description: REST surface for one.
+      operations:
+      - method: GET
+        name: destination-one
+        description: destination-one
+        call: dokploy-destination.destination-one
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/destination.all
+      name: all
+      description: REST surface for all.
+      operations:
+      - method: GET
+        name: destination-all
+        description: destination-all
+        call: dokploy-destination.destination-all
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/destination.remove
+      name: remove
+      description: REST surface for remove.
+      operations:
+      - method: POST
+        name: destination-remove
+        description: destination-remove
+        call: dokploy-destination.destination-remove
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/destination.update
+      name: update
+      description: REST surface for update.
+      operations:
+      - method: POST
+        name: destination-update
+        description: destination-update
+        call: dokploy-destination.destination-update
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-destination-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — destination. One tool per consumed operation, routed inline through this capability’s consumes
+      block.
+    tools:
+    - name: destination-create
+      description: destination-create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-destination.destination-create
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: destination-testConnection
+      description: destination-testConnection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-destination.destination-testConnection
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: destination-one
+      description: destination-one
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-destination.destination-one
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: destination-all
+      description: destination-all
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-destination.destination-all
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: destination-remove
+      description: destination-remove
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-destination.destination-remove
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: destination-update
+      description: destination-update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-destination.destination-update
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,183 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — previewDeployment
+  description: 'Dokploy API — previewDeployment. 4 operations. Lead operation: previewDeployment.all. Self-contained Naftiko capability covering
+    one Dokploy business surface.'
+  tags:
+  - Dokploy
+  - previewDeployment
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-preview-deployment
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — previewDeployment business capability. Self-contained, no shared references.
+    resources:
+    - name: all
+      path: /previewDeployment.all
+      operations:
+      - name: previewDeployment-all
+        method: GET
+        description: previewDeployment-all
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: one
+      path: /previewDeployment.one
+      operations:
+      - name: previewDeployment-one
+        method: GET
+        description: previewDeployment-one
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: delete
+      path: /previewDeployment.delete
+      operations:
+      - name: previewDeployment-delete
+        method: POST
+        description: previewDeployment-delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: redeploy
+      path: /previewDeployment.redeploy
+      operations:
+      - name: previewDeployment-redeploy
+        method: POST
+        description: previewDeployment-redeploy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+  exposes:
+  - type: rest
+    namespace: dokploy-preview-deployment-rest
+    port: 8080
+    description: REST adapter for Dokploy API — previewDeployment. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/previewDeployment.all
+      name: all
+      description: REST surface for all.
+      operations:
+      - method: GET
+        name: previewDeployment-all
+        description: previewDeployment-all
+        call: dokploy-preview-deployment.previewDeployment-all
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/previewDeployment.one
+      name: one
+      description: REST surface for one.
+      operations:
+      - method: GET
+        name: previewDeployment-one
+        description: previewDeployment-one
+        call: dokploy-preview-deployment.previewDeployment-one
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/previewDeployment.delete
+      name: delete
+      description: REST surface for delete.
+      operations:
+      - method: POST
+        name: previewDeployment-delete
+        description: previewDeployment-delete
+        call: dokploy-preview-deployment.previewDeployment-delete
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/previewDeployment.redeploy
+      name: redeploy
+      description: REST surface for redeploy.
+      operations:
+      - method: POST
+        name: previewDeployment-redeploy
+        description: previewDeployment-redeploy
+        call: dokploy-preview-deployment.previewDeployment-redeploy
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-preview-deployment-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — previewDeployment. One tool per consumed operation, routed inline through this capability’s consumes
+      block.
+    tools:
+    - name: previewDeployment-all
+      description: previewDeployment-all
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-preview-deployment.previewDeployment-all
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: previewDeployment-one
+      description: previewDeployment-one
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-preview-deployment.previewDeployment-one
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: previewDeployment-delete
+      description: previewDeployment-delete
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-preview-deployment.previewDeployment-delete
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: previewDeployment-redeploy
+      description: previewDeployment-redeploy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-preview-deployment.previewDeployment-redeploy
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,414 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — sso
+  description: 'Dokploy API — sso. 10 operations. Lead operation: sso.showSignInWithSSO. Self-contained Naftiko capability covering one Dokploy
+    business surface.'
+  tags:
+  - Dokploy
+  - sso
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-sso
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — sso business capability. Self-contained, no shared references.
+    resources:
+    - name: showSignInWithSSO
+      path: /sso.showSignInWithSSO
+      operations:
+      - name: sso-showSignInWithSSO
+        method: GET
+        description: sso-showSignInWithSSO
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: listProviders
+      path: /sso.listProviders
+      operations:
+      - name: sso-listProviders
+        method: GET
+        description: sso-listProviders
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: getTrustedOrigins
+      path: /sso.getTrustedOrigins
+      operations:
+      - name: sso-getTrustedOrigins
+        method: GET
+        description: sso-getTrustedOrigins
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: one
+      path: /sso.one
+      operations:
+      - name: sso-one
+        method: GET
+        description: sso-one
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: update
+      path: /sso.update
+      operations:
+      - name: sso-update
+        method: POST
+        description: sso-update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: deleteProvider
+      path: /sso.deleteProvider
+      operations:
+      - name: sso-deleteProvider
+        method: POST
+        description: sso-deleteProvider
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: register
+      path: /sso.register
+      operations:
+      - name: sso-register
+        method: POST
+        description: sso-register
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: addTrustedOrigin
+      path: /sso.addTrustedOrigin
+      operations:
+      - name: sso-addTrustedOrigin
+        method: POST
+        description: sso-addTrustedOrigin
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: removeTrustedOrigin
+      path: /sso.removeTrustedOrigin
+      operations:
+      - name: sso-removeTrustedOrigin
+        method: POST
+        description: sso-removeTrustedOrigin
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: updateTrustedOrigin
+      path: /sso.updateTrustedOrigin
+      operations:
+      - name: sso-updateTrustedOrigin
+        method: POST
+        description: sso-updateTrustedOrigin
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+  exposes:
+  - type: rest
+    namespace: dokploy-sso-rest
+    port: 8080
+    description: REST adapter for Dokploy API — sso. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/sso.showSignInWithSSO
+      name: showSignInWithSSO
+      description: REST surface for showSignInWithSSO.
+      operations:
+      - method: GET
+        name: sso-showSignInWithSSO
+        description: sso-showSignInWithSSO
+        call: dokploy-sso.sso-showSignInWithSSO
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sso.listProviders
+      name: listProviders
+      description: REST surface for listProviders.
+      operations:
+      - method: GET
+        name: sso-listProviders
+        description: sso-listProviders
+        call: dokploy-sso.sso-listProviders
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sso.getTrustedOrigins
+      name: getTrustedOrigins
+      description: REST surface for getTrustedOrigins.
+      operations:
+      - method: GET
+        name: sso-getTrustedOrigins
+        description: sso-getTrustedOrigins
+        call: dokploy-sso.sso-getTrustedOrigins
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sso.one
+      name: one
+      description: REST surface for one.
+      operations:
+      - method: GET
+        name: sso-one
+        description: sso-one
+        call: dokploy-sso.sso-one
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sso.update
+      name: update
+      description: REST surface for update.
+      operations:
+      - method: POST
+        name: sso-update
+        description: sso-update
+        call: dokploy-sso.sso-update
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sso.deleteProvider
+      name: deleteProvider
+      description: REST surface for deleteProvider.
+      operations:
+      - method: POST
+        name: sso-deleteProvider
+        description: sso-deleteProvider
+        call: dokploy-sso.sso-deleteProvider
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sso.register
+      name: register
+      description: REST surface for register.
+      operations:
+      - method: POST
+        name: sso-register
+        description: sso-register
+        call: dokploy-sso.sso-register
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sso.addTrustedOrigin
+      name: addTrustedOrigin
+      description: REST surface for addTrustedOrigin.
+      operations:
+      - method: POST
+        name: sso-addTrustedOrigin
+        description: sso-addTrustedOrigin
+        call: dokploy-sso.sso-addTrustedOrigin
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sso.removeTrustedOrigin
+      name: removeTrustedOrigin
+      description: REST surface for removeTrustedOrigin.
+      operations:
+      - method: POST
+        name: sso-removeTrustedOrigin
+        description: sso-removeTrustedOrigin
+        call: dokploy-sso.sso-removeTrustedOrigin
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sso.updateTrustedOrigin
+      name: updateTrustedOrigin
+      description: REST surface for updateTrustedOrigin.
+      operations:
+      - method: POST
+        name: sso-updateTrustedOrigin
+        description: sso-updateTrustedOrigin
+        call: dokploy-sso.sso-updateTrustedOrigin
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-sso-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — sso. One tool per consumed operation, routed inline through this capability’s consumes block.
+    tools:
+    - name: sso-showSignInWithSSO
+      description: sso-showSignInWithSSO
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-sso.sso-showSignInWithSSO
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sso-listProviders
+      description: sso-listProviders
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-sso.sso-listProviders
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sso-getTrustedOrigins
+      description: sso-getTrustedOrigins
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-sso.sso-getTrustedOrigins
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sso-one
+      description: sso-one
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-sso.sso-one
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sso-update
+      description: sso-update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-sso.sso-update
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sso-deleteProvider
+      description: sso-deleteProvider
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-sso.sso-deleteProvider
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sso-register
+      description: sso-register
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-sso.sso-register
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sso-addTrustedOrigin
+      description: sso-addTrustedOrigin
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-sso.sso-addTrustedOrigin
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sso-removeTrustedOrigin
+      description: sso-removeTrustedOrigin
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-sso.sso-removeTrustedOrigin
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sso-updateTrustedOrigin
+      description: sso-updateTrustedOrigin
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-sso.sso-updateTrustedOrigin
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

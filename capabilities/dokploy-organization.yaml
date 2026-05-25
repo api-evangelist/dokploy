@@ -1,0 +1,457 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Dokploy API — organization
+  description: 'Dokploy API — organization. 11 operations. Lead operation: organization.create. Self-contained Naftiko capability covering one
+    Dokploy business surface.'
+  tags:
+  - Dokploy
+  - organization
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    DOKPLOY_API_KEY: DOKPLOY_API_KEY
+    DOKPLOY_URL: DOKPLOY_URL
+capability:
+  consumes:
+  - type: http
+    namespace: dokploy-organization
+    baseUri: ${DOKPLOY_URL}/api
+    description: Dokploy API — organization business capability. Self-contained, no shared references.
+    resources:
+    - name: create
+      path: /organization.create
+      operations:
+      - name: organization-create
+        method: POST
+        description: organization-create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: all
+      path: /organization.all
+      operations:
+      - name: organization-all
+        method: GET
+        description: organization-all
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: one
+      path: /organization.one
+      operations:
+      - name: organization-one
+        method: GET
+        description: organization-one
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: update
+      path: /organization.update
+      operations:
+      - name: organization-update
+        method: POST
+        description: organization-update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: delete
+      path: /organization.delete
+      operations:
+      - name: organization-delete
+        method: POST
+        description: organization-delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: inviteMember
+      path: /organization.inviteMember
+      operations:
+      - name: organization-inviteMember
+        method: POST
+        description: organization-inviteMember
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: allInvitations
+      path: /organization.allInvitations
+      operations:
+      - name: organization-allInvitations
+        method: GET
+        description: organization-allInvitations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: removeInvitation
+      path: /organization.removeInvitation
+      operations:
+      - name: organization-removeInvitation
+        method: POST
+        description: organization-removeInvitation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: updateMemberRole
+      path: /organization.updateMemberRole
+      operations:
+      - name: organization-updateMemberRole
+        method: POST
+        description: organization-updateMemberRole
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: setDefault
+      path: /organization.setDefault
+      operations:
+      - name: organization-setDefault
+        method: POST
+        description: organization-setDefault
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body
+          required: true
+    - name: active
+      path: /organization.active
+      operations:
+      - name: organization-active
+        method: GET
+        description: organization-active
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: dokploy-organization-rest
+    port: 8080
+    description: REST adapter for Dokploy API — organization. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/organization.create
+      name: create
+      description: REST surface for create.
+      operations:
+      - method: POST
+        name: organization-create
+        description: organization-create
+        call: dokploy-organization.organization-create
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/organization.all
+      name: all
+      description: REST surface for all.
+      operations:
+      - method: GET
+        name: organization-all
+        description: organization-all
+        call: dokploy-organization.organization-all
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/organization.one
+      name: one
+      description: REST surface for one.
+      operations:
+      - method: GET
+        name: organization-one
+        description: organization-one
+        call: dokploy-organization.organization-one
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/organization.update
+      name: update
+      description: REST surface for update.
+      operations:
+      - method: POST
+        name: organization-update
+        description: organization-update
+        call: dokploy-organization.organization-update
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/organization.delete
+      name: delete
+      description: REST surface for delete.
+      operations:
+      - method: POST
+        name: organization-delete
+        description: organization-delete
+        call: dokploy-organization.organization-delete
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/organization.inviteMember
+      name: inviteMember
+      description: REST surface for inviteMember.
+      operations:
+      - method: POST
+        name: organization-inviteMember
+        description: organization-inviteMember
+        call: dokploy-organization.organization-inviteMember
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/organization.allInvitations
+      name: allInvitations
+      description: REST surface for allInvitations.
+      operations:
+      - method: GET
+        name: organization-allInvitations
+        description: organization-allInvitations
+        call: dokploy-organization.organization-allInvitations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/organization.removeInvitation
+      name: removeInvitation
+      description: REST surface for removeInvitation.
+      operations:
+      - method: POST
+        name: organization-removeInvitation
+        description: organization-removeInvitation
+        call: dokploy-organization.organization-removeInvitation
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/organization.updateMemberRole
+      name: updateMemberRole
+      description: REST surface for updateMemberRole.
+      operations:
+      - method: POST
+        name: organization-updateMemberRole
+        description: organization-updateMemberRole
+        call: dokploy-organization.organization-updateMemberRole
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/organization.setDefault
+      name: setDefault
+      description: REST surface for setDefault.
+      operations:
+      - method: POST
+        name: organization-setDefault
+        description: organization-setDefault
+        call: dokploy-organization.organization-setDefault
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/organization.active
+      name: active
+      description: REST surface for active.
+      operations:
+      - method: GET
+        name: organization-active
+        description: organization-active
+        call: dokploy-organization.organization-active
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dokploy-organization-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Dokploy API — organization. One tool per consumed operation, routed inline through this capability’s consumes
+      block.
+    tools:
+    - name: organization-create
+      description: organization-create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-organization.organization-create
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: organization-all
+      description: organization-all
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-organization.organization-all
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: organization-one
+      description: organization-one
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-organization.organization-one
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: organization-update
+      description: organization-update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-organization.organization-update
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: organization-delete
+      description: organization-delete
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-organization.organization-delete
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: organization-inviteMember
+      description: organization-inviteMember
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-organization.organization-inviteMember
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: organization-allInvitations
+      description: organization-allInvitations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-organization.organization-allInvitations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: organization-removeInvitation
+      description: organization-removeInvitation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-organization.organization-removeInvitation
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: organization-updateMemberRole
+      description: organization-updateMemberRole
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-organization.organization-updateMemberRole
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: organization-setDefault
+      description: organization-setDefault
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dokploy-organization.organization-setDefault
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: organization-active
+      description: organization-active
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dokploy-organization.organization-active
+      outputParameters:
+      - type: object
+        mapping: $.
