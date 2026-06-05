@@ -2,7 +2,7 @@
 
 Dokploy is an open-source, self-hostable Platform-as-a-Service (PaaS) — an alternative to Heroku, Vercel, and Netlify — that deploys applications, Docker Compose stacks, and managed databases across one or many servers using Docker and Docker Swarm, with Traefik handling routing and TLS.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/dokploy/refs/heads/main/apis.yml)
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/dokploy/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/dokploy/refs/heads/main/apis.yml)
 
 ## Scope
 
@@ -30,11 +30,8 @@ Dokploy is an open-source, self-hostable Platform-as-a-Service (PaaS) — an alt
 
 The Dokploy HTTP API exposes every operation the Dokploy UI can perform — projects, applications, Docker Compose services, managed databases (Postgres, MySQL, MariaDB, MongoDB, Redis, LibSQL), domains, certificates, registries, Git providers (GitHub, GitLab, Gitea, Bitbucket), servers, Docker Swarm clusters, backups, schedules, notifications, audit logs, SSO, custom roles, white-labeling, and Stripe billing — across 526 endpoints generated from the project's canonical OpenAPI 3.1 specification.
 
-**Human URL:** [https://dokploy.com/](https://dokploy.com/)
-
-**Base URL:** `https://your-dokploy-instance.com/api`
-
-Authentication is via an `x-api-key` header generated from **Settings > API Keys** in the Dokploy dashboard.
+- **Human URL:** [https://dokploy.com/](https://dokploy.com/)
+- **Base URL:** `https://your-dokploy-instance.com/api`
 
 #### Tags
 
@@ -52,33 +49,29 @@ Authentication is via an `x-api-key` header generated from **Settings > API Keys
 #### Properties
 
 - [Documentation](https://docs.dokploy.com/)
-- [APIReference](https://github.com/Dokploy/sdk/blob/main/openapi.json)
-- [GettingStarted](https://docs.dokploy.com/docs/core)
-- [OpenAPI](openapi/dokploy-openapi.yml)
-- [SDK](https://github.com/Dokploy/sdk) — `@dokploy/sdk` (TypeScript), auto-generated from the canonical OpenAPI spec.
-- [CLI](https://github.com/Dokploy/cli) — `@dokploy/cli`, 449 commands covering every API endpoint.
-- [MCP](https://github.com/Dokploy/mcp) — `@dokploy/mcp`, 508 tools across 49 categories, with read-only / destructive / idempotent semantic hints.
+- [API Reference](https://github.com/Dokploy/sdk/blob/main/openapi.json)
+- [Getting Started](https://docs.dokploy.com/docs/core)
+- [OpenAPI](openapi/dokploy-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/dokploy.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/dokploy.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [SDK](https://github.com/Dokploy/sdk)
+- [C L I](https://github.com/Dokploy/cli)
+- [M C P](https://github.com/Dokploy/mcp)
 - [Plans](plans/dokploy-plans-pricing.yml)
-- [RateLimits](rate-limits/dokploy-rate-limits.yml)
-- [FinOps](finops/dokploy-finops.yml)
-
-#### Naftiko Capabilities
-
-Each Dokploy business surface is profiled as a self-contained Naftiko 1.0.0-alpha2 capability with `consumes` (HTTP client), `exposes.rest` (REST adapter under `/v1`), and `exposes.mcp` (one tool per operation, with read-only / destructive / idempotent hints).
-
-48 capabilities cover the full surface: admin, ai, application, audit-log, backup, bitbucket, certificates, cluster, compose, custom-role, deployment, destination, docker, domain, environment, git-provider, gitea, github, gitlab, libsql, license-key, mariadb, mongo, mounts, mysql, notification, organization, patch, port, postgres, preview-deployment, project, redirects, redis, registry, rollback, schedule, security, server, settings, ssh-key, sso, stripe, swarm, tag, user, volume-backups, whitelabeling.
+- [Rate Limits](rate-limits/dokploy-rate-limits.yml)
+- [Fin Ops](finops/dokploy-finops.yml)
 
 ## Common Properties
 
 - [Website](https://dokploy.com/)
 - [Documentation](https://docs.dokploy.com/)
-- [APIReference](https://github.com/Dokploy/sdk/blob/main/openapi.json)
+- [API Reference](https://github.com/Dokploy/sdk/blob/main/openapi.json)
 - [Pricing](https://dokploy.com/pricing)
-- [GitHubOrg](https://github.com/Dokploy)
-- [GitHubRepository](https://github.com/Dokploy/dokploy)
+- [Git Hub Org](https://github.com/Dokploy)
+- [GitHub Repository](https://github.com/Dokploy/dokploy)
 - [SDK](https://github.com/Dokploy/sdk)
-- [CLI](https://github.com/Dokploy/cli)
-- [MCP](https://github.com/Dokploy/mcp)
+- [C L I](https://github.com/Dokploy/cli)
+- [M C P](https://github.com/Dokploy/mcp)
 - [Templates](https://github.com/Dokploy/templates)
 - [Examples](https://github.com/Dokploy/examples)
 - [Discord](https://discord.gg/2tBnJ3jDJc)
@@ -86,4 +79,5 @@ Each Dokploy business surface is profiled as a self-contained Naftiko 1.0.0-alph
 
 ## Maintainers
 
-- **Kin Lane** - kin@apievangelist.com
+**FN:** Kin Lane
+**Email:** kin@apievangelist.com
