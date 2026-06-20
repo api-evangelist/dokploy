@@ -5,7 +5,7 @@ description: >-
   — that deploys applications, Docker Compose stacks, and managed databases across one or many servers using Docker and
   Docker Swarm, with Traefik handling routing and TLS.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - PaaS
   - Self-Hosted
