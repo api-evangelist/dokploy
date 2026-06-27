@@ -50,7 +50,7 @@ apis:
         url: https://docs.dokploy.com/docs/core
       - type: OpenAPI
         url: openapi/dokploy-openapi.yml
-      - type: SDK
+      - type: SDKs
         url: https://github.com/Dokploy/sdk
       - type: CLI
         url: https://github.com/Dokploy/cli
@@ -75,7 +75,7 @@ common:
     url: https://github.com/Dokploy
   - type: GitHubRepository
     url: https://github.com/Dokploy/dokploy
-  - type: SDK
+  - type: SDKs
     url: https://github.com/Dokploy/sdk
   - type: CLI
     url: https://github.com/Dokploy/cli
