@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/dokploy-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apiKey
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  description: API key authentication. Generate an API key from your Dokploy dashboard under
+    Settings > API Keys.
+  sources:
+  - openapi/dokploy-openapi.yml

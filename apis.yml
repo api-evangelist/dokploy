@@ -63,6 +63,10 @@ apis:
       - type: FinOps
         url: finops/dokploy-finops.yml
 common:
+  - type: DomainSecurity
+    url: security/dokploy-domain-security.yml
+  - type: Authentication
+    url: authentication/dokploy-authentication.yml
   - type: Website
     url: https://dokploy.com/
   - type: Documentation
@@ -89,6 +93,8 @@ common:
     url: https://discord.gg/2tBnJ3jDJc
   - type: License
     url: https://github.com/Dokploy/dokploy/blob/canary/LICENSE.MD
+  - url: https://dokploy.com/rss.xml
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
