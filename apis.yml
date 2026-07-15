@@ -63,6 +63,8 @@ apis:
       - type: FinOps
         url: finops/dokploy-finops.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/dokploy-agentic-access.yml
   - type: DomainSecurity
     url: security/dokploy-domain-security.yml
   - type: Authentication
