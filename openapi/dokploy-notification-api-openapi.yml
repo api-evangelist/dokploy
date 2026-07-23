@@ -1,0 +1,3267 @@
+openapi: 3.1.0
+info:
+  title: Dokploy admin notification API
+  description: Complete API documentation for Dokploy - Deploy applications, manage databases, and orchestrate your infrastructure. This API allows you to programmatically manage all aspects of your Dokploy instance.
+  version: 1.0.0
+  contact:
+    name: Dokploy Team
+    url: https://dokploy.com
+  license:
+    name: Apache 2.0
+    url: https://github.com/dokploy/dokploy/blob/canary/LICENSE
+servers:
+- url: https://your-dokploy-instance.com/api
+security:
+- apiKey: []
+tags:
+- name: notification
+paths:
+  /notification.createSlack:
+    post:
+      operationId: notification-createSlack
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverThreshold:
+                  type: boolean
+                webhookUrl:
+                  type: string
+                  minLength: 1
+                channel:
+                  type: string
+              required:
+              - appBuildError
+              - databaseBackup
+              - dokployBackup
+              - volumeBackup
+              - dokployRestart
+              - name
+              - appDeploy
+              - dockerCleanup
+              - serverThreshold
+              - webhookUrl
+              - channel
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.updateSlack:
+    post:
+      operationId: notification-updateSlack
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverThreshold:
+                  type: boolean
+                webhookUrl:
+                  type: string
+                  minLength: 1
+                channel:
+                  type: string
+                notificationId:
+                  type: string
+                  minLength: 1
+                slackId:
+                  type: string
+                organizationId:
+                  type: string
+              required:
+              - notificationId
+              - slackId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.testSlackConnection:
+    post:
+      operationId: notification-testSlackConnection
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                webhookUrl:
+                  type: string
+                  minLength: 1
+                channel:
+                  type: string
+              required:
+              - webhookUrl
+              - channel
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.createTelegram:
+    post:
+      operationId: notification-createTelegram
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverThreshold:
+                  type: boolean
+                botToken:
+                  type: string
+                  minLength: 1
+                chatId:
+                  type: string
+                  minLength: 1
+                messageThreadId:
+                  type: string
+              required:
+              - appBuildError
+              - databaseBackup
+              - dokployBackup
+              - volumeBackup
+              - dokployRestart
+              - name
+              - appDeploy
+              - dockerCleanup
+              - serverThreshold
+              - botToken
+              - chatId
+              - messageThreadId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.updateTelegram:
+    post:
+      operationId: notification-updateTelegram
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverThreshold:
+                  type: boolean
+                botToken:
+                  type: string
+                  minLength: 1
+                chatId:
+                  type: string
+                  minLength: 1
+                messageThreadId:
+                  type: string
+                notificationId:
+                  type: string
+                  minLength: 1
+                telegramId:
+                  type: string
+                  minLength: 1
+                organizationId:
+                  type: string
+              required:
+              - notificationId
+              - telegramId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.testTelegramConnection:
+    post:
+      operationId: notification-testTelegramConnection
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                botToken:
+                  type: string
+                  minLength: 1
+                chatId:
+                  type: string
+                  minLength: 1
+                messageThreadId:
+                  type: string
+              required:
+              - botToken
+              - chatId
+              - messageThreadId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.createDiscord:
+    post:
+      operationId: notification-createDiscord
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverThreshold:
+                  type: boolean
+                webhookUrl:
+                  type: string
+                  minLength: 1
+                decoration:
+                  type: boolean
+              required:
+              - appBuildError
+              - databaseBackup
+              - dokployBackup
+              - volumeBackup
+              - dokployRestart
+              - name
+              - appDeploy
+              - dockerCleanup
+              - serverThreshold
+              - webhookUrl
+              - decoration
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.updateDiscord:
+    post:
+      operationId: notification-updateDiscord
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverThreshold:
+                  type: boolean
+                webhookUrl:
+                  type: string
+                  minLength: 1
+                decoration:
+                  type: boolean
+                notificationId:
+                  type: string
+                  minLength: 1
+                discordId:
+                  type: string
+                  minLength: 1
+                organizationId:
+                  type: string
+              required:
+              - notificationId
+              - discordId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.testDiscordConnection:
+    post:
+      operationId: notification-testDiscordConnection
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                webhookUrl:
+                  type: string
+                  minLength: 1
+                decoration:
+                  type: boolean
+              required:
+              - webhookUrl
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.createEmail:
+    post:
+      operationId: notification-createEmail
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverThreshold:
+                  type: boolean
+                smtpServer:
+                  type: string
+                  minLength: 1
+                smtpPort:
+                  type: number
+                  minimum: 1
+                username:
+                  type: string
+                  minLength: 1
+                password:
+                  type: string
+                  minLength: 1
+                fromAddress:
+                  type: string
+                  minLength: 1
+                toAddresses:
+                  minItems: 1
+                  type: array
+                  items:
+                    type: string
+              required:
+              - appBuildError
+              - databaseBackup
+              - dokployBackup
+              - volumeBackup
+              - dokployRestart
+              - name
+              - appDeploy
+              - dockerCleanup
+              - serverThreshold
+              - smtpServer
+              - smtpPort
+              - username
+              - password
+              - fromAddress
+              - toAddresses
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.updateEmail:
+    post:
+      operationId: notification-updateEmail
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverThreshold:
+                  type: boolean
+                smtpServer:
+                  type: string
+                  minLength: 1
+                smtpPort:
+                  type: number
+                  minimum: 1
+                username:
+                  type: string
+                  minLength: 1
+                password:
+                  type: string
+                  minLength: 1
+                fromAddress:
+                  type: string
+                  minLength: 1
+                toAddresses:
+                  minItems: 1
+                  type: array
+                  items:
+                    type: string
+                notificationId:
+                  type: string
+                  minLength: 1
+                emailId:
+                  type: string
+                  minLength: 1
+                organizationId:
+                  type: string
+              required:
+              - notificationId
+              - emailId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.testEmailConnection:
+    post:
+      operationId: notification-testEmailConnection
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                smtpServer:
+                  type: string
+                  minLength: 1
+                smtpPort:
+                  type: number
+                  minimum: 1
+                username:
+                  type: string
+                  minLength: 1
+                password:
+                  type: string
+                  minLength: 1
+                toAddresses:
+                  minItems: 1
+                  type: array
+                  items:
+                    type: string
+                fromAddress:
+                  type: string
+                  minLength: 1
+              required:
+              - smtpServer
+              - smtpPort
+              - username
+              - password
+              - toAddresses
+              - fromAddress
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.createResend:
+    post:
+      operationId: notification-createResend
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverThreshold:
+                  type: boolean
+                apiKey:
+                  type: string
+                  minLength: 1
+                fromAddress:
+                  type: string
+                  minLength: 1
+                toAddresses:
+                  minItems: 1
+                  type: array
+                  items:
+                    type: string
+              required:
+              - appBuildError
+              - databaseBackup
+              - dokployBackup
+              - volumeBackup
+              - dokployRestart
+              - name
+              - appDeploy
+              - dockerCleanup
+              - serverThreshold
+              - apiKey
+              - fromAddress
+              - toAddresses
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.updateResend:
+    post:
+      operationId: notification-updateResend
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverThreshold:
+                  type: boolean
+                apiKey:
+                  type: string
+                  minLength: 1
+                fromAddress:
+                  type: string
+                  minLength: 1
+                toAddresses:
+                  minItems: 1
+                  type: array
+                  items:
+                    type: string
+                notificationId:
+                  type: string
+                  minLength: 1
+                resendId:
+                  type: string
+                  minLength: 1
+                organizationId:
+                  type: string
+              required:
+              - notificationId
+              - resendId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.testResendConnection:
+    post:
+      operationId: notification-testResendConnection
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                apiKey:
+                  type: string
+                  minLength: 1
+                fromAddress:
+                  type: string
+                  minLength: 1
+                toAddresses:
+                  minItems: 1
+                  type: array
+                  items:
+                    type: string
+              required:
+              - apiKey
+              - fromAddress
+              - toAddresses
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.remove:
+    post:
+      operationId: notification-remove
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                notificationId:
+                  type: string
+                  minLength: 1
+              required:
+              - notificationId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.one:
+    get:
+      operationId: notification-one
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters:
+      - in: query
+        name: notificationId
+        schema:
+          type: string
+          minLength: 1
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.NOT_FOUND'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.all:
+    get:
+      operationId: notification-all
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.NOT_FOUND'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.receiveNotification:
+    post:
+      operationId: notification-receiveNotification
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ServerType:
+                  default: Dokploy
+                  type: string
+                  enum:
+                  - Dokploy
+                  - Remote
+                Type:
+                  type: string
+                  enum:
+                  - Memory
+                  - CPU
+                Value:
+                  type: number
+                Threshold:
+                  type: number
+                Message:
+                  type: string
+                Timestamp:
+                  type: string
+                Token:
+                  type: string
+              required:
+              - Type
+              - Value
+              - Threshold
+              - Message
+              - Timestamp
+              - Token
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.createGotify:
+    post:
+      operationId: notification-createGotify
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverUrl:
+                  type: string
+                  minLength: 1
+                appToken:
+                  type: string
+                  minLength: 1
+                priority:
+                  type: number
+                  minimum: 1
+                decoration:
+                  type: boolean
+              required:
+              - appBuildError
+              - databaseBackup
+              - dokployBackup
+              - volumeBackup
+              - dokployRestart
+              - name
+              - appDeploy
+              - dockerCleanup
+              - serverUrl
+              - appToken
+              - priority
+              - decoration
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.updateGotify:
+    post:
+      operationId: notification-updateGotify
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverUrl:
+                  type: string
+                  minLength: 1
+                appToken:
+                  type: string
+                  minLength: 1
+                priority:
+                  type: number
+                  minimum: 1
+                decoration:
+                  type: boolean
+                notificationId:
+                  type: string
+                  minLength: 1
+                gotifyId:
+                  type: string
+                  minLength: 1
+                organizationId:
+                  type: string
+              required:
+              - notificationId
+              - gotifyId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.testGotifyConnection:
+    post:
+      operationId: notification-testGotifyConnection
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                serverUrl:
+                  type: string
+                  minLength: 1
+                appToken:
+                  type: string
+                  minLength: 1
+                priority:
+                  type: number
+                  minimum: 1
+                decoration:
+                  type: boolean
+              required:
+              - serverUrl
+              - appToken
+              - priority
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.createNtfy:
+    post:
+      operationId: notification-createNtfy
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverUrl:
+                  type: string
+                  minLength: 1
+                topic:
+                  type: string
+                  minLength: 1
+                accessToken:
+                  type: string
+                priority:
+                  type: number
+                  minimum: 1
+              required:
+              - appBuildError
+              - databaseBackup
+              - dokployBackup
+              - volumeBackup
+              - dokployRestart
+              - name
+              - appDeploy
+              - dockerCleanup
+              - serverUrl
+              - topic
+              - accessToken
+              - priority
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.updateNtfy:
+    post:
+      operationId: notification-updateNtfy
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverUrl:
+                  type: string
+                  minLength: 1
+                topic:
+                  type: string
+                  minLength: 1
+                accessToken:
+                  type: string
+                priority:
+                  type: number
+                  minimum: 1
+                notificationId:
+                  type: string
+                  minLength: 1
+                ntfyId:
+                  type: string
+                  minLength: 1
+                organizationId:
+                  type: string
+              required:
+              - notificationId
+              - ntfyId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.testNtfyConnection:
+    post:
+      operationId: notification-testNtfyConnection
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                serverUrl:
+                  type: string
+                  minLength: 1
+                topic:
+                  type: string
+                  minLength: 1
+                accessToken:
+                  type: string
+                priority:
+                  type: number
+                  minimum: 1
+              required:
+              - serverUrl
+              - topic
+              - accessToken
+              - priority
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.createMattermost:
+    post:
+      operationId: notification-createMattermost
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverThreshold:
+                  type: boolean
+                webhookUrl:
+                  type: string
+                  format: uri
+                channel:
+                  type: string
+                username:
+                  type: string
+              required:
+              - appBuildError
+              - databaseBackup
+              - dokployBackup
+              - volumeBackup
+              - dokployRestart
+              - name
+              - appDeploy
+              - dockerCleanup
+              - serverThreshold
+              - webhookUrl
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.updateMattermost:
+    post:
+      operationId: notification-updateMattermost
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverThreshold:
+                  type: boolean
+                webhookUrl:
+                  type: string
+                  format: uri
+                channel:
+                  type: string
+                username:
+                  type: string
+                notificationId:
+                  type: string
+                  minLength: 1
+                mattermostId:
+                  type: string
+                  minLength: 1
+                organizationId:
+                  type: string
+              required:
+              - notificationId
+              - mattermostId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.testMattermostConnection:
+    post:
+      operationId: notification-testMattermostConnection
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                webhookUrl:
+                  type: string
+                  format: uri
+                channel:
+                  type: string
+                username:
+                  type: string
+              required:
+              - webhookUrl
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.createCustom:
+    post:
+      operationId: notification-createCustom
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverThreshold:
+                  type: boolean
+                endpoint:
+                  type: string
+                  minLength: 1
+                headers:
+                  type: object
+                  propertyNames:
+                    type: string
+                  additionalProperties:
+                    type: string
+              required:
+              - name
+              - endpoint
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.updateCustom:
+    post:
+      operationId: notification-updateCustom
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverThreshold:
+                  type: boolean
+                endpoint:
+                  type: string
+                  minLength: 1
+                headers:
+                  type: object
+                  propertyNames:
+                    type: string
+                  additionalProperties:
+                    type: string
+                notificationId:
+                  type: string
+                  minLength: 1
+                customId:
+                  type: string
+                  minLength: 1
+                organizationId:
+                  type: string
+              required:
+              - notificationId
+              - customId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.testCustomConnection:
+    post:
+      operationId: notification-testCustomConnection
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                endpoint:
+                  type: string
+                  minLength: 1
+                headers:
+                  type: object
+                  propertyNames:
+                    type: string
+                  additionalProperties:
+                    type: string
+              required:
+              - endpoint
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.createLark:
+    post:
+      operationId: notification-createLark
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverThreshold:
+                  type: boolean
+                webhookUrl:
+                  type: string
+                  minLength: 1
+              required:
+              - appBuildError
+              - databaseBackup
+              - dokployBackup
+              - volumeBackup
+              - dokployRestart
+              - name
+              - appDeploy
+              - dockerCleanup
+              - serverThreshold
+              - webhookUrl
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.updateLark:
+    post:
+      operationId: notification-updateLark
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverThreshold:
+                  type: boolean
+                webhookUrl:
+                  type: string
+                  minLength: 1
+                notificationId:
+                  type: string
+                  minLength: 1
+                larkId:
+                  type: string
+                  minLength: 1
+                organizationId:
+                  type: string
+              required:
+              - notificationId
+              - larkId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.testLarkConnection:
+    post:
+      operationId: notification-testLarkConnection
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                webhookUrl:
+                  type: string
+                  minLength: 1
+              required:
+              - webhookUrl
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.createTeams:
+    post:
+      operationId: notification-createTeams
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverThreshold:
+                  type: boolean
+                webhookUrl:
+                  type: string
+                  minLength: 1
+              required:
+              - appBuildError
+              - databaseBackup
+              - dokployBackup
+              - volumeBackup
+              - dokployRestart
+              - name
+              - appDeploy
+              - dockerCleanup
+              - serverThreshold
+              - webhookUrl
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.updateTeams:
+    post:
+      operationId: notification-updateTeams
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverThreshold:
+                  type: boolean
+                webhookUrl:
+                  type: string
+                  minLength: 1
+                notificationId:
+                  type: string
+                  minLength: 1
+                teamsId:
+                  type: string
+                  minLength: 1
+                organizationId:
+                  type: string
+              required:
+              - notificationId
+              - teamsId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.testTeamsConnection:
+    post:
+      operationId: notification-testTeamsConnection
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                webhookUrl:
+                  type: string
+                  minLength: 1
+              required:
+              - webhookUrl
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.createPushover:
+    post:
+      operationId: notification-createPushover
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverThreshold:
+                  type: boolean
+                userKey:
+                  type: string
+                  minLength: 1
+                apiToken:
+                  type: string
+                  minLength: 1
+                priority:
+                  default: 0
+                  type: number
+                  minimum: -2
+                  maximum: 2
+                retry:
+                  anyOf:
+                  - type: number
+                    minimum: 30
+                  - type: 'null'
+                expire:
+                  anyOf:
+                  - type: number
+                    minimum: 1
+                    maximum: 10800
+                  - type: 'null'
+              required:
+              - name
+              - userKey
+              - apiToken
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.updatePushover:
+    post:
+      operationId: notification-updatePushover
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                notificationId:
+                  type: string
+                  minLength: 1
+                pushoverId:
+                  type: string
+                  minLength: 1
+                organizationId:
+                  type: string
+                userKey:
+                  type: string
+                  minLength: 1
+                apiToken:
+                  type: string
+                  minLength: 1
+                priority:
+                  type: number
+                  minimum: -2
+                  maximum: 2
+                retry:
+                  anyOf:
+                  - type: number
+                    minimum: 30
+                  - type: 'null'
+                expire:
+                  anyOf:
+                  - type: number
+                    minimum: 1
+                    maximum: 10800
+                  - type: 'null'
+                appBuildError:
+                  type: boolean
+                databaseBackup:
+                  type: boolean
+                dokployBackup:
+                  type: boolean
+                volumeBackup:
+                  type: boolean
+                dokployRestart:
+                  type: boolean
+                name:
+                  type: string
+                appDeploy:
+                  type: boolean
+                dockerCleanup:
+                  type: boolean
+                serverThreshold:
+                  type: boolean
+              required:
+              - notificationId
+              - pushoverId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.testPushoverConnection:
+    post:
+      operationId: notification-testPushoverConnection
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userKey:
+                  type: string
+                  minLength: 1
+                apiToken:
+                  type: string
+                  minLength: 1
+                priority:
+                  type: number
+                  minimum: -2
+                  maximum: 2
+                retry:
+                  anyOf:
+                  - type: number
+                    minimum: 30
+                  - type: 'null'
+                expire:
+                  anyOf:
+                  - type: number
+                    minimum: 1
+                    maximum: 10800
+                  - type: 'null'
+              required:
+              - userKey
+              - apiToken
+              - priority
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /notification.getEmailProviders:
+    get:
+      operationId: notification-getEmailProviders
+      tags:
+      - notification
+      security:
+      - Authorization: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.NOT_FOUND'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+components:
+  schemas:
+    error.INTERNAL_SERVER_ERROR:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Internal server error
+        code:
+          type: string
+          description: The error code
+          example: INTERNAL_SERVER_ERROR
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Internal server error error (500)
+      description: The error information
+      example:
+        code: INTERNAL_SERVER_ERROR
+        message: Internal server error
+        issues: []
+    error.FORBIDDEN:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Insufficient access
+        code:
+          type: string
+          description: The error code
+          example: FORBIDDEN
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Insufficient access error (403)
+      description: The error information
+      example:
+        code: FORBIDDEN
+        message: Insufficient access
+        issues: []
+    error.NOT_FOUND:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Not found
+        code:
+          type: string
+          description: The error code
+          example: NOT_FOUND
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Not found error (404)
+      description: The error information
+      example:
+        code: NOT_FOUND
+        message: Not found
+        issues: []
+    error.UNAUTHORIZED:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Authorization not provided
+        code:
+          type: string
+          description: The error code
+          example: UNAUTHORIZED
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Authorization not provided error (401)
+      description: The error information
+      example:
+        code: UNAUTHORIZED
+        message: Authorization not provided
+        issues: []
+    error.BAD_REQUEST:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Invalid input data
+        code:
+          type: string
+          description: The error code
+          example: BAD_REQUEST
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Invalid input data error (400)
+      description: The error information
+      example:
+        code: BAD_REQUEST
+        message: Invalid input data
+        issues: []
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key authentication. Generate an API key from your Dokploy dashboard under Settings > API Keys.
+externalDocs:
+  description: Full documentation
+  url: https://docs.dokploy.com

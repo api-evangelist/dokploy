@@ -1,0 +1,1061 @@
+openapi: 3.1.0
+info:
+  title: Dokploy admin sso API
+  description: Complete API documentation for Dokploy - Deploy applications, manage databases, and orchestrate your infrastructure. This API allows you to programmatically manage all aspects of your Dokploy instance.
+  version: 1.0.0
+  contact:
+    name: Dokploy Team
+    url: https://dokploy.com
+  license:
+    name: Apache 2.0
+    url: https://github.com/dokploy/dokploy/blob/canary/LICENSE
+servers:
+- url: https://your-dokploy-instance.com/api
+security:
+- apiKey: []
+tags:
+- name: sso
+paths:
+  /sso.showSignInWithSSO:
+    get:
+      operationId: sso-showSignInWithSSO
+      tags:
+      - sso
+      security:
+      - Authorization: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.NOT_FOUND'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /sso.listProviders:
+    get:
+      operationId: sso-listProviders
+      tags:
+      - sso
+      security:
+      - Authorization: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.NOT_FOUND'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /sso.getTrustedOrigins:
+    get:
+      operationId: sso-getTrustedOrigins
+      tags:
+      - sso
+      security:
+      - Authorization: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.NOT_FOUND'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /sso.one:
+    get:
+      operationId: sso-one
+      tags:
+      - sso
+      security:
+      - Authorization: []
+      parameters:
+      - in: query
+        name: providerId
+        schema:
+          type: string
+          minLength: 1
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.NOT_FOUND'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /sso.update:
+    post:
+      operationId: sso-update
+      tags:
+      - sso
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                providerId:
+                  type: string
+                issuer:
+                  type: string
+                domains:
+                  type: array
+                  items:
+                    type: string
+                oidcConfig:
+                  type: object
+                  properties:
+                    clientId:
+                      type: string
+                    clientSecret:
+                      type: string
+                    authorizationEndpoint:
+                      type: string
+                    tokenEndpoint:
+                      type: string
+                    userInfoEndpoint:
+                      type: string
+                    tokenEndpointAuthentication:
+                      type: string
+                      enum:
+                      - client_secret_post
+                      - client_secret_basic
+                    jwksEndpoint:
+                      type: string
+                    discoveryEndpoint:
+                      type: string
+                    skipDiscovery:
+                      type: boolean
+                    scopes:
+                      type: array
+                      items:
+                        type: string
+                    pkce:
+                      default: true
+                      type: boolean
+                    mapping:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        email:
+                          type: string
+                        emailVerified:
+                          type: string
+                        name:
+                          type: string
+                        image:
+                          type: string
+                        extraFields:
+                          type: object
+                          propertyNames:
+                            type: string
+                          additionalProperties: {}
+                      required:
+                      - id
+                      - email
+                      - name
+                  required:
+                  - clientId
+                  - clientSecret
+                samlConfig:
+                  type: object
+                  properties:
+                    entryPoint:
+                      type: string
+                    cert:
+                      type: string
+                    callbackUrl:
+                      type: string
+                    audience:
+                      type: string
+                    idpMetadata:
+                      type: object
+                      properties:
+                        metadata:
+                          type: string
+                        entityID:
+                          type: string
+                        cert:
+                          type: string
+                        privateKey:
+                          type: string
+                        privateKeyPass:
+                          type: string
+                        isAssertionEncrypted:
+                          type: boolean
+                        encPrivateKey:
+                          type: string
+                        encPrivateKeyPass:
+                          type: string
+                        singleSignOnService:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              Binding:
+                                type: string
+                              Location:
+                                type: string
+                            required:
+                            - Binding
+                            - Location
+                    spMetadata:
+                      type: object
+                      properties:
+                        metadata:
+                          type: string
+                        entityID:
+                          type: string
+                        binding:
+                          type: string
+                        privateKey:
+                          type: string
+                        privateKeyPass:
+                          type: string
+                        isAssertionEncrypted:
+                          type: boolean
+                        encPrivateKey:
+                          type: string
+                        encPrivateKeyPass:
+                          type: string
+                    wantAssertionsSigned:
+                      type: boolean
+                    authnRequestsSigned:
+                      type: boolean
+                    signatureAlgorithm:
+                      type: string
+                    digestAlgorithm:
+                      type: string
+                    identifierFormat:
+                      type: string
+                    privateKey:
+                      type: string
+                    decryptionPvk:
+                      type: string
+                    additionalParams:
+                      type: object
+                      propertyNames:
+                        type: string
+                      additionalProperties: {}
+                    mapping:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        email:
+                          type: string
+                        emailVerified:
+                          type: string
+                        name:
+                          type: string
+                        firstName:
+                          type: string
+                        lastName:
+                          type: string
+                        extraFields:
+                          type: object
+                          propertyNames:
+                            type: string
+                          additionalProperties: {}
+                      required:
+                      - id
+                      - email
+                      - name
+                  required:
+                  - entryPoint
+                  - cert
+                  - callbackUrl
+                  - spMetadata
+                organizationId:
+                  type: string
+                overrideUserInfo:
+                  default: false
+                  type: boolean
+              required:
+              - providerId
+              - issuer
+              - domains
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /sso.deleteProvider:
+    post:
+      operationId: sso-deleteProvider
+      tags:
+      - sso
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                providerId:
+                  type: string
+                  minLength: 1
+              required:
+              - providerId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /sso.register:
+    post:
+      operationId: sso-register
+      tags:
+      - sso
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                providerId:
+                  type: string
+                issuer:
+                  type: string
+                domains:
+                  type: array
+                  items:
+                    type: string
+                oidcConfig:
+                  type: object
+                  properties:
+                    clientId:
+                      type: string
+                    clientSecret:
+                      type: string
+                    authorizationEndpoint:
+                      type: string
+                    tokenEndpoint:
+                      type: string
+                    userInfoEndpoint:
+                      type: string
+                    tokenEndpointAuthentication:
+                      type: string
+                      enum:
+                      - client_secret_post
+                      - client_secret_basic
+                    jwksEndpoint:
+                      type: string
+                    discoveryEndpoint:
+                      type: string
+                    skipDiscovery:
+                      type: boolean
+                    scopes:
+                      type: array
+                      items:
+                        type: string
+                    pkce:
+                      default: true
+                      type: boolean
+                    mapping:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        email:
+                          type: string
+                        emailVerified:
+                          type: string
+                        name:
+                          type: string
+                        image:
+                          type: string
+                        extraFields:
+                          type: object
+                          propertyNames:
+                            type: string
+                          additionalProperties: {}
+                      required:
+                      - id
+                      - email
+                      - name
+                  required:
+                  - clientId
+                  - clientSecret
+                samlConfig:
+                  type: object
+                  properties:
+                    entryPoint:
+                      type: string
+                    cert:
+                      type: string
+                    callbackUrl:
+                      type: string
+                    audience:
+                      type: string
+                    idpMetadata:
+                      type: object
+                      properties:
+                        metadata:
+                          type: string
+                        entityID:
+                          type: string
+                        cert:
+                          type: string
+                        privateKey:
+                          type: string
+                        privateKeyPass:
+                          type: string
+                        isAssertionEncrypted:
+                          type: boolean
+                        encPrivateKey:
+                          type: string
+                        encPrivateKeyPass:
+                          type: string
+                        singleSignOnService:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              Binding:
+                                type: string
+                              Location:
+                                type: string
+                            required:
+                            - Binding
+                            - Location
+                    spMetadata:
+                      type: object
+                      properties:
+                        metadata:
+                          type: string
+                        entityID:
+                          type: string
+                        binding:
+                          type: string
+                        privateKey:
+                          type: string
+                        privateKeyPass:
+                          type: string
+                        isAssertionEncrypted:
+                          type: boolean
+                        encPrivateKey:
+                          type: string
+                        encPrivateKeyPass:
+                          type: string
+                    wantAssertionsSigned:
+                      type: boolean
+                    authnRequestsSigned:
+                      type: boolean
+                    signatureAlgorithm:
+                      type: string
+                    digestAlgorithm:
+                      type: string
+                    identifierFormat:
+                      type: string
+                    privateKey:
+                      type: string
+                    decryptionPvk:
+                      type: string
+                    additionalParams:
+                      type: object
+                      propertyNames:
+                        type: string
+                      additionalProperties: {}
+                    mapping:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        email:
+                          type: string
+                        emailVerified:
+                          type: string
+                        name:
+                          type: string
+                        firstName:
+                          type: string
+                        lastName:
+                          type: string
+                        extraFields:
+                          type: object
+                          propertyNames:
+                            type: string
+                          additionalProperties: {}
+                      required:
+                      - id
+                      - email
+                      - name
+                  required:
+                  - entryPoint
+                  - cert
+                  - callbackUrl
+                  - spMetadata
+                organizationId:
+                  type: string
+                overrideUserInfo:
+                  default: false
+                  type: boolean
+              required:
+              - providerId
+              - issuer
+              - domains
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /sso.addTrustedOrigin:
+    post:
+      operationId: sso-addTrustedOrigin
+      tags:
+      - sso
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                origin:
+                  type: string
+                  minLength: 1
+              required:
+              - origin
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /sso.removeTrustedOrigin:
+    post:
+      operationId: sso-removeTrustedOrigin
+      tags:
+      - sso
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                origin:
+                  type: string
+                  minLength: 1
+              required:
+              - origin
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+  /sso.updateTrustedOrigin:
+    post:
+      operationId: sso-updateTrustedOrigin
+      tags:
+      - sso
+      security:
+      - Authorization: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                oldOrigin:
+                  type: string
+                  minLength: 1
+                newOrigin:
+                  type: string
+                  minLength: 1
+              required:
+              - oldOrigin
+              - newOrigin
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+components:
+  schemas:
+    error.INTERNAL_SERVER_ERROR:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Internal server error
+        code:
+          type: string
+          description: The error code
+          example: INTERNAL_SERVER_ERROR
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Internal server error error (500)
+      description: The error information
+      example:
+        code: INTERNAL_SERVER_ERROR
+        message: Internal server error
+        issues: []
+    error.FORBIDDEN:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Insufficient access
+        code:
+          type: string
+          description: The error code
+          example: FORBIDDEN
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Insufficient access error (403)
+      description: The error information
+      example:
+        code: FORBIDDEN
+        message: Insufficient access
+        issues: []
+    error.NOT_FOUND:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Not found
+        code:
+          type: string
+          description: The error code
+          example: NOT_FOUND
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Not found error (404)
+      description: The error information
+      example:
+        code: NOT_FOUND
+        message: Not found
+        issues: []
+    error.UNAUTHORIZED:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Authorization not provided
+        code:
+          type: string
+          description: The error code
+          example: UNAUTHORIZED
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Authorization not provided error (401)
+      description: The error information
+      example:
+        code: UNAUTHORIZED
+        message: Authorization not provided
+        issues: []
+    error.BAD_REQUEST:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Invalid input data
+        code:
+          type: string
+          description: The error code
+          example: BAD_REQUEST
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Invalid input data error (400)
+      description: The error information
+      example:
+        code: BAD_REQUEST
+        message: Invalid input data
+        issues: []
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key authentication. Generate an API key from your Dokploy dashboard under Settings > API Keys.
+externalDocs:
+  description: Full documentation
+  url: https://docs.dokploy.com
