@@ -5,7 +5,20 @@ description: >-
   — that deploys applications, Docker Compose stacks, and managed databases across one or many servers using Docker and
   Docker Swarm, with Traefik handling routing and TLS.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dokploy.png
 tags:
   - PaaS
   - Self-Hosted
@@ -20,48 +33,1350 @@ created: '2026-05-25'
 modified: '2026-05-25'
 specificationVersion: '0.19'
 apis:
-  - aid: dokploy:dokploy
-    name: Dokploy
-    description: >-
-      The Dokploy HTTP API exposes every operation the Dokploy UI can perform — projects, applications, Docker Compose
-      services, managed databases (Postgres, MySQL, MariaDB, MongoDB, Redis, LibSQL), domains, certificates, registries,
-      Git providers (GitHub, GitLab, Gitea, Bitbucket), servers, Docker Swarm clusters, backups, schedules,
-      notifications, audit logs, SSO, custom roles, white-labeling, and Stripe billing — across 526 endpoints generated
-      from the project's canonical OpenAPI 3.1 specification.
-    humanURL: https://dokploy.com/
-    baseURL: https://your-dokploy-instance.com/api
-    tags:
-      - PaaS
-      - Self-Hosted
-      - Docker
-      - Docker Swarm
-      - Traefik
-      - Deployment
-      - Databases
-      - Git Providers
-      - Domains
-      - Notifications
-    properties:
-      - type: Documentation
-        url: https://docs.dokploy.com/
-      - type: APIReference
-        url: https://github.com/Dokploy/sdk/blob/main/openapi.json
-      - type: GettingStarted
-        url: https://docs.dokploy.com/docs/core
-      - type: OpenAPI
-        url: openapi/dokploy-openapi.yml
-      - type: SDKs
-        url: https://github.com/Dokploy/sdk
-      - type: CLI
-        url: https://github.com/Dokploy/cli
-      - type: MCP
-        url: https://github.com/Dokploy/mcp
-      - type: Plans
-        url: plans/dokploy-plans-pricing.yml
-      - type: RateLimits
-        url: rate-limits/dokploy-rate-limits.yml
-      - type: FinOps
-        url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-admin-api
+  name: Dokploy admin API
+  description: The admin API from Dokploy — 1 operation(s) for admin.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - admin
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-admin-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-ai-api
+  name: Dokploy ai API
+  description: The ai API from Dokploy — 12 operation(s) for ai.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - ai
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-ai-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-application-api
+  name: Dokploy application API
+  description: The application API from Dokploy — 31 operation(s) for application.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - application
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-application-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-auditlog-api
+  name: Dokploy auditLog API
+  description: The auditLog API from Dokploy — 1 operation(s) for auditlog.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - auditLog
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-auditlog-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-backup-api
+  name: Dokploy backup API
+  description: The backup API from Dokploy — 12 operation(s) for backup.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - backup
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-backup-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-bitbucket-api
+  name: Dokploy bitbucket API
+  description: The bitbucket API from Dokploy — 7 operation(s) for bitbucket.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - bitbucket
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-bitbucket-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-certificates-api
+  name: Dokploy certificates API
+  description: The certificates API from Dokploy — 5 operation(s) for certificates.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - certificates
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-certificates-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-cluster-api
+  name: Dokploy cluster API
+  description: The cluster API from Dokploy — 4 operation(s) for cluster.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - cluster
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-cluster-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-compose-api
+  name: Dokploy compose API
+  description: The compose API from Dokploy — 31 operation(s) for compose.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - compose
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-compose-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-customrole-api
+  name: Dokploy customRole API
+  description: The customRole API from Dokploy — 6 operation(s) for customrole.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - customRole
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-customrole-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-deployment-api
+  name: Dokploy deployment API
+  description: The deployment API from Dokploy — 9 operation(s) for deployment.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - deployment
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-deployment-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-destination-api
+  name: Dokploy destination API
+  description: The destination API from Dokploy — 6 operation(s) for destination.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - destination
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-destination-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-docker-api
+  name: Dokploy docker API
+  description: The docker API from Dokploy — 12 operation(s) for docker.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - docker
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-docker-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-domain-api
+  name: Dokploy domain API
+  description: The domain API from Dokploy — 9 operation(s) for domain.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - domain
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-domain-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-environment-api
+  name: Dokploy environment API
+  description: The environment API from Dokploy — 7 operation(s) for environment.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - environment
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-environment-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-gitea-api
+  name: Dokploy gitea API
+  description: The gitea API from Dokploy — 8 operation(s) for gitea.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - gitea
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-gitea-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-github-api
+  name: Dokploy github API
+  description: The github API from Dokploy — 6 operation(s) for github.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - github
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-github-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-gitlab-api
+  name: Dokploy gitlab API
+  description: The gitlab API from Dokploy — 7 operation(s) for gitlab.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - gitlab
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-gitlab-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-gitprovider-api
+  name: Dokploy gitProvider API
+  description: The gitProvider API from Dokploy — 4 operation(s) for gitprovider.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - gitProvider
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-gitprovider-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-libsql-api
+  name: Dokploy libsql API
+  description: The libsql API from Dokploy — 14 operation(s) for libsql.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - libsql
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-libsql-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-licensekey-api
+  name: Dokploy licenseKey API
+  description: The licenseKey API from Dokploy — 6 operation(s) for licensekey.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - licenseKey
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-licensekey-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-mariadb-api
+  name: Dokploy mariadb API
+  description: The mariadb API from Dokploy — 16 operation(s) for mariadb.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - mariadb
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-mariadb-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-mongo-api
+  name: Dokploy mongo API
+  description: The mongo API from Dokploy — 16 operation(s) for mongo.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - mongo
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-mongo-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-mounts-api
+  name: Dokploy mounts API
+  description: The mounts API from Dokploy — 6 operation(s) for mounts.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - mounts
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-mounts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-mysql-api
+  name: Dokploy mysql API
+  description: The mysql API from Dokploy — 16 operation(s) for mysql.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - mysql
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-mysql-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-notification-api
+  name: Dokploy notification API
+  description: The notification API from Dokploy — 41 operation(s) for notification.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - notification
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-notification-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-organization-api
+  name: Dokploy organization API
+  description: The organization API from Dokploy — 11 operation(s) for organization.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - organization
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-organization-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-patch-api
+  name: Dokploy patch API
+  description: The patch API from Dokploy — 12 operation(s) for patch.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - patch
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-patch-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-port-api
+  name: Dokploy port API
+  description: The port API from Dokploy — 4 operation(s) for port.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - port
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-port-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-postgres-api
+  name: Dokploy postgres API
+  description: The postgres API from Dokploy — 16 operation(s) for postgres.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - postgres
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-postgres-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-previewdeployment-api
+  name: Dokploy previewDeployment API
+  description: The previewDeployment API from Dokploy — 4 operation(s) for previewdeployment.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - previewDeployment
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-previewdeployment-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-project-api
+  name: Dokploy project API
+  description: The project API from Dokploy — 9 operation(s) for project.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - project
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-project-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-redirects-api
+  name: Dokploy redirects API
+  description: The redirects API from Dokploy — 4 operation(s) for redirects.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - redirects
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-redirects-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-redis-api
+  name: Dokploy redis API
+  description: The redis API from Dokploy — 16 operation(s) for redis.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - redis
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-redis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-registry-api
+  name: Dokploy registry API
+  description: The registry API from Dokploy — 7 operation(s) for registry.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - registry
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-registry-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-rollback-api
+  name: Dokploy rollback API
+  description: The rollback API from Dokploy — 2 operation(s) for rollback.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - rollback
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-rollback-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-schedule-api
+  name: Dokploy schedule API
+  description: The schedule API from Dokploy — 6 operation(s) for schedule.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - schedule
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-schedule-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-security-api
+  name: Dokploy security API
+  description: The security API from Dokploy — 4 operation(s) for security.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - security
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-security-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-server-api
+  name: Dokploy server API
+  description: The server API from Dokploy — 17 operation(s) for server.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - server
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-server-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-settings-api
+  name: Dokploy settings API
+  description: The settings API from Dokploy — 51 operation(s) for settings.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - settings
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-settings-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-sshkey-api
+  name: Dokploy sshKey API
+  description: The sshKey API from Dokploy — 7 operation(s) for sshkey.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - sshKey
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-sshkey-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-sso-api
+  name: Dokploy sso API
+  description: The sso API from Dokploy — 10 operation(s) for sso.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - sso
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-sso-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-stripe-api
+  name: Dokploy stripe API
+  description: The stripe API from Dokploy — 8 operation(s) for stripe.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - stripe
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-stripe-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-swarm-api
+  name: Dokploy swarm API
+  description: The swarm API from Dokploy — 4 operation(s) for swarm.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - swarm
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-swarm-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-tag-api
+  name: Dokploy tag API
+  description: The tag API from Dokploy — 8 operation(s) for tag.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - tag
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-tag-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-user-api
+  name: Dokploy user API
+  description: The user API from Dokploy — 23 operation(s) for user.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - user
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-user-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-volumebackups-api
+  name: Dokploy volumeBackups API
+  description: The volumeBackups API from Dokploy — 6 operation(s) for volumebackups.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - volumeBackups
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-volumebackups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-whitelabeling-api
+  name: Dokploy whitelabeling API
+  description: The whitelabeling API from Dokploy — 4 operation(s) for whitelabeling.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - whitelabeling
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-whitelabeling-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: MCP
+    url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
 common:
   - type: AgenticAccess
     url: agentic-access/dokploy-agentic-access.yml
