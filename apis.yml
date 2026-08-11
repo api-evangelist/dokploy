@@ -1378,6 +1378,14 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 common:
+  - type: IssueTracker
+    url: https://github.com/Dokploy/dokploy/issues
+  - type: Releases
+    url: https://github.com/Dokploy/dokploy/releases
+  - type: SecurityPolicy
+    url: https://github.com/Dokploy/dokploy/blob/canary/SECURITY.md
+  - type: ContributionGuide
+    url: https://github.com/Dokploy/dokploy/blob/canary/CONTRIBUTING.md
   - type: AgenticAccess
     url: agentic-access/dokploy-agentic-access.yml
   - type: DomainSecurity
