@@ -1,0 +1,164 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dokploy admin domain API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "domain",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "domain-create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/domain.create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "domain-byApplicationId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/domain.byApplicationId",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "domain-byComposeId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/domain.byComposeId",
+            "params": [
+              {
+                "name": "composeId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "domain-generateDomain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/domain.generateDomain",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "domain-canGenerateTraefikMeDomains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/domain.canGenerateTraefikMeDomains",
+            "params": [
+              {
+                "name": "serverId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "domain-update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/domain.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "domain-one",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/domain.one",
+            "params": [
+              {
+                "name": "domainId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "domain-delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/domain.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "domain-validateDomain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/domain.validateDomain",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

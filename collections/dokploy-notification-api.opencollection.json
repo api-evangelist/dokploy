@@ -1,0 +1,595 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dokploy admin notification API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "notification",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "notification-createSlack",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.createSlack",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-updateSlack",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.updateSlack",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-testSlackConnection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.testSlackConnection",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-createTelegram",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.createTelegram",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-updateTelegram",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.updateTelegram",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-testTelegramConnection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.testTelegramConnection",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-createDiscord",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.createDiscord",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-updateDiscord",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.updateDiscord",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-testDiscordConnection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.testDiscordConnection",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-createEmail",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.createEmail",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-updateEmail",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.updateEmail",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-testEmailConnection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.testEmailConnection",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-createResend",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.createResend",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-updateResend",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.updateResend",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-testResendConnection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.testResendConnection",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-remove",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-one",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/notification.one",
+            "params": [
+              {
+                "name": "notificationId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "notification-all",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/notification.all"
+          }
+        },
+        {
+          "info": {
+            "name": "notification-receiveNotification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.receiveNotification",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-createGotify",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.createGotify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-updateGotify",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.updateGotify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-testGotifyConnection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.testGotifyConnection",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-createNtfy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.createNtfy",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-updateNtfy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.updateNtfy",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-testNtfyConnection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.testNtfyConnection",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-createMattermost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.createMattermost",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-updateMattermost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.updateMattermost",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-testMattermostConnection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.testMattermostConnection",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-createCustom",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.createCustom",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-updateCustom",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.updateCustom",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-testCustomConnection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.testCustomConnection",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-createLark",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.createLark",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-updateLark",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.updateLark",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-testLarkConnection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.testLarkConnection",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-createTeams",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.createTeams",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-updateTeams",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.updateTeams",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-testTeamsConnection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.testTeamsConnection",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-createPushover",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.createPushover",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-updatePushover",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.updatePushover",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-testPushoverConnection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/notification.testPushoverConnection",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "notification-getEmailProviders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/notification.getEmailProviders"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

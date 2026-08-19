@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dokploy admin gitea API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "gitea",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "gitea-create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/gitea.create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "gitea-one",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/gitea.one",
+            "params": [
+              {
+                "name": "giteaId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "gitea-giteaProviders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/gitea.giteaProviders"
+          }
+        },
+        {
+          "info": {
+            "name": "gitea-getGiteaRepositories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/gitea.getGiteaRepositories",
+            "params": [
+              {
+                "name": "giteaId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "gitea-getGiteaBranches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/gitea.getGiteaBranches",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "repositoryName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "giteaId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "gitea-testConnection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/gitea.testConnection",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "gitea-update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/gitea.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "gitea-getGiteaUrl",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/gitea.getGiteaUrl",
+            "params": [
+              {
+                "name": "giteaId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

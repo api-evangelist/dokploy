@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dokploy admin cluster API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "cluster",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "cluster-getNodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/cluster.getNodes",
+            "params": [
+              {
+                "name": "serverId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "cluster-removeWorker",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/cluster.removeWorker",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "cluster-addWorker",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/cluster.addWorker",
+            "params": [
+              {
+                "name": "serverId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "cluster-addManager",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/cluster.addManager",
+            "params": [
+              {
+                "name": "serverId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

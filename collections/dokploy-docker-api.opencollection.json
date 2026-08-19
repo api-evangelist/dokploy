@@ -1,0 +1,268 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dokploy admin docker API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "docker",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "docker-getContainers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/docker.getContainers",
+            "params": [
+              {
+                "name": "serverId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "docker-restartContainer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/docker.restartContainer",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "docker-startContainer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/docker.startContainer",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "docker-stopContainer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/docker.stopContainer",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "docker-killContainer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/docker.killContainer",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "docker-removeContainer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/docker.removeContainer",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "docker-getConfig",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/docker.getConfig",
+            "params": [
+              {
+                "name": "containerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "serverId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "docker-getContainersByAppNameMatch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/docker.getContainersByAppNameMatch",
+            "params": [
+              {
+                "name": "appType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "appName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "serverId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "docker-getContainersByAppLabel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/docker.getContainersByAppLabel",
+            "params": [
+              {
+                "name": "appName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "serverId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "docker-getStackContainersByAppName",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/docker.getStackContainersByAppName",
+            "params": [
+              {
+                "name": "appName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "serverId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "docker-getServiceContainersByAppName",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/docker.getServiceContainersByAppName",
+            "params": [
+              {
+                "name": "appName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "serverId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "docker-uploadFileToContainer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/docker.uploadFileToContainer",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "containerId",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "destinationPath",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "serverId",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

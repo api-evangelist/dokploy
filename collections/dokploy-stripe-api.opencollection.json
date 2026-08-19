@@ -1,0 +1,118 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dokploy admin stripe API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "stripe",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "stripe-getCurrentPlan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/stripe.getCurrentPlan"
+          }
+        },
+        {
+          "info": {
+            "name": "stripe-getProducts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/stripe.getProducts"
+          }
+        },
+        {
+          "info": {
+            "name": "stripe-createCheckoutSession",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/stripe.createCheckoutSession",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "stripe-createCustomerPortalSession",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/stripe.createCustomerPortalSession"
+          }
+        },
+        {
+          "info": {
+            "name": "stripe-upgradeSubscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/stripe.upgradeSubscription",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "stripe-canCreateMoreServers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/stripe.canCreateMoreServers"
+          }
+        },
+        {
+          "info": {
+            "name": "stripe-updateInvoiceNotifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/stripe.updateInvoiceNotifications",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "stripe-getInvoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/stripe.getInvoices"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

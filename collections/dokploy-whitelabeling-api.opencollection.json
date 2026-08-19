@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dokploy admin whitelabeling API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "whitelabeling",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "whitelabeling-get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/whitelabeling.get"
+          }
+        },
+        {
+          "info": {
+            "name": "whitelabeling-update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/whitelabeling.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "whitelabeling-reset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/whitelabeling.reset"
+          }
+        },
+        {
+          "info": {
+            "name": "whitelabeling-getPublic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/whitelabeling.getPublic"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

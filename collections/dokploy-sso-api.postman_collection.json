@@ -1,0 +1,3036 @@
+{
+  "item": [
+    {
+      "id": "39e92d4c-6eb9-418c-b9f3-007e6a48b34a",
+      "name": "sso",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9c395dbc-7407-460e-8771-3d748ef7a292",
+          "name": "sso-show Sign In With SSO",
+          "request": {
+            "name": "sso-show Sign In With SSO",
+            "description": {},
+            "url": {
+              "path": [
+                "sso.showSignInWithSSO"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "834a14ce-a7c2-4e0a-9526-cc3e62463143",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.showSignInWithSSO"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7797b849-3950-4985-96bb-7fa348baa9fb",
+              "name": "Invalid input data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.showSignInWithSSO"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"BAD_REQUEST\",\n  \"message\": \"Invalid input data\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "703f132e-6567-4abd-a858-63d662e022ef",
+              "name": "Authorization not provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.showSignInWithSSO"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"UNAUTHORIZED\",\n  \"message\": \"Authorization not provided\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cd9c8037-5aaf-47b7-8428-b3b4de373704",
+              "name": "Insufficient access",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.showSignInWithSSO"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"FORBIDDEN\",\n  \"message\": \"Insufficient access\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c37f77b-87b4-4868-a129-b8a6b16a578c",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.showSignInWithSSO"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"NOT_FOUND\",\n  \"message\": \"Not found\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e68c30d9-e39e-4b86-bc76-2c398cd3348e",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.showSignInWithSSO"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"INTERNAL_SERVER_ERROR\",\n  \"message\": \"Internal server error\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "990145db-4bf3-409e-aa36-20aafd77100e",
+          "name": "sso-list Providers",
+          "request": {
+            "name": "sso-list Providers",
+            "description": {},
+            "url": {
+              "path": [
+                "sso.listProviders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "6ad936e4-e471-4ebd-a601-4003cad7c2e3",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.listProviders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29990758-18de-4140-881c-ce98deeb5afe",
+              "name": "Invalid input data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.listProviders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"BAD_REQUEST\",\n  \"message\": \"Invalid input data\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a372c533-1949-44c6-8e9d-fa27f5855448",
+              "name": "Authorization not provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.listProviders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"UNAUTHORIZED\",\n  \"message\": \"Authorization not provided\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "06214c65-6d1e-4f56-85de-8805289dd46c",
+              "name": "Insufficient access",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.listProviders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"FORBIDDEN\",\n  \"message\": \"Insufficient access\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d32c0176-4d2d-4e36-b7eb-33a201abefb3",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.listProviders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"NOT_FOUND\",\n  \"message\": \"Not found\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "74916b0f-9325-44b3-a3ff-3a6f333dac84",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.listProviders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"INTERNAL_SERVER_ERROR\",\n  \"message\": \"Internal server error\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "258051a1-8016-410f-ac9f-b9d5057e2c8f",
+          "name": "sso-get Trusted Origins",
+          "request": {
+            "name": "sso-get Trusted Origins",
+            "description": {},
+            "url": {
+              "path": [
+                "sso.getTrustedOrigins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "d3c803f3-65c2-4dfc-bdb7-7437e1c5921d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.getTrustedOrigins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f78e5dd0-7907-4ce5-a895-58b7edbb8f93",
+              "name": "Invalid input data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.getTrustedOrigins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"BAD_REQUEST\",\n  \"message\": \"Invalid input data\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc3de0c4-ac01-4d42-8fa8-626ee70e8a03",
+              "name": "Authorization not provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.getTrustedOrigins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"UNAUTHORIZED\",\n  \"message\": \"Authorization not provided\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "273e14fb-b297-4c1b-b3be-eb56506439b5",
+              "name": "Insufficient access",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.getTrustedOrigins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"FORBIDDEN\",\n  \"message\": \"Insufficient access\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75d1e887-9f64-4a66-8f92-72f318622e49",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.getTrustedOrigins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"NOT_FOUND\",\n  \"message\": \"Not found\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8bb17dce-8372-4704-aa8f-f616cd1529d3",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.getTrustedOrigins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"INTERNAL_SERVER_ERROR\",\n  \"message\": \"Internal server error\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "229e577f-deb1-4832-b3b4-bd2b3068c61f",
+          "name": "sso-one",
+          "request": {
+            "name": "sso-one",
+            "description": {},
+            "url": {
+              "path": [
+                "sso.one"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "providerId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "33afdff4-7343-4115-85fa-1faf486a4c0d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.one"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "providerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b3494fad-59f9-446e-b03b-33b8b6b8b80e",
+              "name": "Invalid input data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.one"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "providerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"BAD_REQUEST\",\n  \"message\": \"Invalid input data\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18fcf869-1eba-41a0-a37d-6643172478f7",
+              "name": "Authorization not provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.one"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "providerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"UNAUTHORIZED\",\n  \"message\": \"Authorization not provided\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f2af10f-ee0f-4874-a1a8-904e52332f70",
+              "name": "Insufficient access",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.one"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "providerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"FORBIDDEN\",\n  \"message\": \"Insufficient access\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d280ece2-289c-4d64-96e3-87eeae76c8b1",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.one"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "providerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"NOT_FOUND\",\n  \"message\": \"Not found\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d044ad8a-41b1-41e9-a285-93f2e199b945",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.one"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "providerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"INTERNAL_SERVER_ERROR\",\n  \"message\": \"Internal server error\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ff35383-87e3-4dfa-b699-03731a54c351",
+          "name": "sso-update",
+          "request": {
+            "name": "sso-update",
+            "description": {},
+            "url": {
+              "path": [
+                "sso.update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"providerId\": \"<string>\",\n  \"issuer\": \"<string>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"oidcConfig\": {\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"authorizationEndpoint\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"userInfoEndpoint\": \"<string>\",\n    \"tokenEndpointAuthentication\": \"<string>\",\n    \"jwksEndpoint\": \"<string>\",\n    \"discoveryEndpoint\": \"<string>\",\n    \"skipDiscovery\": \"<boolean>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pkce\": true,\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"image\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"samlConfig\": {\n    \"entryPoint\": \"<string>\",\n    \"cert\": \"<string>\",\n    \"callbackUrl\": \"<string>\",\n    \"spMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"binding\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\"\n    },\n    \"audience\": \"<string>\",\n    \"idpMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"cert\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\",\n      \"singleSignOnService\": [\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        },\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        }\n      ]\n    },\n    \"wantAssertionsSigned\": \"<boolean>\",\n    \"authnRequestsSigned\": \"<boolean>\",\n    \"signatureAlgorithm\": \"<string>\",\n    \"digestAlgorithm\": \"<string>\",\n    \"identifierFormat\": \"<string>\",\n    \"privateKey\": \"<string>\",\n    \"decryptionPvk\": \"<string>\",\n    \"additionalParams\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {}\n      }\n    }\n  },\n  \"organizationId\": \"<string>\",\n  \"overrideUserInfo\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b25d0667-a1d2-4012-af2f-4e56d1424fce",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerId\": \"<string>\",\n  \"issuer\": \"<string>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"oidcConfig\": {\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"authorizationEndpoint\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"userInfoEndpoint\": \"<string>\",\n    \"tokenEndpointAuthentication\": \"<string>\",\n    \"jwksEndpoint\": \"<string>\",\n    \"discoveryEndpoint\": \"<string>\",\n    \"skipDiscovery\": \"<boolean>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pkce\": true,\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"image\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"samlConfig\": {\n    \"entryPoint\": \"<string>\",\n    \"cert\": \"<string>\",\n    \"callbackUrl\": \"<string>\",\n    \"spMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"binding\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\"\n    },\n    \"audience\": \"<string>\",\n    \"idpMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"cert\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\",\n      \"singleSignOnService\": [\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        },\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        }\n      ]\n    },\n    \"wantAssertionsSigned\": \"<boolean>\",\n    \"authnRequestsSigned\": \"<boolean>\",\n    \"signatureAlgorithm\": \"<string>\",\n    \"digestAlgorithm\": \"<string>\",\n    \"identifierFormat\": \"<string>\",\n    \"privateKey\": \"<string>\",\n    \"decryptionPvk\": \"<string>\",\n    \"additionalParams\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"organizationId\": \"<string>\",\n  \"overrideUserInfo\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c2ea7a0-e2c1-456c-a6f0-825ab92daa40",
+              "name": "Invalid input data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerId\": \"<string>\",\n  \"issuer\": \"<string>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"oidcConfig\": {\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"authorizationEndpoint\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"userInfoEndpoint\": \"<string>\",\n    \"tokenEndpointAuthentication\": \"<string>\",\n    \"jwksEndpoint\": \"<string>\",\n    \"discoveryEndpoint\": \"<string>\",\n    \"skipDiscovery\": \"<boolean>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pkce\": true,\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"image\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"samlConfig\": {\n    \"entryPoint\": \"<string>\",\n    \"cert\": \"<string>\",\n    \"callbackUrl\": \"<string>\",\n    \"spMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"binding\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\"\n    },\n    \"audience\": \"<string>\",\n    \"idpMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"cert\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\",\n      \"singleSignOnService\": [\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        },\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        }\n      ]\n    },\n    \"wantAssertionsSigned\": \"<boolean>\",\n    \"authnRequestsSigned\": \"<boolean>\",\n    \"signatureAlgorithm\": \"<string>\",\n    \"digestAlgorithm\": \"<string>\",\n    \"identifierFormat\": \"<string>\",\n    \"privateKey\": \"<string>\",\n    \"decryptionPvk\": \"<string>\",\n    \"additionalParams\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"organizationId\": \"<string>\",\n  \"overrideUserInfo\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"BAD_REQUEST\",\n  \"message\": \"Invalid input data\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cd378ebb-1ddb-4b4c-aea8-b44470e5e624",
+              "name": "Authorization not provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerId\": \"<string>\",\n  \"issuer\": \"<string>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"oidcConfig\": {\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"authorizationEndpoint\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"userInfoEndpoint\": \"<string>\",\n    \"tokenEndpointAuthentication\": \"<string>\",\n    \"jwksEndpoint\": \"<string>\",\n    \"discoveryEndpoint\": \"<string>\",\n    \"skipDiscovery\": \"<boolean>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pkce\": true,\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"image\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"samlConfig\": {\n    \"entryPoint\": \"<string>\",\n    \"cert\": \"<string>\",\n    \"callbackUrl\": \"<string>\",\n    \"spMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"binding\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\"\n    },\n    \"audience\": \"<string>\",\n    \"idpMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"cert\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\",\n      \"singleSignOnService\": [\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        },\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        }\n      ]\n    },\n    \"wantAssertionsSigned\": \"<boolean>\",\n    \"authnRequestsSigned\": \"<boolean>\",\n    \"signatureAlgorithm\": \"<string>\",\n    \"digestAlgorithm\": \"<string>\",\n    \"identifierFormat\": \"<string>\",\n    \"privateKey\": \"<string>\",\n    \"decryptionPvk\": \"<string>\",\n    \"additionalParams\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"organizationId\": \"<string>\",\n  \"overrideUserInfo\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"UNAUTHORIZED\",\n  \"message\": \"Authorization not provided\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2bc211ba-f21e-4591-bd40-4980b29e0829",
+              "name": "Insufficient access",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerId\": \"<string>\",\n  \"issuer\": \"<string>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"oidcConfig\": {\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"authorizationEndpoint\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"userInfoEndpoint\": \"<string>\",\n    \"tokenEndpointAuthentication\": \"<string>\",\n    \"jwksEndpoint\": \"<string>\",\n    \"discoveryEndpoint\": \"<string>\",\n    \"skipDiscovery\": \"<boolean>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pkce\": true,\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"image\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"samlConfig\": {\n    \"entryPoint\": \"<string>\",\n    \"cert\": \"<string>\",\n    \"callbackUrl\": \"<string>\",\n    \"spMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"binding\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\"\n    },\n    \"audience\": \"<string>\",\n    \"idpMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"cert\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\",\n      \"singleSignOnService\": [\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        },\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        }\n      ]\n    },\n    \"wantAssertionsSigned\": \"<boolean>\",\n    \"authnRequestsSigned\": \"<boolean>\",\n    \"signatureAlgorithm\": \"<string>\",\n    \"digestAlgorithm\": \"<string>\",\n    \"identifierFormat\": \"<string>\",\n    \"privateKey\": \"<string>\",\n    \"decryptionPvk\": \"<string>\",\n    \"additionalParams\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"organizationId\": \"<string>\",\n  \"overrideUserInfo\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"FORBIDDEN\",\n  \"message\": \"Insufficient access\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e05a3912-0fd8-46fd-ade3-5483d455695c",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerId\": \"<string>\",\n  \"issuer\": \"<string>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"oidcConfig\": {\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"authorizationEndpoint\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"userInfoEndpoint\": \"<string>\",\n    \"tokenEndpointAuthentication\": \"<string>\",\n    \"jwksEndpoint\": \"<string>\",\n    \"discoveryEndpoint\": \"<string>\",\n    \"skipDiscovery\": \"<boolean>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pkce\": true,\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"image\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"samlConfig\": {\n    \"entryPoint\": \"<string>\",\n    \"cert\": \"<string>\",\n    \"callbackUrl\": \"<string>\",\n    \"spMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"binding\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\"\n    },\n    \"audience\": \"<string>\",\n    \"idpMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"cert\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\",\n      \"singleSignOnService\": [\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        },\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        }\n      ]\n    },\n    \"wantAssertionsSigned\": \"<boolean>\",\n    \"authnRequestsSigned\": \"<boolean>\",\n    \"signatureAlgorithm\": \"<string>\",\n    \"digestAlgorithm\": \"<string>\",\n    \"identifierFormat\": \"<string>\",\n    \"privateKey\": \"<string>\",\n    \"decryptionPvk\": \"<string>\",\n    \"additionalParams\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"organizationId\": \"<string>\",\n  \"overrideUserInfo\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"INTERNAL_SERVER_ERROR\",\n  \"message\": \"Internal server error\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e2c00c0f-11ac-4811-940c-ed3f0d0a1002",
+          "name": "sso-delete Provider",
+          "request": {
+            "name": "sso-delete Provider",
+            "description": {},
+            "url": {
+              "path": [
+                "sso.deleteProvider"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"providerId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b4005bc3-cf9a-4d89-98f9-b2ee5f874c12",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.deleteProvider"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80c01655-c518-434c-b839-a5fbc110491c",
+              "name": "Invalid input data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.deleteProvider"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"BAD_REQUEST\",\n  \"message\": \"Invalid input data\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8042abf1-b12b-4ab5-9ebe-91f382d19c24",
+              "name": "Authorization not provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.deleteProvider"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"UNAUTHORIZED\",\n  \"message\": \"Authorization not provided\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9eb89f15-f02e-496b-83da-b32e5d22044e",
+              "name": "Insufficient access",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.deleteProvider"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"FORBIDDEN\",\n  \"message\": \"Insufficient access\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "65d9f95e-b919-41d5-a8c4-5f39a5d0db8d",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.deleteProvider"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"INTERNAL_SERVER_ERROR\",\n  \"message\": \"Internal server error\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13b721ec-d1d2-40ad-bed2-4d499831b216",
+          "name": "sso-register",
+          "request": {
+            "name": "sso-register",
+            "description": {},
+            "url": {
+              "path": [
+                "sso.register"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"providerId\": \"<string>\",\n  \"issuer\": \"<string>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"oidcConfig\": {\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"authorizationEndpoint\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"userInfoEndpoint\": \"<string>\",\n    \"tokenEndpointAuthentication\": \"<string>\",\n    \"jwksEndpoint\": \"<string>\",\n    \"discoveryEndpoint\": \"<string>\",\n    \"skipDiscovery\": \"<boolean>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pkce\": true,\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"image\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"samlConfig\": {\n    \"entryPoint\": \"<string>\",\n    \"cert\": \"<string>\",\n    \"callbackUrl\": \"<string>\",\n    \"spMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"binding\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\"\n    },\n    \"audience\": \"<string>\",\n    \"idpMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"cert\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\",\n      \"singleSignOnService\": [\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        },\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        }\n      ]\n    },\n    \"wantAssertionsSigned\": \"<boolean>\",\n    \"authnRequestsSigned\": \"<boolean>\",\n    \"signatureAlgorithm\": \"<string>\",\n    \"digestAlgorithm\": \"<string>\",\n    \"identifierFormat\": \"<string>\",\n    \"privateKey\": \"<string>\",\n    \"decryptionPvk\": \"<string>\",\n    \"additionalParams\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {}\n      }\n    }\n  },\n  \"organizationId\": \"<string>\",\n  \"overrideUserInfo\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "13e48aa5-6870-49fb-bfd4-4209ccd54ea0",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerId\": \"<string>\",\n  \"issuer\": \"<string>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"oidcConfig\": {\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"authorizationEndpoint\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"userInfoEndpoint\": \"<string>\",\n    \"tokenEndpointAuthentication\": \"<string>\",\n    \"jwksEndpoint\": \"<string>\",\n    \"discoveryEndpoint\": \"<string>\",\n    \"skipDiscovery\": \"<boolean>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pkce\": true,\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"image\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"samlConfig\": {\n    \"entryPoint\": \"<string>\",\n    \"cert\": \"<string>\",\n    \"callbackUrl\": \"<string>\",\n    \"spMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"binding\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\"\n    },\n    \"audience\": \"<string>\",\n    \"idpMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"cert\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\",\n      \"singleSignOnService\": [\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        },\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        }\n      ]\n    },\n    \"wantAssertionsSigned\": \"<boolean>\",\n    \"authnRequestsSigned\": \"<boolean>\",\n    \"signatureAlgorithm\": \"<string>\",\n    \"digestAlgorithm\": \"<string>\",\n    \"identifierFormat\": \"<string>\",\n    \"privateKey\": \"<string>\",\n    \"decryptionPvk\": \"<string>\",\n    \"additionalParams\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"organizationId\": \"<string>\",\n  \"overrideUserInfo\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "db110ce3-171d-490f-9a0b-cb5cd5792b0f",
+              "name": "Invalid input data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerId\": \"<string>\",\n  \"issuer\": \"<string>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"oidcConfig\": {\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"authorizationEndpoint\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"userInfoEndpoint\": \"<string>\",\n    \"tokenEndpointAuthentication\": \"<string>\",\n    \"jwksEndpoint\": \"<string>\",\n    \"discoveryEndpoint\": \"<string>\",\n    \"skipDiscovery\": \"<boolean>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pkce\": true,\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"image\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"samlConfig\": {\n    \"entryPoint\": \"<string>\",\n    \"cert\": \"<string>\",\n    \"callbackUrl\": \"<string>\",\n    \"spMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"binding\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\"\n    },\n    \"audience\": \"<string>\",\n    \"idpMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"cert\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\",\n      \"singleSignOnService\": [\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        },\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        }\n      ]\n    },\n    \"wantAssertionsSigned\": \"<boolean>\",\n    \"authnRequestsSigned\": \"<boolean>\",\n    \"signatureAlgorithm\": \"<string>\",\n    \"digestAlgorithm\": \"<string>\",\n    \"identifierFormat\": \"<string>\",\n    \"privateKey\": \"<string>\",\n    \"decryptionPvk\": \"<string>\",\n    \"additionalParams\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"organizationId\": \"<string>\",\n  \"overrideUserInfo\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"BAD_REQUEST\",\n  \"message\": \"Invalid input data\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d853234d-dd27-42a0-8165-0aa802fd6280",
+              "name": "Authorization not provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerId\": \"<string>\",\n  \"issuer\": \"<string>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"oidcConfig\": {\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"authorizationEndpoint\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"userInfoEndpoint\": \"<string>\",\n    \"tokenEndpointAuthentication\": \"<string>\",\n    \"jwksEndpoint\": \"<string>\",\n    \"discoveryEndpoint\": \"<string>\",\n    \"skipDiscovery\": \"<boolean>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pkce\": true,\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"image\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"samlConfig\": {\n    \"entryPoint\": \"<string>\",\n    \"cert\": \"<string>\",\n    \"callbackUrl\": \"<string>\",\n    \"spMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"binding\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\"\n    },\n    \"audience\": \"<string>\",\n    \"idpMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"cert\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\",\n      \"singleSignOnService\": [\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        },\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        }\n      ]\n    },\n    \"wantAssertionsSigned\": \"<boolean>\",\n    \"authnRequestsSigned\": \"<boolean>\",\n    \"signatureAlgorithm\": \"<string>\",\n    \"digestAlgorithm\": \"<string>\",\n    \"identifierFormat\": \"<string>\",\n    \"privateKey\": \"<string>\",\n    \"decryptionPvk\": \"<string>\",\n    \"additionalParams\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"organizationId\": \"<string>\",\n  \"overrideUserInfo\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"UNAUTHORIZED\",\n  \"message\": \"Authorization not provided\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e6271c7c-1ca8-413b-a838-949d12b0adbb",
+              "name": "Insufficient access",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerId\": \"<string>\",\n  \"issuer\": \"<string>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"oidcConfig\": {\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"authorizationEndpoint\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"userInfoEndpoint\": \"<string>\",\n    \"tokenEndpointAuthentication\": \"<string>\",\n    \"jwksEndpoint\": \"<string>\",\n    \"discoveryEndpoint\": \"<string>\",\n    \"skipDiscovery\": \"<boolean>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pkce\": true,\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"image\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"samlConfig\": {\n    \"entryPoint\": \"<string>\",\n    \"cert\": \"<string>\",\n    \"callbackUrl\": \"<string>\",\n    \"spMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"binding\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\"\n    },\n    \"audience\": \"<string>\",\n    \"idpMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"cert\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\",\n      \"singleSignOnService\": [\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        },\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        }\n      ]\n    },\n    \"wantAssertionsSigned\": \"<boolean>\",\n    \"authnRequestsSigned\": \"<boolean>\",\n    \"signatureAlgorithm\": \"<string>\",\n    \"digestAlgorithm\": \"<string>\",\n    \"identifierFormat\": \"<string>\",\n    \"privateKey\": \"<string>\",\n    \"decryptionPvk\": \"<string>\",\n    \"additionalParams\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"organizationId\": \"<string>\",\n  \"overrideUserInfo\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"FORBIDDEN\",\n  \"message\": \"Insufficient access\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fcafc5c8-feee-4b78-9e9a-fd71f0336721",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerId\": \"<string>\",\n  \"issuer\": \"<string>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"oidcConfig\": {\n    \"clientId\": \"<string>\",\n    \"clientSecret\": \"<string>\",\n    \"authorizationEndpoint\": \"<string>\",\n    \"tokenEndpoint\": \"<string>\",\n    \"userInfoEndpoint\": \"<string>\",\n    \"tokenEndpointAuthentication\": \"<string>\",\n    \"jwksEndpoint\": \"<string>\",\n    \"discoveryEndpoint\": \"<string>\",\n    \"skipDiscovery\": \"<boolean>\",\n    \"scopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pkce\": true,\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"image\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"samlConfig\": {\n    \"entryPoint\": \"<string>\",\n    \"cert\": \"<string>\",\n    \"callbackUrl\": \"<string>\",\n    \"spMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"binding\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\"\n    },\n    \"audience\": \"<string>\",\n    \"idpMetadata\": {\n      \"metadata\": \"<string>\",\n      \"entityID\": \"<string>\",\n      \"cert\": \"<string>\",\n      \"privateKey\": \"<string>\",\n      \"privateKeyPass\": \"<string>\",\n      \"isAssertionEncrypted\": \"<boolean>\",\n      \"encPrivateKey\": \"<string>\",\n      \"encPrivateKeyPass\": \"<string>\",\n      \"singleSignOnService\": [\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        },\n        {\n          \"Binding\": \"<string>\",\n          \"Location\": \"<string>\"\n        }\n      ]\n    },\n    \"wantAssertionsSigned\": \"<boolean>\",\n    \"authnRequestsSigned\": \"<boolean>\",\n    \"signatureAlgorithm\": \"<string>\",\n    \"digestAlgorithm\": \"<string>\",\n    \"identifierFormat\": \"<string>\",\n    \"privateKey\": \"<string>\",\n    \"decryptionPvk\": \"<string>\",\n    \"additionalParams\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"mapping\": {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"emailVerified\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"extraFields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  },\n  \"organizationId\": \"<string>\",\n  \"overrideUserInfo\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"INTERNAL_SERVER_ERROR\",\n  \"message\": \"Internal server error\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12ebd889-91bf-4ef6-893f-ff3504c9e74e",
+          "name": "sso-add Trusted Origin",
+          "request": {
+            "name": "sso-add Trusted Origin",
+            "description": {},
+            "url": {
+              "path": [
+                "sso.addTrustedOrigin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"origin\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e7732ae0-8fbf-4bbb-836b-327f915ede63",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.addTrustedOrigin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ef0ea9c-c28b-42fc-b095-115242ecce75",
+              "name": "Invalid input data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.addTrustedOrigin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"BAD_REQUEST\",\n  \"message\": \"Invalid input data\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e8ca0116-0797-4bab-af29-07035de15c09",
+              "name": "Authorization not provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.addTrustedOrigin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"UNAUTHORIZED\",\n  \"message\": \"Authorization not provided\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb01f52d-2384-41de-9250-9c94bddec936",
+              "name": "Insufficient access",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.addTrustedOrigin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"FORBIDDEN\",\n  \"message\": \"Insufficient access\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "17ec03a2-af90-4d60-8dab-7066dd498c1a",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.addTrustedOrigin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"INTERNAL_SERVER_ERROR\",\n  \"message\": \"Internal server error\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c92a740-2f9c-4f9d-a03f-b5546d9666c0",
+          "name": "sso-remove Trusted Origin",
+          "request": {
+            "name": "sso-remove Trusted Origin",
+            "description": {},
+            "url": {
+              "path": [
+                "sso.removeTrustedOrigin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"origin\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fdcdd651-4bb8-4536-8b8c-de5412553bbe",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.removeTrustedOrigin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "06facfb8-f394-4496-9667-3389d2928a55",
+              "name": "Invalid input data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.removeTrustedOrigin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"BAD_REQUEST\",\n  \"message\": \"Invalid input data\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa6e3496-2c22-4f7b-ac77-581385e509d8",
+              "name": "Authorization not provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.removeTrustedOrigin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"UNAUTHORIZED\",\n  \"message\": \"Authorization not provided\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ecc444c5-b07f-468e-b7e7-0dcade90bd43",
+              "name": "Insufficient access",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.removeTrustedOrigin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"FORBIDDEN\",\n  \"message\": \"Insufficient access\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "333cd839-b5f4-4d46-9c91-e53ea4ccdc2a",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.removeTrustedOrigin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"INTERNAL_SERVER_ERROR\",\n  \"message\": \"Internal server error\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "87196382-6150-4a96-844d-c83cb7eae5c1",
+          "name": "sso-update Trusted Origin",
+          "request": {
+            "name": "sso-update Trusted Origin",
+            "description": {},
+            "url": {
+              "path": [
+                "sso.updateTrustedOrigin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"oldOrigin\": \"<string>\",\n  \"newOrigin\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "aead3127-3a96-4366-a1c6-7c8a1fb4692b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.updateTrustedOrigin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"oldOrigin\": \"<string>\",\n  \"newOrigin\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2834664-01b1-45af-85f2-08e8797fdd9c",
+              "name": "Invalid input data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.updateTrustedOrigin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"oldOrigin\": \"<string>\",\n  \"newOrigin\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"BAD_REQUEST\",\n  \"message\": \"Invalid input data\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b24d467c-0604-4517-826d-1eb524e574e8",
+              "name": "Authorization not provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.updateTrustedOrigin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"oldOrigin\": \"<string>\",\n  \"newOrigin\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"UNAUTHORIZED\",\n  \"message\": \"Authorization not provided\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2fa736fc-399d-4303-811c-4b368dca533c",
+              "name": "Insufficient access",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.updateTrustedOrigin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"oldOrigin\": \"<string>\",\n  \"newOrigin\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"FORBIDDEN\",\n  \"message\": \"Insufficient access\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8951aec-9656-411d-b943-a20f088047ad",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sso.updateTrustedOrigin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"oldOrigin\": \"<string>\",\n  \"newOrigin\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"INTERNAL_SERVER_ERROR\",\n  \"message\": \"Internal server error\",\n  \"issues\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://your-dokploy-instance.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fe7655fb-b7d1-4cf3-9fd8-4aadbfada615",
+    "name": "Dokploy admin sso API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete API documentation for Dokploy - Deploy applications, manage databases, and orchestrate your infrastructure. This API allows you to programmatically manage all aspects of your Dokploy instance.\n\nContact Support:\n Name: Dokploy Team",
+      "type": "text/plain"
+    }
+  }
+}

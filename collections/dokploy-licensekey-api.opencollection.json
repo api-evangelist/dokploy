@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dokploy admin licenseKey API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "licenseKey",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "licenseKey-activate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/licenseKey.activate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "licenseKey-validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/licenseKey.validate"
+          }
+        },
+        {
+          "info": {
+            "name": "licenseKey-deactivate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/licenseKey.deactivate"
+          }
+        },
+        {
+          "info": {
+            "name": "licenseKey-getEnterpriseSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/licenseKey.getEnterpriseSettings"
+          }
+        },
+        {
+          "info": {
+            "name": "licenseKey-haveValidLicenseKey",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-dokploy-instance.com/api/licenseKey.haveValidLicenseKey"
+          }
+        },
+        {
+          "info": {
+            "name": "licenseKey-updateEnterpriseSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-dokploy-instance.com/api/licenseKey.updateEnterpriseSettings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
