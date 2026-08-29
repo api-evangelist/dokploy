@@ -1480,6 +1480,9 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/dokploy-capability-edges.yml
+    name: Dokploy Business Capability Map
   - type: IssueTracker
     url: https://github.com/Dokploy/dokploy/issues
   - type: Releases
