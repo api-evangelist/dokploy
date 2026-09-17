@@ -146,36 +146,6 @@ apis:
     url: rate-limits/dokploy-rate-limits.yml
   - type: FinOps
     url: finops/dokploy-finops.yml
-- aid: dokploy:dokploy-auditlog-api
-  name: Dokploy auditLog API
-  description: The auditLog API from Dokploy — 1 operation(s) for auditlog.
-  humanURL: https://dokploy.com/
-  baseURL: https://your-dokploy-instance.com/api
-  tags:
-  - Audit Log
-  tags_raw:
-  - auditLog
-  properties:
-  - type: OpenAPI
-    url: openapi/dokploy-auditlog-api-openapi.yml
-  - type: Documentation
-    url: https://docs.dokploy.com/
-  - type: APIReference
-    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
-  - type: GettingStarted
-    url: https://docs.dokploy.com/docs/core
-  - type: SDKs
-    url: https://github.com/Dokploy/sdk
-  - type: CLI
-    url: https://github.com/Dokploy/cli
-  - type: MCPServer
-    url: https://github.com/Dokploy/mcp
-  - type: Plans
-    url: plans/dokploy-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/dokploy-rate-limits.yml
-  - type: FinOps
-    url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-backup-api
   name: Dokploy backup API
   description: The backup API from Dokploy — 12 operation(s) for backup.
@@ -1243,36 +1213,6 @@ apis:
     url: rate-limits/dokploy-rate-limits.yml
   - type: FinOps
     url: finops/dokploy-finops.yml
-- aid: dokploy:dokploy-sshkey-api
-  name: Dokploy sshKey API
-  description: The sshKey API from Dokploy — 7 operation(s) for sshkey.
-  humanURL: https://dokploy.com/
-  baseURL: https://your-dokploy-instance.com/api
-  tags:
-  - SSH Key
-  tags_raw:
-  - sshKey
-  properties:
-  - type: OpenAPI
-    url: openapi/dokploy-sshkey-api-openapi.yml
-  - type: Documentation
-    url: https://docs.dokploy.com/
-  - type: APIReference
-    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
-  - type: GettingStarted
-    url: https://docs.dokploy.com/docs/core
-  - type: SDKs
-    url: https://github.com/Dokploy/sdk
-  - type: CLI
-    url: https://github.com/Dokploy/cli
-  - type: MCPServer
-    url: https://github.com/Dokploy/mcp
-  - type: Plans
-    url: plans/dokploy-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/dokploy-rate-limits.yml
-  - type: FinOps
-    url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-sso-api
   name: Dokploy sso API
   description: The sso API from Dokploy — 10 operation(s) for sso.
@@ -1474,6 +1414,58 @@ apis:
     url: https://github.com/Dokploy/cli
   - type: MCPServer
     url: https://github.com/Dokploy/mcp
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-audit-log-api
+  name: Dokploy Audit Log API
+  description: The Audit Log API from Dokploy — 1 operation(s) for audit log.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - Audit Log
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-audit-log-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-ssh-key-api
+  name: Dokploy SSH Key API
+  description: The SSH Key API from Dokploy — 7 operation(s) for ssh key.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - SSH Key
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-ssh-key-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
   - type: Plans
     url: plans/dokploy-plans-pricing.yml
   - type: RateLimits
