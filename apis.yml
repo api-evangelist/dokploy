@@ -41,7 +41,7 @@ tags:
   - Docker Swarm
   - Deployment
   - Traefik
-  - Databases
+  - Database
 tags_raw:
   - PaaS
   - Self-Hosted
@@ -862,7 +862,7 @@ apis:
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
   tags:
-  - Port
+  - Ports
   tags_raw:
   - port
   properties:
@@ -1071,6 +1071,8 @@ apis:
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
   tags:
+  - Rollback
+  tags_raw:
   - rollback
   properties:
   - type: OpenAPI
@@ -1159,7 +1161,7 @@ apis:
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
   tags:
-  - Server
+  - Servers
   tags_raw:
   - server
   properties:
@@ -1426,6 +1428,8 @@ apis:
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
   tags:
+  - Audit Logs
+  tags_raw:
   - Audit Log
   properties:
   - type: OpenAPI
