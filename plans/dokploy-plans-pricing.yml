@@ -10,6 +10,12 @@ provenance:
   grounding: every price_text was found verbatim in the fetched page text
 audience: business-product
 pricing_basis: tiered-subscription
+delivery:
+  delivery: managed+licensed
+  method: page
+  read: '2026-09-20'
+  evidence: Self Hosted Install on-prem or in your own cloud
+  managed_tier: Hobby
 published: true
 note: Yearly billing offers 20% discount; 7-day free trial, no credit card required.
 plan_count: 3
