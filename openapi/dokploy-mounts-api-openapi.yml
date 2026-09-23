@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Dokploy admin mounts API
+  title: Dokploy Mounts API
   description: Complete API documentation for Dokploy - Deploy applications, manage databases, and orchestrate your infrastructure. This API allows you to programmatically manage all aspects of your Dokploy instance.
   version: 1.0.0
   contact:
@@ -14,13 +14,13 @@ servers:
 security:
 - apiKey: []
 tags:
-- name: mounts
+- name: Mounts
 paths:
   /mounts.create:
     post:
       operationId: mounts-create
       tags:
-      - mounts
+      - Mounts
       security:
       - Authorization: []
       parameters: []
@@ -107,11 +107,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mounts create
+      x-summary-source: derived
   /mounts.remove:
     post:
       operationId: mounts-remove
       tags:
-      - mounts
+      - Mounts
       security:
       - Authorization: []
       parameters: []
@@ -159,11 +161,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mounts remove
+      x-summary-source: derived
   /mounts.one:
     get:
       operationId: mounts-one
       tags:
-      - mounts
+      - Mounts
       security:
       - Authorization: []
       parameters:
@@ -212,11 +216,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mounts one
+      x-summary-source: derived
   /mounts.update:
     post:
       operationId: mounts-update
       tags:
-      - mounts
+      - Mounts
       security:
       - Authorization: []
       parameters: []
@@ -333,11 +339,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mounts update
+      x-summary-source: derived
   /mounts.allNamedByApplicationId:
     get:
       operationId: mounts-allNamedByApplicationId
       tags:
-      - mounts
+      - Mounts
       security:
       - Authorization: []
       parameters:
@@ -386,11 +394,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mounts all named by application id
+      x-summary-source: derived
   /mounts.listByServiceId:
     get:
       operationId: mounts-listByServiceId
       tags:
-      - mounts
+      - Mounts
       security:
       - Authorization: []
       parameters:
@@ -445,6 +455,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mounts list by service id
+      x-summary-source: derived
 components:
   schemas:
     error.INTERNAL_SERVER_ERROR:

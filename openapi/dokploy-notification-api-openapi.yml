@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Dokploy admin notification API
+  title: Dokploy Notification API
   description: Complete API documentation for Dokploy - Deploy applications, manage databases, and orchestrate your infrastructure. This API allows you to programmatically manage all aspects of your Dokploy instance.
   version: 1.0.0
   contact:
@@ -14,13 +14,13 @@ servers:
 security:
 - apiKey: []
 tags:
-- name: notification
+- name: Notification
 paths:
   /notification.createSlack:
     post:
       operationId: notification-createSlack
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -99,11 +99,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification create slack
+      x-summary-source: derived
   /notification.updateSlack:
     post:
       operationId: notification-updateSlack
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -180,11 +182,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification update slack
+      x-summary-source: derived
   /notification.testSlackConnection:
     post:
       operationId: notification-testSlackConnection
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -236,11 +240,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification test slack connection
+      x-summary-source: derived
   /notification.createTelegram:
     post:
       operationId: notification-createTelegram
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -323,11 +329,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification create telegram
+      x-summary-source: derived
   /notification.updateTelegram:
     post:
       operationId: notification-updateTelegram
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -408,11 +416,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification update telegram
+      x-summary-source: derived
   /notification.testTelegramConnection:
     post:
       operationId: notification-testTelegramConnection
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -468,11 +478,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification test telegram connection
+      x-summary-source: derived
   /notification.createDiscord:
     post:
       operationId: notification-createDiscord
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -551,11 +563,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification create discord
+      x-summary-source: derived
   /notification.updateDiscord:
     post:
       operationId: notification-updateDiscord
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -633,11 +647,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification update discord
+      x-summary-source: derived
   /notification.testDiscordConnection:
     post:
       operationId: notification-testDiscordConnection
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -688,11 +704,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification test discord connection
+      x-summary-source: derived
   /notification.createEmail:
     post:
       operationId: notification-createEmail
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -790,11 +808,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification create email
+      x-summary-source: derived
   /notification.updateEmail:
     post:
       operationId: notification-updateEmail
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -887,11 +907,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification update email
+      x-summary-source: derived
   /notification.testEmailConnection:
     post:
       operationId: notification-testEmailConnection
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -962,11 +984,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification test email connection
+      x-summary-source: derived
   /notification.createResend:
     post:
       operationId: notification-createResend
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -1052,11 +1076,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification create resend
+      x-summary-source: derived
   /notification.updateResend:
     post:
       operationId: notification-updateResend
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -1140,11 +1166,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification update resend
+      x-summary-source: derived
   /notification.testResendConnection:
     post:
       operationId: notification-testResendConnection
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -1203,11 +1231,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification test resend connection
+      x-summary-source: derived
   /notification.remove:
     post:
       operationId: notification-remove
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -1256,11 +1286,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification remove
+      x-summary-source: derived
   /notification.one:
     get:
       operationId: notification-one
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters:
@@ -1309,11 +1341,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification one
+      x-summary-source: derived
   /notification.all:
     get:
       operationId: notification-all
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       responses:
@@ -1355,11 +1389,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification all
+      x-summary-source: derived
   /notification.receiveNotification:
     post:
       operationId: notification-receiveNotification
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -1431,11 +1467,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification receive notification
+      x-summary-source: derived
   /notification.createGotify:
     post:
       operationId: notification-createGotify
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -1519,11 +1557,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification create gotify
+      x-summary-source: derived
   /notification.updateGotify:
     post:
       operationId: notification-updateGotify
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -1605,11 +1645,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification update gotify
+      x-summary-source: derived
   /notification.testGotifyConnection:
     post:
       operationId: notification-testGotifyConnection
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -1668,11 +1710,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification test gotify connection
+      x-summary-source: derived
   /notification.createNtfy:
     post:
       operationId: notification-createNtfy
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -1756,11 +1800,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification create ntfy
+      x-summary-source: derived
   /notification.updateNtfy:
     post:
       operationId: notification-updateNtfy
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -1842,11 +1888,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification update ntfy
+      x-summary-source: derived
   /notification.testNtfyConnection:
     post:
       operationId: notification-testNtfyConnection
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -1906,11 +1954,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification test ntfy connection
+      x-summary-source: derived
   /notification.createMattermost:
     post:
       operationId: notification-createMattermost
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -1990,11 +2040,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification create mattermost
+      x-summary-source: derived
   /notification.updateMattermost:
     post:
       operationId: notification-updateMattermost
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -2074,11 +2126,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification update mattermost
+      x-summary-source: derived
   /notification.testMattermostConnection:
     post:
       operationId: notification-testMattermostConnection
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -2131,11 +2185,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification test mattermost connection
+      x-summary-source: derived
   /notification.createCustom:
     post:
       operationId: notification-createCustom
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -2209,11 +2265,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification create custom
+      x-summary-source: derived
   /notification.updateCustom:
     post:
       operationId: notification-updateCustom
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -2295,11 +2353,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification update custom
+      x-summary-source: derived
   /notification.testCustomConnection:
     post:
       operationId: notification-testCustomConnection
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -2354,11 +2414,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification test custom connection
+      x-summary-source: derived
   /notification.createLark:
     post:
       operationId: notification-createLark
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -2434,11 +2496,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification create lark
+      x-summary-source: derived
   /notification.updateLark:
     post:
       operationId: notification-updateLark
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -2514,11 +2578,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification update lark
+      x-summary-source: derived
   /notification.testLarkConnection:
     post:
       operationId: notification-testLarkConnection
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -2567,11 +2633,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification test lark connection
+      x-summary-source: derived
   /notification.createTeams:
     post:
       operationId: notification-createTeams
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -2647,11 +2715,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification create teams
+      x-summary-source: derived
   /notification.updateTeams:
     post:
       operationId: notification-updateTeams
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -2727,11 +2797,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification update teams
+      x-summary-source: derived
   /notification.testTeamsConnection:
     post:
       operationId: notification-testTeamsConnection
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -2780,11 +2852,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification test teams connection
+      x-summary-source: derived
   /notification.createPushover:
     post:
       operationId: notification-createPushover
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -2872,11 +2946,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification create pushover
+      x-summary-source: derived
   /notification.updatePushover:
     post:
       operationId: notification-updatePushover
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -2970,11 +3046,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification update pushover
+      x-summary-source: derived
   /notification.testPushoverConnection:
     post:
       operationId: notification-testPushoverConnection
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       parameters: []
@@ -3043,11 +3121,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification test pushover connection
+      x-summary-source: derived
   /notification.getEmailProviders:
     get:
       operationId: notification-getEmailProviders
       tags:
-      - notification
+      - Notification
       security:
       - Authorization: []
       responses:
@@ -3089,6 +3169,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Notification get email providers
+      x-summary-source: derived
 components:
   schemas:
     error.INTERNAL_SERVER_ERROR:

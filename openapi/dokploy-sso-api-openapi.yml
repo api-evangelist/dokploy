@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Dokploy admin sso API
+  title: Dokploy SSO API
   description: Complete API documentation for Dokploy - Deploy applications, manage databases, and orchestrate your infrastructure. This API allows you to programmatically manage all aspects of your Dokploy instance.
   version: 1.0.0
   contact:
@@ -14,13 +14,13 @@ servers:
 security:
 - apiKey: []
 tags:
-- name: sso
+- name: SSO
 paths:
   /sso.showSignInWithSSO:
     get:
       operationId: sso-showSignInWithSSO
       tags:
-      - sso
+      - SSO
       security:
       - Authorization: []
       responses:
@@ -62,11 +62,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Sso show sign in with SSO
+      x-summary-source: derived
   /sso.listProviders:
     get:
       operationId: sso-listProviders
       tags:
-      - sso
+      - SSO
       security:
       - Authorization: []
       responses:
@@ -108,11 +110,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Sso list providers
+      x-summary-source: derived
   /sso.getTrustedOrigins:
     get:
       operationId: sso-getTrustedOrigins
       tags:
-      - sso
+      - SSO
       security:
       - Authorization: []
       responses:
@@ -154,11 +158,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Sso get trusted origins
+      x-summary-source: derived
   /sso.one:
     get:
       operationId: sso-one
       tags:
-      - sso
+      - SSO
       security:
       - Authorization: []
       parameters:
@@ -207,11 +213,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Sso one
+      x-summary-source: derived
   /sso.update:
     post:
       operationId: sso-update
       tags:
-      - sso
+      - SSO
       security:
       - Authorization: []
       parameters: []
@@ -437,11 +445,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Sso update
+      x-summary-source: derived
   /sso.deleteProvider:
     post:
       operationId: sso-deleteProvider
       tags:
-      - sso
+      - SSO
       security:
       - Authorization: []
       parameters: []
@@ -490,11 +500,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Sso delete provider
+      x-summary-source: derived
   /sso.register:
     post:
       operationId: sso-register
       tags:
-      - sso
+      - SSO
       security:
       - Authorization: []
       parameters: []
@@ -720,11 +732,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Sso register
+      x-summary-source: derived
   /sso.addTrustedOrigin:
     post:
       operationId: sso-addTrustedOrigin
       tags:
-      - sso
+      - SSO
       security:
       - Authorization: []
       parameters: []
@@ -773,11 +787,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Sso add trusted origin
+      x-summary-source: derived
   /sso.removeTrustedOrigin:
     post:
       operationId: sso-removeTrustedOrigin
       tags:
-      - sso
+      - SSO
       security:
       - Authorization: []
       parameters: []
@@ -826,11 +842,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Sso remove trusted origin
+      x-summary-source: derived
   /sso.updateTrustedOrigin:
     post:
       operationId: sso-updateTrustedOrigin
       tags:
-      - sso
+      - SSO
       security:
       - Authorization: []
       parameters: []
@@ -883,6 +901,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Sso update trusted origin
+      x-summary-source: derived
 components:
   schemas:
     error.INTERNAL_SERVER_ERROR:

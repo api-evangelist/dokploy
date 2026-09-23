@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Dokploy admin server API
+  title: Dokploy Server API
   description: Complete API documentation for Dokploy - Deploy applications, manage databases, and orchestrate your infrastructure. This API allows you to programmatically manage all aspects of your Dokploy instance.
   version: 1.0.0
   contact:
@@ -14,13 +14,13 @@ servers:
 security:
 - apiKey: []
 tags:
-- name: server
+- name: Server
 paths:
   /server.create:
     post:
       operationId: server-create
       tags:
-      - server
+      - Server
       security:
       - Authorization: []
       parameters: []
@@ -94,11 +94,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Server create
+      x-summary-source: derived
   /server.one:
     get:
       operationId: server-one
       tags:
-      - server
+      - Server
       security:
       - Authorization: []
       parameters:
@@ -147,11 +149,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Server one
+      x-summary-source: derived
   /server.getDefaultCommand:
     get:
       operationId: server-getDefaultCommand
       tags:
-      - server
+      - Server
       security:
       - Authorization: []
       parameters:
@@ -200,11 +204,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Server get default command
+      x-summary-source: derived
   /server.all:
     get:
       operationId: server-all
       tags:
-      - server
+      - Server
       security:
       - Authorization: []
       responses:
@@ -246,11 +252,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Server all
+      x-summary-source: derived
   /server.allForPermissions:
     get:
       operationId: server-allForPermissions
       tags:
-      - server
+      - Server
       security:
       - Authorization: []
       responses:
@@ -292,11 +300,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Server all for permissions
+      x-summary-source: derived
   /server.count:
     get:
       operationId: server-count
       tags:
-      - server
+      - Server
       security:
       - Authorization: []
       responses:
@@ -338,11 +348,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Server count
+      x-summary-source: derived
   /server.withSSHKey:
     get:
       operationId: server-withSSHKey
       tags:
-      - server
+      - Server
       security:
       - Authorization: []
       responses:
@@ -384,11 +396,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Server with SSH key
+      x-summary-source: derived
   /server.buildServers:
     get:
       operationId: server-buildServers
       tags:
-      - server
+      - Server
       security:
       - Authorization: []
       responses:
@@ -430,11 +444,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Server build servers
+      x-summary-source: derived
   /server.setup:
     post:
       operationId: server-setup
       tags:
-      - server
+      - Server
       security:
       - Authorization: []
       parameters: []
@@ -483,11 +499,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Server setup
+      x-summary-source: derived
   /server.validate:
     get:
       operationId: server-validate
       tags:
-      - server
+      - Server
       security:
       - Authorization: []
       parameters:
@@ -536,11 +554,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Server validate
+      x-summary-source: derived
   /server.security:
     get:
       operationId: server-security
       tags:
-      - server
+      - Server
       security:
       - Authorization: []
       parameters:
@@ -589,11 +609,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Server security
+      x-summary-source: derived
   /server.setupMonitoring:
     post:
       operationId: server-setupMonitoring
       tags:
-      - server
+      - Server
       security:
       - Authorization: []
       parameters: []
@@ -709,11 +731,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Server setup monitoring
+      x-summary-source: derived
   /server.remove:
     post:
       operationId: server-remove
       tags:
-      - server
+      - Server
       security:
       - Authorization: []
       parameters: []
@@ -762,11 +786,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Server remove
+      x-summary-source: derived
   /server.update:
     post:
       operationId: server-update
       tags:
-      - server
+      - Server
       security:
       - Authorization: []
       parameters: []
@@ -846,11 +872,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Server update
+      x-summary-source: derived
   /server.publicIp:
     get:
       operationId: server-publicIp
       tags:
-      - server
+      - Server
       security:
       - Authorization: []
       responses:
@@ -892,11 +920,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Server public ip
+      x-summary-source: derived
   /server.getServerTime:
     get:
       operationId: server-getServerTime
       tags:
-      - server
+      - Server
       security:
       - Authorization: []
       responses:
@@ -938,11 +968,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Server get server time
+      x-summary-source: derived
   /server.getServerMetrics:
     get:
       operationId: server-getServerMetrics
       tags:
-      - server
+      - Server
       security:
       - Authorization: []
       parameters:
@@ -1000,6 +1032,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Server get server metrics
+      x-summary-source: derived
 components:
   schemas:
     error.INTERNAL_SERVER_ERROR:

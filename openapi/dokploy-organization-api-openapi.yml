@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Dokploy admin organization API
+  title: Dokploy Organization API
   description: Complete API documentation for Dokploy - Deploy applications, manage databases, and orchestrate your infrastructure. This API allows you to programmatically manage all aspects of your Dokploy instance.
   version: 1.0.0
   contact:
@@ -14,13 +14,13 @@ servers:
 security:
 - apiKey: []
 tags:
-- name: organization
+- name: Organization
 paths:
   /organization.create:
     post:
       operationId: organization-create
       tags:
-      - organization
+      - Organization
       security:
       - Authorization: []
       parameters: []
@@ -70,11 +70,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Organization create
+      x-summary-source: derived
   /organization.all:
     get:
       operationId: organization-all
       tags:
-      - organization
+      - Organization
       security:
       - Authorization: []
       responses:
@@ -116,11 +118,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Organization all
+      x-summary-source: derived
   /organization.one:
     get:
       operationId: organization-one
       tags:
-      - organization
+      - Organization
       security:
       - Authorization: []
       parameters:
@@ -168,11 +172,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Organization one
+      x-summary-source: derived
   /organization.update:
     post:
       operationId: organization-update
       tags:
-      - organization
+      - Organization
       security:
       - Authorization: []
       parameters: []
@@ -225,11 +231,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Organization update
+      x-summary-source: derived
   /organization.delete:
     post:
       operationId: organization-delete
       tags:
-      - organization
+      - Organization
       security:
       - Authorization: []
       parameters: []
@@ -277,11 +285,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Organization delete
+      x-summary-source: derived
   /organization.inviteMember:
     post:
       operationId: organization-inviteMember
       tags:
-      - organization
+      - Organization
       security:
       - Authorization: []
       parameters: []
@@ -335,11 +345,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Organization invite member
+      x-summary-source: derived
   /organization.allInvitations:
     get:
       operationId: organization-allInvitations
       tags:
-      - organization
+      - Organization
       security:
       - Authorization: []
       responses:
@@ -381,11 +393,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Organization all invitations
+      x-summary-source: derived
   /organization.removeInvitation:
     post:
       operationId: organization-removeInvitation
       tags:
-      - organization
+      - Organization
       security:
       - Authorization: []
       parameters: []
@@ -433,11 +447,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Organization remove invitation
+      x-summary-source: derived
   /organization.updateMemberRole:
     post:
       operationId: organization-updateMemberRole
       tags:
-      - organization
+      - Organization
       security:
       - Authorization: []
       parameters: []
@@ -489,11 +505,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Organization update member role
+      x-summary-source: derived
   /organization.setDefault:
     post:
       operationId: organization-setDefault
       tags:
-      - organization
+      - Organization
       security:
       - Authorization: []
       parameters: []
@@ -542,11 +560,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Organization set default
+      x-summary-source: derived
   /organization.active:
     get:
       operationId: organization-active
       tags:
-      - organization
+      - Organization
       security:
       - Authorization: []
       responses:
@@ -588,6 +608,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Organization active
+      x-summary-source: derived
 components:
   schemas:
     error.INTERNAL_SERVER_ERROR:

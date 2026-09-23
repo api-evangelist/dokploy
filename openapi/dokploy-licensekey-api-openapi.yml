@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Dokploy admin licenseKey API
+  title: Dokploy License Key API
   description: Complete API documentation for Dokploy - Deploy applications, manage databases, and orchestrate your infrastructure. This API allows you to programmatically manage all aspects of your Dokploy instance.
   version: 1.0.0
   contact:
@@ -69,6 +69,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: License key activate
+      x-summary-source: derived
   /licenseKey.validate:
     post:
       operationId: licenseKey-validate
@@ -109,6 +111,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: License key validate
+      x-summary-source: derived
   /licenseKey.deactivate:
     post:
       operationId: licenseKey-deactivate
@@ -149,6 +153,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: License key deactivate
+      x-summary-source: derived
   /licenseKey.getEnterpriseSettings:
     get:
       operationId: licenseKey-getEnterpriseSettings
@@ -195,6 +201,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: License key get enterprise settings
+      x-summary-source: derived
   /licenseKey.haveValidLicenseKey:
     get:
       operationId: licenseKey-haveValidLicenseKey
@@ -241,6 +249,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: License key have valid license key
+      x-summary-source: derived
   /licenseKey.updateEnterpriseSettings:
     post:
       operationId: licenseKey-updateEnterpriseSettings
@@ -291,6 +301,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: License key update enterprise settings
+      x-summary-source: derived
 components:
   schemas:
     error.INTERNAL_SERVER_ERROR:

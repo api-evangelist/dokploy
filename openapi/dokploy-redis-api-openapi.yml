@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Dokploy admin redis API
+  title: Dokploy Redis API
   description: Complete API documentation for Dokploy - Deploy applications, manage databases, and orchestrate your infrastructure. This API allows you to programmatically manage all aspects of your Dokploy instance.
   version: 1.0.0
   contact:
@@ -14,13 +14,13 @@ servers:
 security:
 - apiKey: []
 tags:
-- name: redis
+- name: Redis
 paths:
   /redis.create:
     post:
       operationId: redis-create
       tags:
-      - redis
+      - Redis
       security:
       - Authorization: []
       parameters: []
@@ -91,11 +91,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Redis create
+      x-summary-source: derived
   /redis.one:
     get:
       operationId: redis-one
       tags:
-      - redis
+      - Redis
       security:
       - Authorization: []
       parameters:
@@ -144,11 +146,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Redis one
+      x-summary-source: derived
   /redis.start:
     post:
       operationId: redis-start
       tags:
-      - redis
+      - Redis
       security:
       - Authorization: []
       parameters: []
@@ -197,11 +201,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Redis start
+      x-summary-source: derived
   /redis.reload:
     post:
       operationId: redis-reload
       tags:
-      - redis
+      - Redis
       security:
       - Authorization: []
       parameters: []
@@ -255,11 +261,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Redis reload
+      x-summary-source: derived
   /redis.stop:
     post:
       operationId: redis-stop
       tags:
-      - redis
+      - Redis
       security:
       - Authorization: []
       parameters: []
@@ -308,11 +316,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Redis stop
+      x-summary-source: derived
   /redis.saveExternalPort:
     post:
       operationId: redis-saveExternalPort
       tags:
-      - redis
+      - Redis
       security:
       - Authorization: []
       parameters: []
@@ -365,11 +375,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Redis save external port
+      x-summary-source: derived
   /redis.deploy:
     post:
       operationId: redis-deploy
       tags:
-      - redis
+      - Redis
       security:
       - Authorization: []
       parameters: []
@@ -417,11 +429,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Redis deploy
+      x-summary-source: derived
   /redis.changeStatus:
     post:
       operationId: redis-changeStatus
       tags:
-      - redis
+      - Redis
       security:
       - Authorization: []
       parameters: []
@@ -477,11 +491,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Redis change status
+      x-summary-source: derived
   /redis.remove:
     post:
       operationId: redis-remove
       tags:
-      - redis
+      - Redis
       security:
       - Authorization: []
       parameters: []
@@ -530,11 +546,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Redis remove
+      x-summary-source: derived
   /redis.saveEnvironment:
     post:
       operationId: redis-saveEnvironment
       tags:
-      - redis
+      - Redis
       security:
       - Authorization: []
       parameters: []
@@ -587,11 +605,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Redis save environment
+      x-summary-source: derived
   /redis.update:
     post:
       operationId: redis-update
       tags:
-      - redis
+      - Redis
       security:
       - Authorization: []
       parameters: []
@@ -942,11 +962,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Redis update
+      x-summary-source: derived
   /redis.changePassword:
     post:
       operationId: redis-changePassword
       tags:
-      - redis
+      - Redis
       security:
       - Authorization: []
       parameters: []
@@ -1000,11 +1022,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Redis change password
+      x-summary-source: derived
   /redis.move:
     post:
       operationId: redis-move
       tags:
-      - redis
+      - Redis
       security:
       - Authorization: []
       parameters: []
@@ -1055,11 +1079,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Redis move
+      x-summary-source: derived
   /redis.rebuild:
     post:
       operationId: redis-rebuild
       tags:
-      - redis
+      - Redis
       security:
       - Authorization: []
       parameters: []
@@ -1107,11 +1133,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Redis rebuild
+      x-summary-source: derived
   /redis.search:
     get:
       operationId: redis-search
       tags:
-      - redis
+      - Redis
       security:
       - Authorization: []
       parameters:
@@ -1191,11 +1219,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Redis search
+      x-summary-source: derived
   /redis.readLogs:
     get:
       operationId: redis-readLogs
       tags:
-      - redis
+      - Redis
       security:
       - Authorization: []
       parameters:
@@ -1262,6 +1292,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Redis read logs
+      x-summary-source: derived
 components:
   schemas:
     error.INTERNAL_SERVER_ERROR:

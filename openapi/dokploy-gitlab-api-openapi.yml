@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Dokploy admin gitlab API
+  title: Dokploy Gitlab API
   description: Complete API documentation for Dokploy - Deploy applications, manage databases, and orchestrate your infrastructure. This API allows you to programmatically manage all aspects of your Dokploy instance.
   version: 1.0.0
   contact:
@@ -14,13 +14,13 @@ servers:
 security:
 - apiKey: []
 tags:
-- name: gitlab
+- name: Gitlab
 paths:
   /gitlab.create:
     post:
       operationId: gitlab-create
       tags:
-      - gitlab
+      - Gitlab
       security:
       - Authorization: []
       parameters: []
@@ -91,11 +91,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Gitlab create
+      x-summary-source: derived
   /gitlab.one:
     get:
       operationId: gitlab-one
       tags:
-      - gitlab
+      - Gitlab
       security:
       - Authorization: []
       parameters:
@@ -144,11 +146,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Gitlab one
+      x-summary-source: derived
   /gitlab.gitlabProviders:
     get:
       operationId: gitlab-gitlabProviders
       tags:
-      - gitlab
+      - Gitlab
       security:
       - Authorization: []
       responses:
@@ -190,11 +194,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Gitlab gitlab providers
+      x-summary-source: derived
   /gitlab.getGitlabRepositories:
     get:
       operationId: gitlab-getGitlabRepositories
       tags:
-      - gitlab
+      - Gitlab
       security:
       - Authorization: []
       parameters:
@@ -243,11 +249,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Gitlab get gitlab repositories
+      x-summary-source: derived
   /gitlab.getGitlabBranches:
     get:
       operationId: gitlab-getGitlabBranches
       tags:
-      - gitlab
+      - Gitlab
       security:
       - Authorization: []
       parameters:
@@ -308,11 +316,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Gitlab get gitlab branches
+      x-summary-source: derived
   /gitlab.testConnection:
     post:
       operationId: gitlab-testConnection
       tags:
-      - gitlab
+      - Gitlab
       security:
       - Authorization: []
       parameters: []
@@ -363,11 +373,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Gitlab test connection
+      x-summary-source: derived
   /gitlab.update:
     post:
       operationId: gitlab-update
       tags:
-      - gitlab
+      - Gitlab
       security:
       - Authorization: []
       parameters: []
@@ -440,6 +452,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Gitlab update
+      x-summary-source: derived
 components:
   schemas:
     error.INTERNAL_SERVER_ERROR:

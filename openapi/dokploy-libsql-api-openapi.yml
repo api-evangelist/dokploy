@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Dokploy admin libsql API
+  title: Dokploy Libsql API
   description: Complete API documentation for Dokploy - Deploy applications, manage databases, and orchestrate your infrastructure. This API allows you to programmatically manage all aspects of your Dokploy instance.
   version: 1.0.0
   contact:
@@ -115,6 +115,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Libsql create
+      x-summary-source: derived
   /libsql.one:
     get:
       operationId: libsql-one
@@ -168,6 +170,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Libsql one
+      x-summary-source: derived
   /libsql.start:
     post:
       operationId: libsql-start
@@ -221,6 +225,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Libsql start
+      x-summary-source: derived
   /libsql.stop:
     post:
       operationId: libsql-stop
@@ -274,6 +280,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Libsql stop
+      x-summary-source: derived
   /libsql.saveExternalPorts:
     post:
       operationId: libsql-saveExternalPorts
@@ -338,6 +346,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Libsql save external ports
+      x-summary-source: derived
   /libsql.deploy:
     post:
       operationId: libsql-deploy
@@ -390,6 +400,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Libsql deploy
+      x-summary-source: derived
   /libsql.changeStatus:
     post:
       operationId: libsql-changeStatus
@@ -450,6 +462,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Libsql change status
+      x-summary-source: derived
   /libsql.remove:
     post:
       operationId: libsql-remove
@@ -503,6 +517,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Libsql remove
+      x-summary-source: derived
   /libsql.saveEnvironment:
     post:
       operationId: libsql-saveEnvironment
@@ -560,6 +576,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Libsql save environment
+      x-summary-source: derived
   /libsql.reload:
     post:
       operationId: libsql-reload
@@ -616,6 +634,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Libsql reload
+      x-summary-source: derived
   /libsql.update:
     post:
       operationId: libsql-update
@@ -965,6 +985,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Libsql update
+      x-summary-source: derived
   /libsql.move:
     post:
       operationId: libsql-move
@@ -1020,6 +1042,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Libsql move
+      x-summary-source: derived
   /libsql.rebuild:
     post:
       operationId: libsql-rebuild
@@ -1072,6 +1096,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Libsql rebuild
+      x-summary-source: derived
   /libsql.readLogs:
     get:
       operationId: libsql-readLogs
@@ -1143,6 +1169,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Libsql read logs
+      x-summary-source: derived
 components:
   schemas:
     error.INTERNAL_SERVER_ERROR:

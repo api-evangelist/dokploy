@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Dokploy admin bitbucket API
+  title: Dokploy Bitbucket API
   description: Complete API documentation for Dokploy - Deploy applications, manage databases, and orchestrate your infrastructure. This API allows you to programmatically manage all aspects of your Dokploy instance.
   version: 1.0.0
   contact:
@@ -89,6 +89,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Bitbucket create
+      x-summary-source: derived
   /bitbucket.one:
     get:
       operationId: bitbucket-one
@@ -142,6 +144,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Bitbucket one
+      x-summary-source: derived
   /bitbucket.bitbucketProviders:
     get:
       operationId: bitbucket-bitbucketProviders
@@ -188,6 +192,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Bitbucket bitbucket providers
+      x-summary-source: derived
   /bitbucket.getBitbucketRepositories:
     get:
       operationId: bitbucket-getBitbucketRepositories
@@ -241,6 +247,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Bitbucket get bitbucket repositories
+      x-summary-source: derived
   /bitbucket.getBitbucketBranches:
     get:
       operationId: bitbucket-getBitbucketBranches
@@ -302,6 +310,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Bitbucket get bitbucket branches
+      x-summary-source: derived
   /bitbucket.testConnection:
     post:
       operationId: bitbucket-testConnection
@@ -367,6 +377,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Bitbucket test connection
+      x-summary-source: derived
   /bitbucket.update:
     post:
       operationId: bitbucket-update
@@ -441,6 +453,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Bitbucket update
+      x-summary-source: derived
 components:
   schemas:
     error.INTERNAL_SERVER_ERROR:

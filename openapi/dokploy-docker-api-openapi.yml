@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Dokploy admin docker API
+  title: Dokploy Docker API
   description: Complete API documentation for Dokploy - Deploy applications, manage databases, and orchestrate your infrastructure. This API allows you to programmatically manage all aspects of your Dokploy instance.
   version: 1.0.0
   contact:
@@ -67,6 +67,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Docker get containers
+      x-summary-source: derived
   /docker.restartContainer:
     post:
       operationId: docker-restartContainer
@@ -123,6 +125,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Docker restart container
+      x-summary-source: derived
   /docker.startContainer:
     post:
       operationId: docker-startContainer
@@ -179,6 +183,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Docker start container
+      x-summary-source: derived
   /docker.stopContainer:
     post:
       operationId: docker-stopContainer
@@ -235,6 +241,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Docker stop container
+      x-summary-source: derived
   /docker.killContainer:
     post:
       operationId: docker-killContainer
@@ -291,6 +299,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Docker kill container
+      x-summary-source: derived
   /docker.removeContainer:
     post:
       operationId: docker-removeContainer
@@ -347,6 +357,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Docker remove container
+      x-summary-source: derived
   /docker.getConfig:
     get:
       operationId: docker-getConfig
@@ -405,6 +417,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Docker get config
+      x-summary-source: derived
   /docker.getContainersByAppNameMatch:
     get:
       operationId: docker-getContainersByAppNameMatch
@@ -470,6 +484,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Docker get containers by app name match
+      x-summary-source: derived
   /docker.getContainersByAppLabel:
     get:
       operationId: docker-getContainersByAppLabel
@@ -536,6 +552,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Docker get containers by app label
+      x-summary-source: derived
   /docker.getStackContainersByAppName:
     get:
       operationId: docker-getStackContainersByAppName
@@ -594,6 +612,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Docker get stack containers by app name
+      x-summary-source: derived
   /docker.getServiceContainersByAppName:
     get:
       operationId: docker-getServiceContainersByAppName
@@ -652,6 +672,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Docker get service containers by app name
+      x-summary-source: derived
   /docker.uploadFileToContainer:
     post:
       operationId: docker-uploadFileToContainer
@@ -717,6 +739,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Docker upload file to container
+      x-summary-source: derived
 components:
   schemas:
     error.INTERNAL_SERVER_ERROR:

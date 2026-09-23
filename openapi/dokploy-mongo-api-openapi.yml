@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Dokploy admin mongo API
+  title: Dokploy Mongo API
   description: Complete API documentation for Dokploy - Deploy applications, manage databases, and orchestrate your infrastructure. This API allows you to programmatically manage all aspects of your Dokploy instance.
   version: 1.0.0
   contact:
@@ -101,6 +101,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mongo create
+      x-summary-source: derived
   /mongo.one:
     get:
       operationId: mongo-one
@@ -154,6 +156,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mongo one
+      x-summary-source: derived
   /mongo.start:
     post:
       operationId: mongo-start
@@ -207,6 +211,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mongo start
+      x-summary-source: derived
   /mongo.stop:
     post:
       operationId: mongo-stop
@@ -260,6 +266,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mongo stop
+      x-summary-source: derived
   /mongo.saveExternalPort:
     post:
       operationId: mongo-saveExternalPort
@@ -317,6 +325,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mongo save external port
+      x-summary-source: derived
   /mongo.deploy:
     post:
       operationId: mongo-deploy
@@ -369,6 +379,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mongo deploy
+      x-summary-source: derived
   /mongo.changeStatus:
     post:
       operationId: mongo-changeStatus
@@ -429,6 +441,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mongo change status
+      x-summary-source: derived
   /mongo.reload:
     post:
       operationId: mongo-reload
@@ -487,6 +501,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mongo reload
+      x-summary-source: derived
   /mongo.remove:
     post:
       operationId: mongo-remove
@@ -540,6 +556,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mongo remove
+      x-summary-source: derived
   /mongo.saveEnvironment:
     post:
       operationId: mongo-saveEnvironment
@@ -597,6 +615,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mongo save environment
+      x-summary-source: derived
   /mongo.update:
     post:
       operationId: mongo-update
@@ -961,6 +981,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mongo update
+      x-summary-source: derived
   /mongo.changePassword:
     post:
       operationId: mongo-changePassword
@@ -1019,6 +1041,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mongo change password
+      x-summary-source: derived
   /mongo.move:
     post:
       operationId: mongo-move
@@ -1074,6 +1098,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mongo move
+      x-summary-source: derived
   /mongo.rebuild:
     post:
       operationId: mongo-rebuild
@@ -1126,6 +1152,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mongo rebuild
+      x-summary-source: derived
   /mongo.search:
     get:
       operationId: mongo-search
@@ -1210,6 +1238,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mongo search
+      x-summary-source: derived
   /mongo.readLogs:
     get:
       operationId: mongo-readLogs
@@ -1281,6 +1311,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Mongo read logs
+      x-summary-source: derived
 components:
   schemas:
     error.INTERNAL_SERVER_ERROR:
