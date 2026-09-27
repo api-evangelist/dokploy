@@ -7,6 +7,10 @@ description: >-
 type: Index
 deliveryModel:
   model: unknown
+  license_evidence:
+    repo: dokploy/dokploy
+    spdx: NOASSERTION
+    stars: 37502
   open_source: unknown
   commercial: true
   callable_host: false
@@ -16,7 +20,7 @@ deliveryModel:
   - openapi
   - pricing
   - repository-unlicensed
-  generated: '2026-08-28'
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium
@@ -36,7 +40,7 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dokploy.pn
 tags:
   - Platform-as-a-Service
   - Self-Hosted
-  - Open-Source
+  - Open Source
   - Docker
   - Docker Swarm
   - Deployment
@@ -51,13 +55,14 @@ tags_raw:
   - Deployment
   - Traefik
   - Databases
+  - Open-Source
 url: https://raw.githubusercontent.com/api-evangelist/dokploy/refs/heads/main/apis.yml
 created: '2026-05-25'
 modified: '2026-05-25'
 specificationVersion: '0.23'
 apis:
 - aid: dokploy:dokploy-admin-api
-  name: Dokploy admin API
+  name: Dokploy Admin API
   description: The admin API from Dokploy — 1 operation(s) for admin.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -87,7 +92,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-ai-api
-  name: Dokploy ai API
+  name: Dokploy AI API
   description: The ai API from Dokploy — 12 operation(s) for ai.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -117,7 +122,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-application-api
-  name: Dokploy application API
+  name: Dokploy Application API
   description: The application API from Dokploy — 31 operation(s) for application.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -147,7 +152,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-backup-api
-  name: Dokploy backup API
+  name: Dokploy Backup API
   description: The backup API from Dokploy — 12 operation(s) for backup.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -177,7 +182,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-bitbucket-api
-  name: Dokploy bitbucket API
+  name: Dokploy Bitbucket API
   description: The bitbucket API from Dokploy — 7 operation(s) for bitbucket.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -207,7 +212,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-certificates-api
-  name: Dokploy certificates API
+  name: Dokploy Certificates API
   description: The certificates API from Dokploy — 5 operation(s) for certificates.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -237,7 +242,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-cluster-api
-  name: Dokploy cluster API
+  name: Dokploy Cluster API
   description: The cluster API from Dokploy — 4 operation(s) for cluster.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -267,7 +272,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-compose-api
-  name: Dokploy compose API
+  name: Dokploy Compose API
   description: The compose API from Dokploy — 31 operation(s) for compose.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -297,7 +302,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-customrole-api
-  name: Dokploy customRole API
+  name: Dokploy Custom Role API
   description: The customRole API from Dokploy — 6 operation(s) for customrole.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -326,7 +331,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-deployment-api
-  name: Dokploy deployment API
+  name: Dokploy Deployment API
   description: The deployment API from Dokploy — 9 operation(s) for deployment.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -356,7 +361,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-destination-api
-  name: Dokploy destination API
+  name: Dokploy Destination API
   description: The destination API from Dokploy — 6 operation(s) for destination.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -386,7 +391,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-docker-api
-  name: Dokploy docker API
+  name: Dokploy Docker API
   description: The docker API from Dokploy — 12 operation(s) for docker.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -416,7 +421,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-domain-api
-  name: Dokploy domain API
+  name: Dokploy Domain API
   description: The domain API from Dokploy — 9 operation(s) for domain.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -446,7 +451,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-environment-api
-  name: Dokploy environment API
+  name: Dokploy Environment API
   description: The environment API from Dokploy — 7 operation(s) for environment.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -476,7 +481,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-gitea-api
-  name: Dokploy gitea API
+  name: Dokploy Gitea API
   description: The gitea API from Dokploy — 8 operation(s) for gitea.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -506,7 +511,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-github-api
-  name: Dokploy github API
+  name: Dokploy Github API
   description: The github API from Dokploy — 6 operation(s) for github.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -536,7 +541,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-gitlab-api
-  name: Dokploy gitlab API
+  name: Dokploy Gitlab API
   description: The gitlab API from Dokploy — 7 operation(s) for gitlab.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -566,7 +571,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-gitprovider-api
-  name: Dokploy gitProvider API
+  name: Dokploy Git Provider API
   description: The gitProvider API from Dokploy — 4 operation(s) for gitprovider.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -595,7 +600,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-libsql-api
-  name: Dokploy libsql API
+  name: Dokploy Libsql API
   description: The libsql API from Dokploy — 14 operation(s) for libsql.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -623,7 +628,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-licensekey-api
-  name: Dokploy licenseKey API
+  name: Dokploy License Key API
   description: The licenseKey API from Dokploy — 6 operation(s) for licensekey.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -652,7 +657,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-mariadb-api
-  name: Dokploy mariadb API
+  name: Dokploy Mariadb API
   description: The mariadb API from Dokploy — 16 operation(s) for mariadb.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -680,7 +685,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-mongo-api
-  name: Dokploy mongo API
+  name: Dokploy Mongo API
   description: The mongo API from Dokploy — 16 operation(s) for mongo.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -708,7 +713,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-mounts-api
-  name: Dokploy mounts API
+  name: Dokploy Mounts API
   description: The mounts API from Dokploy — 6 operation(s) for mounts.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -738,7 +743,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-mysql-api
-  name: Dokploy mysql API
+  name: Dokploy Mysql API
   description: The mysql API from Dokploy — 16 operation(s) for mysql.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -768,7 +773,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-notification-api
-  name: Dokploy notification API
+  name: Dokploy Notification API
   description: The notification API from Dokploy — 41 operation(s) for notification.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -798,7 +803,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-organization-api
-  name: Dokploy organization API
+  name: Dokploy Organization API
   description: The organization API from Dokploy — 11 operation(s) for organization.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -828,7 +833,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-patch-api
-  name: Dokploy patch API
+  name: Dokploy Patch API
   description: The patch API from Dokploy — 12 operation(s) for patch.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -857,7 +862,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-port-api
-  name: Dokploy port API
+  name: Dokploy Port API
   description: The port API from Dokploy — 4 operation(s) for port.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -887,14 +892,15 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-postgres-api
-  name: Dokploy postgres API
+  name: Dokploy Postgres API
   description: The postgres API from Dokploy — 16 operation(s) for postgres.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
   tags:
-  - Postgres
+  - PostgreSQL
   tags_raw:
   - postgres
+  - Postgres
   properties:
   - type: OpenAPI
     url: openapi/dokploy-postgres-api-openapi.yml
@@ -917,7 +923,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-previewdeployment-api
-  name: Dokploy previewDeployment API
+  name: Dokploy Preview Deployment API
   description: The previewDeployment API from Dokploy — 4 operation(s) for previewdeployment.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -946,7 +952,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-project-api
-  name: Dokploy project API
+  name: Dokploy Project API
   description: The project API from Dokploy — 9 operation(s) for project.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -976,7 +982,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-redirects-api
-  name: Dokploy redirects API
+  name: Dokploy Redirects API
   description: The redirects API from Dokploy — 4 operation(s) for redirects.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -1006,7 +1012,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-redis-api
-  name: Dokploy redis API
+  name: Dokploy Redis API
   description: The redis API from Dokploy — 16 operation(s) for redis.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -1036,7 +1042,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-registry-api
-  name: Dokploy registry API
+  name: Dokploy Registry API
   description: The registry API from Dokploy — 7 operation(s) for registry.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -1066,7 +1072,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-rollback-api
-  name: Dokploy rollback API
+  name: Dokploy Rollback API
   description: The rollback API from Dokploy — 2 operation(s) for rollback.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -1096,7 +1102,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-schedule-api
-  name: Dokploy schedule API
+  name: Dokploy Schedule API
   description: The schedule API from Dokploy — 6 operation(s) for schedule.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -1126,7 +1132,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-security-api
-  name: Dokploy security API
+  name: Dokploy Security API
   description: The security API from Dokploy — 4 operation(s) for security.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -1156,7 +1162,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-server-api
-  name: Dokploy server API
+  name: Dokploy Server API
   description: The server API from Dokploy — 17 operation(s) for server.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -1186,7 +1192,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-settings-api
-  name: Dokploy settings API
+  name: Dokploy Settings API
   description: The settings API from Dokploy — 51 operation(s) for settings.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -1216,7 +1222,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-sso-api
-  name: Dokploy sso API
+  name: Dokploy SSO API
   description: The sso API from Dokploy — 10 operation(s) for sso.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -1246,7 +1252,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-stripe-api
-  name: Dokploy stripe API
+  name: Dokploy Stripe API
   description: The stripe API from Dokploy — 8 operation(s) for stripe.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -1276,7 +1282,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-swarm-api
-  name: Dokploy swarm API
+  name: Dokploy Swarm API
   description: The swarm API from Dokploy — 4 operation(s) for swarm.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -1306,7 +1312,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-tag-api
-  name: Dokploy tag API
+  name: Dokploy Tag API
   description: The tag API from Dokploy — 8 operation(s) for tag.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -1336,7 +1342,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-user-api
-  name: Dokploy user API
+  name: Dokploy User API
   description: The user API from Dokploy — 23 operation(s) for user.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -1366,7 +1372,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-volumebackups-api
-  name: Dokploy volumeBackups API
+  name: Dokploy Volume Backups API
   description: The volumeBackups API from Dokploy — 6 operation(s) for volumebackups.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -1395,7 +1401,7 @@ apis:
   - type: FinOps
     url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-whitelabeling-api
-  name: Dokploy whitelabeling API
+  name: Dokploy Whitelabeling API
   description: The whitelabeling API from Dokploy — 4 operation(s) for whitelabeling.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
@@ -1428,8 +1434,6 @@ apis:
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
   tags:
-  - Audit Logs
-  tags_raw:
   - Audit Log
   properties:
   - type: OpenAPI
