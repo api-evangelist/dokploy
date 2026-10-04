@@ -1434,6 +1434,8 @@ apis:
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
   tags:
+  - Audit Logs
+  tags_raw:
   - Audit Log
   properties:
   - type: OpenAPI
