@@ -46,6 +46,7 @@ tags:
   - Deployment
   - Traefik
   - Database
+  - DevOps
 tags_raw:
   - PaaS
   - Self-Hosted
@@ -56,6 +57,7 @@ tags_raw:
   - Traefik
   - Databases
   - Open-Source
+  - DevOps
 url: https://raw.githubusercontent.com/api-evangelist/dokploy/refs/heads/main/apis.yml
 created: '2026-05-25'
 modified: '2026-05-25'

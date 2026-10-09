@@ -43,3 +43,32 @@ plans:
   period: none
   included_quota: Unlimited Servers, Fine-grained RBAC, SSO/SAML, SCIM, Audit Logs, MSA/SLA, White Labeling,
     Priority Support
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  units: []
+  plans:
+  - name: Hobby
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Startup
+    access: other
+    model: hybrid
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Enterprise
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
