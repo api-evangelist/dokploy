@@ -1,0 +1,1019 @@
+openapi: 3.2.0
+info:
+  title: Dokploy Dns Provider API
+  description: Complete API documentation for Dokploy - Deploy applications, manage databases, and orchestrate your infrastructure. This API allows you to programmatically manage all aspects of your Dokploy instance.
+  version: 1.0.0
+  contact:
+    name: Dokploy Team
+    url: https://dokploy.com
+  license:
+    name: Apache 2.0
+    url: https://github.com/dokploy/dokploy/blob/canary/LICENSE
+servers:
+- url: https://your-dokploy-instance.com/api
+security:
+- apiKey: []
+- x-api-key: []
+tags:
+- name: dnsProvider
+paths:
+  /dnsProvider.create:
+    post:
+      operationId: dnsProvider-create
+      tags:
+      - dnsProvider
+      security:
+      - x-api-key: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 64
+                  pattern: ^[a-zA-Z0-9_-]+$
+                config:
+                  oneOf:
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: cloudflare
+                      apiToken:
+                        type: string
+                        minLength: 1
+                    required:
+                    - providerType
+                    - apiToken
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: route53
+                      accessKeyId:
+                        type: string
+                        minLength: 1
+                      secretAccessKey:
+                        type: string
+                        minLength: 1
+                    required:
+                    - providerType
+                    - accessKeyId
+                    - secretAccessKey
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: porkbun
+                      apiKey:
+                        type: string
+                        minLength: 1
+                      secretApiKey:
+                        type: string
+                        minLength: 1
+                    required:
+                    - providerType
+                    - apiKey
+                    - secretApiKey
+                  type: object
+              required:
+              - name
+              - config
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Dns provider create
+      x-summary-source: derived
+  /dnsProvider.update:
+    post:
+      operationId: dnsProvider-update
+      tags:
+      - dnsProvider
+      security:
+      - x-api-key: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dnsProviderId:
+                  type: string
+                  minLength: 1
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 64
+                  pattern: ^[a-zA-Z0-9_-]+$
+                config:
+                  oneOf:
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: cloudflare
+                      apiToken:
+                        type: string
+                        minLength: 1
+                    required:
+                    - providerType
+                    - apiToken
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: route53
+                      accessKeyId:
+                        type: string
+                        minLength: 1
+                      secretAccessKey:
+                        type: string
+                        minLength: 1
+                    required:
+                    - providerType
+                    - accessKeyId
+                    - secretAccessKey
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: porkbun
+                      apiKey:
+                        type: string
+                        minLength: 1
+                      secretApiKey:
+                        type: string
+                        minLength: 1
+                    required:
+                    - providerType
+                    - apiKey
+                    - secretApiKey
+                  type: object
+              required:
+              - dnsProviderId
+              - name
+              - config
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Dns provider update
+      x-summary-source: derived
+  /dnsProvider.remove:
+    post:
+      operationId: dnsProvider-remove
+      tags:
+      - dnsProvider
+      security:
+      - x-api-key: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dnsProviderId:
+                  type: string
+                  minLength: 1
+              required:
+              - dnsProviderId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Dns provider remove
+      x-summary-source: derived
+  /dnsProvider.all:
+    get:
+      operationId: dnsProvider-all
+      tags:
+      - dnsProvider
+      security:
+      - x-api-key: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.NOT_FOUND'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Dns provider all
+      x-summary-source: derived
+  /dnsProvider.one:
+    get:
+      operationId: dnsProvider-one
+      tags:
+      - dnsProvider
+      security:
+      - x-api-key: []
+      parameters:
+      - in: query
+        name: dnsProviderId
+        schema:
+          type: string
+          minLength: 1
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.NOT_FOUND'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Dns provider one
+      x-summary-source: derived
+  /dnsProvider.testConnection:
+    post:
+      operationId: dnsProvider-testConnection
+      tags:
+      - dnsProvider
+      security:
+      - x-api-key: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dnsProviderId:
+                  type: string
+                  minLength: 1
+                config:
+                  oneOf:
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: cloudflare
+                      apiToken:
+                        type: string
+                        minLength: 1
+                    required:
+                    - providerType
+                    - apiToken
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: route53
+                      accessKeyId:
+                        type: string
+                        minLength: 1
+                      secretAccessKey:
+                        type: string
+                        minLength: 1
+                    required:
+                    - providerType
+                    - accessKeyId
+                    - secretAccessKey
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: porkbun
+                      apiKey:
+                        type: string
+                        minLength: 1
+                      secretApiKey:
+                        type: string
+                        minLength: 1
+                    required:
+                    - providerType
+                    - apiKey
+                    - secretApiKey
+                  type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Dns provider test connection
+      x-summary-source: derived
+  /dnsProvider.listZones:
+    get:
+      operationId: dnsProvider-listZones
+      tags:
+      - dnsProvider
+      security:
+      - x-api-key: []
+      parameters:
+      - in: query
+        name: dnsProviderId
+        schema:
+          type: string
+          minLength: 1
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.NOT_FOUND'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Dns provider list zones
+      x-summary-source: derived
+  /dnsProvider.listRecords:
+    get:
+      operationId: dnsProvider-listRecords
+      tags:
+      - dnsProvider
+      security:
+      - x-api-key: []
+      parameters:
+      - in: query
+        name: dnsProviderId
+        schema:
+          type: string
+          minLength: 1
+        required: true
+      - in: query
+        name: zoneId
+        schema:
+          type: string
+          minLength: 1
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.NOT_FOUND'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Dns provider list records
+      x-summary-source: derived
+  /dnsProvider.createRecord:
+    post:
+      operationId: dnsProvider-createRecord
+      tags:
+      - dnsProvider
+      security:
+      - x-api-key: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                  - A
+                  - AAAA
+                  - CNAME
+                  - MX
+                  - TXT
+                  - NS
+                  - SRV
+                  - CAA
+                  - PTR
+                name:
+                  type: string
+                  minLength: 1
+                content:
+                  type: string
+                  minLength: 1
+                ttl:
+                  type: integer
+                  exclusiveMinimum: 0
+                  maximum: 9007199254740991
+                proxied:
+                  type: boolean
+                dnsProviderId:
+                  type: string
+                  minLength: 1
+                zoneId:
+                  type: string
+                  minLength: 1
+              required:
+              - type
+              - name
+              - content
+              - dnsProviderId
+              - zoneId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Dns provider create record
+      x-summary-source: derived
+  /dnsProvider.updateRecord:
+    post:
+      operationId: dnsProvider-updateRecord
+      tags:
+      - dnsProvider
+      security:
+      - x-api-key: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                  - A
+                  - AAAA
+                  - CNAME
+                  - MX
+                  - TXT
+                  - NS
+                  - SRV
+                  - CAA
+                  - PTR
+                name:
+                  type: string
+                  minLength: 1
+                content:
+                  type: string
+                  minLength: 1
+                ttl:
+                  type: integer
+                  exclusiveMinimum: 0
+                  maximum: 9007199254740991
+                proxied:
+                  type: boolean
+                dnsProviderId:
+                  type: string
+                  minLength: 1
+                zoneId:
+                  type: string
+                  minLength: 1
+                recordId:
+                  type: string
+                  minLength: 1
+              required:
+              - type
+              - name
+              - content
+              - dnsProviderId
+              - zoneId
+              - recordId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Dns provider update record
+      x-summary-source: derived
+  /dnsProvider.deleteRecord:
+    post:
+      operationId: dnsProvider-deleteRecord
+      tags:
+      - dnsProvider
+      security:
+      - x-api-key: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dnsProviderId:
+                  type: string
+                  minLength: 1
+                zoneId:
+                  type: string
+                  minLength: 1
+                recordId:
+                  type: string
+                  minLength: 1
+              required:
+              - dnsProviderId
+              - zoneId
+              - recordId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Dns provider delete record
+      x-summary-source: derived
+components:
+  schemas:
+    error.UNAUTHORIZED:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Authorization not provided
+        code:
+          type: string
+          description: The error code
+          example: UNAUTHORIZED
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Authorization not provided error (401)
+      description: The error information
+      example:
+        code: UNAUTHORIZED
+        message: Authorization not provided
+        issues: []
+    error.FORBIDDEN:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Insufficient access
+        code:
+          type: string
+          description: The error code
+          example: FORBIDDEN
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Insufficient access error (403)
+      description: The error information
+      example:
+        code: FORBIDDEN
+        message: Insufficient access
+        issues: []
+    error.INTERNAL_SERVER_ERROR:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Internal server error
+        code:
+          type: string
+          description: The error code
+          example: INTERNAL_SERVER_ERROR
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Internal server error error (500)
+      description: The error information
+      example:
+        code: INTERNAL_SERVER_ERROR
+        message: Internal server error
+        issues: []
+    error.NOT_FOUND:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Not found
+        code:
+          type: string
+          description: The error code
+          example: NOT_FOUND
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Not found error (404)
+      description: The error information
+      example:
+        code: NOT_FOUND
+        message: Not found
+        issues: []
+    error.BAD_REQUEST:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Invalid input data
+        code:
+          type: string
+          description: The error code
+          example: BAD_REQUEST
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Invalid input data error (400)
+      description: The error information
+      example:
+        code: BAD_REQUEST
+        message: Invalid input data
+        issues: []
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key authentication. Generate an API key from your Dokploy dashboard under Settings > API Keys.
+    x-api-key:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key authentication. Use YOUR-GENERATED-API-KEY
+      x-default: your-key
+externalDocs:
+  description: Full documentation
+  url: https://docs.dokploy.com

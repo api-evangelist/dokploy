@@ -1,0 +1,1120 @@
+openapi: 3.2.0
+info:
+  title: Dokploy Vault Provider API
+  description: Complete API documentation for Dokploy - Deploy applications, manage databases, and orchestrate your infrastructure. This API allows you to programmatically manage all aspects of your Dokploy instance.
+  version: 1.0.0
+  contact:
+    name: Dokploy Team
+    url: https://dokploy.com
+  license:
+    name: Apache 2.0
+    url: https://github.com/dokploy/dokploy/blob/canary/LICENSE
+servers:
+- url: https://your-dokploy-instance.com/api
+security:
+- apiKey: []
+- x-api-key: []
+tags:
+- name: vaultProvider
+paths:
+  /vaultProvider.create:
+    post:
+      operationId: vaultProvider-create
+      tags:
+      - vaultProvider
+      security:
+      - x-api-key: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 64
+                  pattern: ^[a-zA-Z0-9_-]+$
+                config:
+                  oneOf:
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: hashicorp
+                      url:
+                        type: string
+                        format: uri
+                      token:
+                        type: string
+                        minLength: 1
+                      namespace:
+                        type: string
+                      mount:
+                        default: secret
+                        type: string
+                        minLength: 1
+                    required:
+                    - providerType
+                    - url
+                    - token
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: infisical
+                      siteUrl:
+                        default: https://app.infisical.com
+                        type: string
+                        format: uri
+                      clientId:
+                        type: string
+                        minLength: 1
+                      clientSecret:
+                        type: string
+                        minLength: 1
+                      projectId:
+                        type: string
+                        minLength: 1
+                      environmentSlug:
+                        type: string
+                        minLength: 1
+                      secretPath:
+                        default: /
+                        type: string
+                    required:
+                    - providerType
+                    - clientId
+                    - clientSecret
+                    - projectId
+                    - environmentSlug
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: aws
+                      region:
+                        type: string
+                        minLength: 1
+                      accessKeyId:
+                        type: string
+                        minLength: 1
+                      secretAccessKey:
+                        type: string
+                        minLength: 1
+                      endpoint:
+                        type: string
+                        format: uri
+                    required:
+                    - providerType
+                    - region
+                    - accessKeyId
+                    - secretAccessKey
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: doppler
+                      serviceToken:
+                        type: string
+                        minLength: 1
+                      project:
+                        type: string
+                      config:
+                        type: string
+                    required:
+                    - providerType
+                    - serviceToken
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: azure
+                      vaultUri:
+                        type: string
+                        format: uri
+                      tenantId:
+                        type: string
+                        minLength: 1
+                      clientId:
+                        type: string
+                        minLength: 1
+                      clientSecret:
+                        type: string
+                        minLength: 1
+                    required:
+                    - providerType
+                    - vaultUri
+                    - tenantId
+                    - clientId
+                    - clientSecret
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: scaleway
+                      region:
+                        default: fr-par
+                        type: string
+                        minLength: 1
+                      projectId:
+                        type: string
+                        minLength: 1
+                      secretKey:
+                        type: string
+                        minLength: 1
+                      apiUrl:
+                        default: https://api.scaleway.com
+                        type: string
+                        format: uri
+                    required:
+                    - providerType
+                    - projectId
+                    - secretKey
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: phase
+                      token:
+                        type: string
+                        minLength: 1
+                      appId:
+                        type: string
+                        minLength: 1
+                      env:
+                        type: string
+                        minLength: 1
+                      path:
+                        default: /
+                        type: string
+                      apiUrl:
+                        default: https://api.phase.dev
+                        type: string
+                        format: uri
+                    required:
+                    - providerType
+                    - token
+                    - appId
+                    - env
+                  type: object
+                assignments:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      projectId:
+                        type: string
+                        minLength: 1
+                      environmentIds:
+                        default: []
+                        type: array
+                        items:
+                          type: string
+                          minLength: 1
+                    required:
+                    - projectId
+              required:
+              - name
+              - config
+              - assignments
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Vault provider create
+      x-summary-source: derived
+  /vaultProvider.update:
+    post:
+      operationId: vaultProvider-update
+      tags:
+      - vaultProvider
+      security:
+      - x-api-key: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                vaultProviderId:
+                  type: string
+                  minLength: 1
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 64
+                  pattern: ^[a-zA-Z0-9_-]+$
+                config:
+                  oneOf:
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: hashicorp
+                      url:
+                        type: string
+                        format: uri
+                      token:
+                        type: string
+                        minLength: 1
+                      namespace:
+                        type: string
+                      mount:
+                        default: secret
+                        type: string
+                        minLength: 1
+                    required:
+                    - providerType
+                    - url
+                    - token
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: infisical
+                      siteUrl:
+                        default: https://app.infisical.com
+                        type: string
+                        format: uri
+                      clientId:
+                        type: string
+                        minLength: 1
+                      clientSecret:
+                        type: string
+                        minLength: 1
+                      projectId:
+                        type: string
+                        minLength: 1
+                      environmentSlug:
+                        type: string
+                        minLength: 1
+                      secretPath:
+                        default: /
+                        type: string
+                    required:
+                    - providerType
+                    - clientId
+                    - clientSecret
+                    - projectId
+                    - environmentSlug
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: aws
+                      region:
+                        type: string
+                        minLength: 1
+                      accessKeyId:
+                        type: string
+                        minLength: 1
+                      secretAccessKey:
+                        type: string
+                        minLength: 1
+                      endpoint:
+                        type: string
+                        format: uri
+                    required:
+                    - providerType
+                    - region
+                    - accessKeyId
+                    - secretAccessKey
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: doppler
+                      serviceToken:
+                        type: string
+                        minLength: 1
+                      project:
+                        type: string
+                      config:
+                        type: string
+                    required:
+                    - providerType
+                    - serviceToken
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: azure
+                      vaultUri:
+                        type: string
+                        format: uri
+                      tenantId:
+                        type: string
+                        minLength: 1
+                      clientId:
+                        type: string
+                        minLength: 1
+                      clientSecret:
+                        type: string
+                        minLength: 1
+                    required:
+                    - providerType
+                    - vaultUri
+                    - tenantId
+                    - clientId
+                    - clientSecret
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: scaleway
+                      region:
+                        default: fr-par
+                        type: string
+                        minLength: 1
+                      projectId:
+                        type: string
+                        minLength: 1
+                      secretKey:
+                        type: string
+                        minLength: 1
+                      apiUrl:
+                        default: https://api.scaleway.com
+                        type: string
+                        format: uri
+                    required:
+                    - providerType
+                    - projectId
+                    - secretKey
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: phase
+                      token:
+                        type: string
+                        minLength: 1
+                      appId:
+                        type: string
+                        minLength: 1
+                      env:
+                        type: string
+                        minLength: 1
+                      path:
+                        default: /
+                        type: string
+                      apiUrl:
+                        default: https://api.phase.dev
+                        type: string
+                        format: uri
+                    required:
+                    - providerType
+                    - token
+                    - appId
+                    - env
+                  type: object
+                assignments:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      projectId:
+                        type: string
+                        minLength: 1
+                      environmentIds:
+                        default: []
+                        type: array
+                        items:
+                          type: string
+                          minLength: 1
+                    required:
+                    - projectId
+              required:
+              - vaultProviderId
+              - name
+              - config
+              - assignments
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Vault provider update
+      x-summary-source: derived
+  /vaultProvider.remove:
+    post:
+      operationId: vaultProvider-remove
+      tags:
+      - vaultProvider
+      security:
+      - x-api-key: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                vaultProviderId:
+                  type: string
+                  minLength: 1
+              required:
+              - vaultProviderId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Vault provider remove
+      x-summary-source: derived
+  /vaultProvider.all:
+    get:
+      operationId: vaultProvider-all
+      tags:
+      - vaultProvider
+      security:
+      - x-api-key: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.NOT_FOUND'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Vault provider all
+      x-summary-source: derived
+  /vaultProvider.one:
+    get:
+      operationId: vaultProvider-one
+      tags:
+      - vaultProvider
+      security:
+      - x-api-key: []
+      parameters:
+      - in: query
+        name: vaultProviderId
+        schema:
+          type: string
+          minLength: 1
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.NOT_FOUND'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Vault provider one
+      x-summary-source: derived
+  /vaultProvider.testConnection:
+    post:
+      operationId: vaultProvider-testConnection
+      tags:
+      - vaultProvider
+      security:
+      - x-api-key: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                vaultProviderId:
+                  type: string
+                  minLength: 1
+                config:
+                  oneOf:
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: hashicorp
+                      url:
+                        type: string
+                        format: uri
+                      token:
+                        type: string
+                        minLength: 1
+                      namespace:
+                        type: string
+                      mount:
+                        default: secret
+                        type: string
+                        minLength: 1
+                    required:
+                    - providerType
+                    - url
+                    - token
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: infisical
+                      siteUrl:
+                        default: https://app.infisical.com
+                        type: string
+                        format: uri
+                      clientId:
+                        type: string
+                        minLength: 1
+                      clientSecret:
+                        type: string
+                        minLength: 1
+                      projectId:
+                        type: string
+                        minLength: 1
+                      environmentSlug:
+                        type: string
+                        minLength: 1
+                      secretPath:
+                        default: /
+                        type: string
+                    required:
+                    - providerType
+                    - clientId
+                    - clientSecret
+                    - projectId
+                    - environmentSlug
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: aws
+                      region:
+                        type: string
+                        minLength: 1
+                      accessKeyId:
+                        type: string
+                        minLength: 1
+                      secretAccessKey:
+                        type: string
+                        minLength: 1
+                      endpoint:
+                        type: string
+                        format: uri
+                    required:
+                    - providerType
+                    - region
+                    - accessKeyId
+                    - secretAccessKey
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: doppler
+                      serviceToken:
+                        type: string
+                        minLength: 1
+                      project:
+                        type: string
+                      config:
+                        type: string
+                    required:
+                    - providerType
+                    - serviceToken
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: azure
+                      vaultUri:
+                        type: string
+                        format: uri
+                      tenantId:
+                        type: string
+                        minLength: 1
+                      clientId:
+                        type: string
+                        minLength: 1
+                      clientSecret:
+                        type: string
+                        minLength: 1
+                    required:
+                    - providerType
+                    - vaultUri
+                    - tenantId
+                    - clientId
+                    - clientSecret
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: scaleway
+                      region:
+                        default: fr-par
+                        type: string
+                        minLength: 1
+                      projectId:
+                        type: string
+                        minLength: 1
+                      secretKey:
+                        type: string
+                        minLength: 1
+                      apiUrl:
+                        default: https://api.scaleway.com
+                        type: string
+                        format: uri
+                    required:
+                    - providerType
+                    - projectId
+                    - secretKey
+                  - type: object
+                    properties:
+                      providerType:
+                        type: string
+                        const: phase
+                      token:
+                        type: string
+                        minLength: 1
+                      appId:
+                        type: string
+                        minLength: 1
+                      env:
+                        type: string
+                        minLength: 1
+                      path:
+                        default: /
+                        type: string
+                      apiUrl:
+                        default: https://api.phase.dev
+                        type: string
+                        format: uri
+                    required:
+                    - providerType
+                    - token
+                    - appId
+                    - env
+                  type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Vault provider test connection
+      x-summary-source: derived
+  /vaultProvider.listSecretNames:
+    get:
+      operationId: vaultProvider-listSecretNames
+      tags:
+      - vaultProvider
+      security:
+      - x-api-key: []
+      parameters:
+      - in: query
+        name: vaultProviderId
+        schema:
+          type: string
+          minLength: 1
+        required: true
+      - in: query
+        name: projectId
+        schema:
+          type: string
+          minLength: 1
+        required: true
+      - in: query
+        name: environmentId
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.NOT_FOUND'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Vault provider list secret names
+      x-summary-source: derived
+components:
+  schemas:
+    error.UNAUTHORIZED:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Authorization not provided
+        code:
+          type: string
+          description: The error code
+          example: UNAUTHORIZED
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Authorization not provided error (401)
+      description: The error information
+      example:
+        code: UNAUTHORIZED
+        message: Authorization not provided
+        issues: []
+    error.FORBIDDEN:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Insufficient access
+        code:
+          type: string
+          description: The error code
+          example: FORBIDDEN
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Insufficient access error (403)
+      description: The error information
+      example:
+        code: FORBIDDEN
+        message: Insufficient access
+        issues: []
+    error.INTERNAL_SERVER_ERROR:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Internal server error
+        code:
+          type: string
+          description: The error code
+          example: INTERNAL_SERVER_ERROR
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Internal server error error (500)
+      description: The error information
+      example:
+        code: INTERNAL_SERVER_ERROR
+        message: Internal server error
+        issues: []
+    error.NOT_FOUND:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Not found
+        code:
+          type: string
+          description: The error code
+          example: NOT_FOUND
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Not found error (404)
+      description: The error information
+      example:
+        code: NOT_FOUND
+        message: Not found
+        issues: []
+    error.BAD_REQUEST:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Invalid input data
+        code:
+          type: string
+          description: The error code
+          example: BAD_REQUEST
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Invalid input data error (400)
+      description: The error information
+      example:
+        code: BAD_REQUEST
+        message: Invalid input data
+        issues: []
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key authentication. Generate an API key from your Dokploy dashboard under Settings > API Keys.
+    x-api-key:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key authentication. Use YOUR-GENERATED-API-KEY
+      x-default: your-key
+externalDocs:
+  description: Full documentation
+  url: https://docs.dokploy.com

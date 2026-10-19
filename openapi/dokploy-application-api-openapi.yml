@@ -13,6 +13,7 @@ servers:
 - url: https://your-dokploy-instance.com/api
 security:
 - apiKey: []
+- x-api-key: []
 tags:
 - name: Application
 paths:
@@ -22,7 +23,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -49,6 +50,16 @@ paths:
                   anyOf:
                   - type: string
                   - type: 'null'
+                sourceType:
+                  type: string
+                  enum:
+                  - github
+                  - docker
+                  - git
+                  - gitlab
+                  - bitbucket
+                  - gitea
+                  - drop
               required:
               - name
               - environmentId
@@ -87,13 +98,71 @@ paths:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
       summary: Application create
       x-summary-source: derived
+  /application.deployNginxQuickstart:
+    post:
+      operationId: application-deployNginxQuickstart
+      tags:
+      - Application
+      security:
+      - x-api-key: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                environmentId:
+                  type: string
+                  minLength: 1
+                serverId:
+                  type: string
+                  minLength: 1
+              required:
+              - environmentId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Application deploy nginx quickstart
+      x-summary-source: derived
   /application.one:
     get:
       operationId: application-one
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: applicationId
@@ -148,7 +217,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -208,7 +277,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -263,7 +332,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -318,7 +387,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -373,7 +442,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -432,7 +501,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -504,7 +573,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -601,7 +670,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -631,7 +700,7 @@ paths:
                 branch:
                   type: string
                   minLength: 1
-                  pattern: ^[a-zA-Z0-9._\-/]+$
+                  pattern: ^[a-zA-Z0-9._\-/#]+$
                 triggerType:
                   default: push
                   type: string
@@ -695,7 +764,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -733,7 +802,7 @@ paths:
                 gitlabBranch:
                   type: string
                   minLength: 1
-                  pattern: ^[a-zA-Z0-9._\-/]+$
+                  pattern: ^[a-zA-Z0-9._\-/#]+$
                 enableSubmodules:
                   type: boolean
                 watchPaths:
@@ -792,7 +861,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -826,7 +895,7 @@ paths:
                 bitbucketBranch:
                   type: string
                   minLength: 1
-                  pattern: ^[a-zA-Z0-9._\-/]+$
+                  pattern: ^[a-zA-Z0-9._\-/#]+$
                 enableSubmodules:
                   type: boolean
                 watchPaths:
@@ -884,7 +953,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -914,7 +983,7 @@ paths:
                 giteaBranch:
                   type: string
                   minLength: 1
-                  pattern: ^[a-zA-Z0-9._\-/]+$
+                  pattern: ^[a-zA-Z0-9._\-/#]+$
                 enableSubmodules:
                   type: boolean
                 watchPaths:
@@ -971,7 +1040,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1045,7 +1114,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1075,7 +1144,7 @@ paths:
                 customGitBranch:
                   type: string
                   minLength: 1
-                  pattern: ^[a-zA-Z0-9._\-/]+$
+                  pattern: ^[a-zA-Z0-9._\-/#]+$
                 customGitSSHKeyId:
                   anyOf:
                   - type: string
@@ -1127,7 +1196,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1182,7 +1251,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1237,7 +1306,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1848,6 +1917,14 @@ paths:
                   anyOf:
                   - type: string
                   - type: 'null'
+                networkIds:
+                  anyOf:
+                  - type: array
+                    items:
+                      type: string
+                  - type: 'null'
+                detachDokployNetwork:
+                  type: boolean
               required:
               - applicationId
       responses:
@@ -1891,7 +1968,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1946,7 +2023,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -2005,7 +2082,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -2060,7 +2137,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -2115,7 +2192,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -2170,7 +2247,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: applicationId
@@ -2225,7 +2302,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -2285,7 +2362,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -2342,7 +2419,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: appName
@@ -2397,7 +2474,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -2454,7 +2531,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -2509,7 +2586,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: q
@@ -2607,7 +2684,7 @@ paths:
       tags:
       - Application
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: applicationId
@@ -2742,39 +2819,6 @@ components:
         code: FORBIDDEN
         message: Insufficient access
         issues: []
-    error.BAD_REQUEST:
-      type: object
-      properties:
-        message:
-          type: string
-          description: The error message
-          example: Invalid input data
-        code:
-          type: string
-          description: The error code
-          example: BAD_REQUEST
-        issues:
-          description: An array of issues that were responsible for the error
-          example: []
-          type: array
-          items:
-            type: object
-            properties:
-              message:
-                type: string
-            required:
-            - message
-            additionalProperties: false
-      required:
-      - message
-      - code
-      additionalProperties: false
-      title: Invalid input data error (400)
-      description: The error information
-      example:
-        code: BAD_REQUEST
-        message: Invalid input data
-        issues: []
     error.INTERNAL_SERVER_ERROR:
       type: object
       properties:
@@ -2841,12 +2885,51 @@ components:
         code: NOT_FOUND
         message: Not found
         issues: []
+    error.BAD_REQUEST:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Invalid input data
+        code:
+          type: string
+          description: The error code
+          example: BAD_REQUEST
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Invalid input data error (400)
+      description: The error information
+      example:
+        code: BAD_REQUEST
+        message: Invalid input data
+        issues: []
   securitySchemes:
     apiKey:
       type: apiKey
       in: header
       name: x-api-key
       description: API key authentication. Generate an API key from your Dokploy dashboard under Settings > API Keys.
+    x-api-key:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key authentication. Use YOUR-GENERATED-API-KEY
+      x-default: your-key
 externalDocs:
   description: Full documentation
   url: https://docs.dokploy.com

@@ -13,6 +13,7 @@ servers:
 - url: https://your-dokploy-instance.com/api
 security:
 - apiKey: []
+- x-api-key: []
 tags:
 - name: Settings
 paths:
@@ -22,7 +23,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -70,7 +71,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -106,97 +107,13 @@ paths:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
       summary: Settings reload server
       x-summary-source: derived
-  /settings.cleanRedis:
-    post:
-      operationId: settings-cleanRedis
-      tags:
-      - Settings
-      security:
-      - Authorization: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
-                additionalProperties: false
-        '400':
-          description: Invalid input data
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error.BAD_REQUEST'
-        '401':
-          description: Authorization not provided
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error.UNAUTHORIZED'
-        '403':
-          description: Insufficient access
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error.FORBIDDEN'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
-      summary: Settings clean redis
-      x-summary-source: derived
-  /settings.reloadRedis:
-    post:
-      operationId: settings-reloadRedis
-      tags:
-      - Settings
-      security:
-      - Authorization: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
-                additionalProperties: false
-        '400':
-          description: Invalid input data
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error.BAD_REQUEST'
-        '401':
-          description: Authorization not provided
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error.UNAUTHORIZED'
-        '403':
-          description: Insufficient access
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error.FORBIDDEN'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
-      summary: Settings reload redis
-      x-summary-source: derived
   /settings.cleanAllDeploymentQueue:
     post:
       operationId: settings-cleanAllDeploymentQueue
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -238,7 +155,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: false
@@ -290,7 +207,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -344,7 +261,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: false
@@ -396,7 +313,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: false
@@ -448,7 +365,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: false
@@ -500,7 +417,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: false
@@ -552,7 +469,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: false
@@ -604,7 +521,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: false
@@ -656,7 +573,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -698,7 +615,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -746,7 +663,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -800,7 +717,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -872,7 +789,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -914,7 +831,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -964,13 +881,177 @@ paths:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
       summary: Settings update docker cleanup
       x-summary-source: derived
+  /settings.updateRemoteServersOnly:
+    post:
+      operationId: settings-updateRemoteServersOnly
+      tags:
+      - Settings
+      security:
+      - x-api-key: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                remoteServersOnly:
+                  type: boolean
+              required:
+              - remoteServersOnly
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Settings update remote servers only
+      x-summary-source: derived
+  /settings.updateBuildsConcurrency:
+    post:
+      operationId: settings-updateBuildsConcurrency
+      tags:
+      - Settings
+      security:
+      - x-api-key: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                buildsConcurrency:
+                  type: integer
+                  minimum: 1
+                  maximum: 100
+              required:
+              - buildsConcurrency
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Settings update builds concurrency
+      x-summary-source: derived
+  /settings.updateEnforceSSO:
+    post:
+      operationId: settings-updateEnforceSSO
+      tags:
+      - Settings
+      security:
+      - x-api-key: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                enforceSSO:
+                  type: boolean
+              required:
+              - enforceSSO
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Settings update enforce SSO
+      x-summary-source: derived
   /settings.readTraefikConfig:
     get:
       operationId: settings-readTraefikConfig
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -1018,7 +1099,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1073,7 +1154,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -1121,7 +1202,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1176,7 +1257,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -1224,7 +1305,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1279,7 +1360,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -1321,7 +1402,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -1363,7 +1444,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -1411,7 +1492,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -1459,7 +1540,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: serverId
@@ -1512,7 +1593,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1573,7 +1654,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: path
@@ -1632,7 +1713,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -1680,7 +1761,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1734,7 +1815,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -1782,7 +1863,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: serverId
@@ -1835,7 +1916,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1891,7 +1972,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: serverId
@@ -1944,7 +2025,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -1992,7 +2073,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -2046,7 +2127,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -2094,7 +2175,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -2142,7 +2223,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -2190,7 +2271,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -2238,7 +2319,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -2290,7 +2371,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: serverId
@@ -2343,7 +2424,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -2416,7 +2497,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: serverId
@@ -2469,7 +2550,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -2525,7 +2606,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -2573,7 +2654,7 @@ paths:
       tags:
       - Settings
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -2683,39 +2764,6 @@ components:
         code: FORBIDDEN
         message: Insufficient access
         issues: []
-    error.BAD_REQUEST:
-      type: object
-      properties:
-        message:
-          type: string
-          description: The error message
-          example: Invalid input data
-        code:
-          type: string
-          description: The error code
-          example: BAD_REQUEST
-        issues:
-          description: An array of issues that were responsible for the error
-          example: []
-          type: array
-          items:
-            type: object
-            properties:
-              message:
-                type: string
-            required:
-            - message
-            additionalProperties: false
-      required:
-      - message
-      - code
-      additionalProperties: false
-      title: Invalid input data error (400)
-      description: The error information
-      example:
-        code: BAD_REQUEST
-        message: Invalid input data
-        issues: []
     error.INTERNAL_SERVER_ERROR:
       type: object
       properties:
@@ -2782,12 +2830,51 @@ components:
         code: NOT_FOUND
         message: Not found
         issues: []
+    error.BAD_REQUEST:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Invalid input data
+        code:
+          type: string
+          description: The error code
+          example: BAD_REQUEST
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Invalid input data error (400)
+      description: The error information
+      example:
+        code: BAD_REQUEST
+        message: Invalid input data
+        issues: []
   securitySchemes:
     apiKey:
       type: apiKey
       in: header
       name: x-api-key
       description: API key authentication. Generate an API key from your Dokploy dashboard under Settings > API Keys.
+    x-api-key:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key authentication. Use YOUR-GENERATED-API-KEY
+      x-default: your-key
 externalDocs:
   description: Full documentation
   url: https://docs.dokploy.com

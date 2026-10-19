@@ -13,6 +13,7 @@ servers:
 - url: https://your-dokploy-instance.com/api
 security:
 - apiKey: []
+- x-api-key: []
 tags:
 - name: AI
 paths:
@@ -22,7 +23,7 @@ paths:
       tags:
       - AI
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: aiId
@@ -76,7 +77,7 @@ paths:
       tags:
       - AI
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: apiUrl
@@ -136,7 +137,7 @@ paths:
       tags:
       - AI
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -205,7 +206,7 @@ paths:
       tags:
       - AI
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -275,7 +276,7 @@ paths:
       tags:
       - AI
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -323,7 +324,7 @@ paths:
       tags:
       - AI
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: aiId
@@ -377,7 +378,7 @@ paths:
       tags:
       - AI
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -425,13 +426,127 @@ paths:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
       summary: Ai delete
       x-summary-source: derived
+  /ai.getCustomProviders:
+    get:
+      operationId: ai-getCustomProviders
+      tags:
+      - AI
+      security:
+      - x-api-key: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.NOT_FOUND'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Ai get custom providers
+      x-summary-source: derived
+  /ai.saveCustomProviders:
+    post:
+      operationId: ai-saveCustomProviders
+      tags:
+      - AI
+      security:
+      - x-api-key: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                providers:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        minLength: 1
+                      apiUrl:
+                        type: string
+                        format: uri
+                    required:
+                    - name
+                    - apiUrl
+              required:
+              - providers
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Ai save custom providers
+      x-summary-source: derived
   /ai.getEnabledProviders:
     get:
       operationId: ai-getEnabledProviders
       tags:
       - AI
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -479,7 +594,7 @@ paths:
       tags:
       - AI
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -544,7 +659,7 @@ paths:
       tags:
       - AI
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -606,7 +721,7 @@ paths:
       tags:
       - AI
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -665,7 +780,7 @@ paths:
       tags:
       - AI
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -834,39 +949,6 @@ components:
         code: FORBIDDEN
         message: Insufficient access
         issues: []
-    error.BAD_REQUEST:
-      type: object
-      properties:
-        message:
-          type: string
-          description: The error message
-          example: Invalid input data
-        code:
-          type: string
-          description: The error code
-          example: BAD_REQUEST
-        issues:
-          description: An array of issues that were responsible for the error
-          example: []
-          type: array
-          items:
-            type: object
-            properties:
-              message:
-                type: string
-            required:
-            - message
-            additionalProperties: false
-      required:
-      - message
-      - code
-      additionalProperties: false
-      title: Invalid input data error (400)
-      description: The error information
-      example:
-        code: BAD_REQUEST
-        message: Invalid input data
-        issues: []
     error.INTERNAL_SERVER_ERROR:
       type: object
       properties:
@@ -933,12 +1015,51 @@ components:
         code: NOT_FOUND
         message: Not found
         issues: []
+    error.BAD_REQUEST:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Invalid input data
+        code:
+          type: string
+          description: The error code
+          example: BAD_REQUEST
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Invalid input data error (400)
+      description: The error information
+      example:
+        code: BAD_REQUEST
+        message: Invalid input data
+        issues: []
   securitySchemes:
     apiKey:
       type: apiKey
       in: header
       name: x-api-key
       description: API key authentication. Generate an API key from your Dokploy dashboard under Settings > API Keys.
+    x-api-key:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key authentication. Use YOUR-GENERATED-API-KEY
+      x-default: your-key
 externalDocs:
   description: Full documentation
   url: https://docs.dokploy.com

@@ -13,6 +13,7 @@ servers:
 - url: https://your-dokploy-instance.com/api
 security:
 - apiKey: []
+- x-api-key: []
 tags:
 - name: Server
 paths:
@@ -22,7 +23,7 @@ paths:
       tags:
       - Server
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -53,6 +54,9 @@ paths:
                   enum:
                   - deploy
                   - build
+                enableDockerCleanup:
+                  default: true
+                  type: boolean
               required:
               - name
               - description
@@ -102,7 +106,7 @@ paths:
       tags:
       - Server
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: serverId
@@ -157,7 +161,7 @@ paths:
       tags:
       - Server
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: serverId
@@ -206,13 +210,68 @@ paths:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
       summary: Server get default command
       x-summary-source: derived
+  /server.getServices:
+    get:
+      operationId: server-getServices
+      tags:
+      - Server
+      security:
+      - x-api-key: []
+      parameters:
+      - in: query
+        name: serverId
+        schema:
+          type: string
+          minLength: 1
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.NOT_FOUND'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Server get services
+      x-summary-source: derived
   /server.all:
     get:
       operationId: server-all
       tags:
       - Server
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -260,7 +319,7 @@ paths:
       tags:
       - Server
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -308,7 +367,7 @@ paths:
       tags:
       - Server
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -356,7 +415,7 @@ paths:
       tags:
       - Server
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -404,7 +463,7 @@ paths:
       tags:
       - Server
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -452,7 +511,7 @@ paths:
       tags:
       - Server
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -507,7 +566,7 @@ paths:
       tags:
       - Server
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: serverId
@@ -562,7 +621,7 @@ paths:
       tags:
       - Server
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: serverId
@@ -617,7 +676,7 @@ paths:
       tags:
       - Server
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -739,7 +798,7 @@ paths:
       tags:
       - Server
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -794,7 +853,7 @@ paths:
       tags:
       - Server
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -828,6 +887,9 @@ paths:
                   enum:
                   - deploy
                   - build
+                enableDockerCleanup:
+                  default: true
+                  type: boolean
                 command:
                   type: string
               required:
@@ -874,13 +936,73 @@ paths:
                 $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
       summary: Server update
       x-summary-source: derived
+  /server.updateBuildsConcurrency:
+    post:
+      operationId: server-updateBuildsConcurrency
+      tags:
+      - Server
+      security:
+      - x-api-key: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                serverId:
+                  type: string
+                  minLength: 1
+                buildsConcurrency:
+                  type: integer
+                  minimum: 1
+                  maximum: 100
+              required:
+              - serverId
+              - buildsConcurrency
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                additionalProperties: false
+        '400':
+          description: Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.BAD_REQUEST'
+        '401':
+          description: Authorization not provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.UNAUTHORIZED'
+        '403':
+          description: Insufficient access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.FORBIDDEN'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error.INTERNAL_SERVER_ERROR'
+      summary: Server update builds concurrency
+      x-summary-source: derived
   /server.publicIp:
     get:
       operationId: server-publicIp
       tags:
       - Server
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -928,7 +1050,7 @@ paths:
       tags:
       - Server
       security:
-      - Authorization: []
+      - x-api-key: []
       responses:
         '200':
           description: Successful response
@@ -976,7 +1098,7 @@ paths:
       tags:
       - Server
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: url
@@ -1102,39 +1224,6 @@ components:
         code: FORBIDDEN
         message: Insufficient access
         issues: []
-    error.BAD_REQUEST:
-      type: object
-      properties:
-        message:
-          type: string
-          description: The error message
-          example: Invalid input data
-        code:
-          type: string
-          description: The error code
-          example: BAD_REQUEST
-        issues:
-          description: An array of issues that were responsible for the error
-          example: []
-          type: array
-          items:
-            type: object
-            properties:
-              message:
-                type: string
-            required:
-            - message
-            additionalProperties: false
-      required:
-      - message
-      - code
-      additionalProperties: false
-      title: Invalid input data error (400)
-      description: The error information
-      example:
-        code: BAD_REQUEST
-        message: Invalid input data
-        issues: []
     error.INTERNAL_SERVER_ERROR:
       type: object
       properties:
@@ -1201,12 +1290,51 @@ components:
         code: NOT_FOUND
         message: Not found
         issues: []
+    error.BAD_REQUEST:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Invalid input data
+        code:
+          type: string
+          description: The error code
+          example: BAD_REQUEST
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Invalid input data error (400)
+      description: The error information
+      example:
+        code: BAD_REQUEST
+        message: Invalid input data
+        issues: []
   securitySchemes:
     apiKey:
       type: apiKey
       in: header
       name: x-api-key
       description: API key authentication. Generate an API key from your Dokploy dashboard under Settings > API Keys.
+    x-api-key:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key authentication. Use YOUR-GENERATED-API-KEY
+      x-default: your-key
 externalDocs:
   description: Full documentation
   url: https://docs.dokploy.com

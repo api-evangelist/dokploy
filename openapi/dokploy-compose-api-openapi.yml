@@ -13,6 +13,7 @@ servers:
 - url: https://your-dokploy-instance.com/api
 security:
 - apiKey: []
+- x-api-key: []
 tags:
 - name: Compose
 paths:
@@ -22,7 +23,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -56,6 +57,15 @@ paths:
                   - type: 'null'
                 composeFile:
                   type: string
+                sourceType:
+                  type: string
+                  enum:
+                  - git
+                  - github
+                  - gitlab
+                  - bitbucket
+                  - gitea
+                  - raw
               required:
               - name
               - environmentId
@@ -100,7 +110,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: composeId
@@ -155,7 +165,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -280,6 +290,8 @@ paths:
                   - type: 'null'
                 command:
                   type: string
+                createEnvFile:
+                  type: boolean
                 enableSubmodules:
                   type: boolean
                 composePath:
@@ -307,6 +319,13 @@ paths:
                   - running
                   - done
                   - error
+                icon:
+                  anyOf:
+                  - anyOf:
+                    - type: string
+                      maxLength: 2097152
+                    - type: 'null'
+                  - type: 'null'
                 environmentId:
                   type: string
                 createdAt:
@@ -332,6 +351,25 @@ paths:
                 giteaId:
                   anyOf:
                   - type: string
+                  - type: 'null'
+                serviceNetworks:
+                  anyOf:
+                  - type: array
+                    items:
+                      type: object
+                      properties:
+                        serviceName:
+                          type: string
+                        networkIds:
+                          type: array
+                          items:
+                            type: string
+                        detachDokployNetwork:
+                          type: boolean
+                      required:
+                      - serviceName
+                      - networkIds
+                      - detachDokployNetwork
                   - type: 'null'
               required:
               - composeId
@@ -376,7 +414,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -391,6 +429,8 @@ paths:
                   anyOf:
                   - type: string
                   - type: 'null'
+                createEnvFile:
+                  type: boolean
               required:
               - composeId
               - env
@@ -435,7 +475,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -493,7 +533,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -548,7 +588,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -603,7 +643,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -658,7 +698,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: composeId
@@ -721,7 +761,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: composeId
@@ -782,7 +822,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -837,7 +877,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -894,7 +934,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -951,7 +991,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: composeId
@@ -1006,7 +1046,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1022,6 +1062,8 @@ paths:
                   type: string
                 description:
                   type: string
+                freshVolumes:
+                  type: boolean
               required:
               - composeId
       responses:
@@ -1065,7 +1107,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1081,6 +1123,8 @@ paths:
                   type: string
                 description:
                   type: string
+                freshVolumes:
+                  type: boolean
               required:
               - composeId
       responses:
@@ -1124,7 +1168,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1179,7 +1223,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1234,7 +1278,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: composeId
@@ -1289,7 +1333,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1344,7 +1388,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1405,7 +1449,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: baseUrl
@@ -1458,7 +1502,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: baseUrl
@@ -1511,7 +1555,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1566,7 +1610,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1623,7 +1667,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1681,7 +1725,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1740,7 +1784,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1798,7 +1842,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters: []
       requestBody:
         required: true
@@ -1853,7 +1897,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: q
@@ -1939,7 +1983,7 @@ paths:
       tags:
       - Compose
       security:
-      - Authorization: []
+      - x-api-key: []
       parameters:
       - in: query
         name: composeId
@@ -2081,39 +2125,6 @@ components:
         code: FORBIDDEN
         message: Insufficient access
         issues: []
-    error.BAD_REQUEST:
-      type: object
-      properties:
-        message:
-          type: string
-          description: The error message
-          example: Invalid input data
-        code:
-          type: string
-          description: The error code
-          example: BAD_REQUEST
-        issues:
-          description: An array of issues that were responsible for the error
-          example: []
-          type: array
-          items:
-            type: object
-            properties:
-              message:
-                type: string
-            required:
-            - message
-            additionalProperties: false
-      required:
-      - message
-      - code
-      additionalProperties: false
-      title: Invalid input data error (400)
-      description: The error information
-      example:
-        code: BAD_REQUEST
-        message: Invalid input data
-        issues: []
     error.INTERNAL_SERVER_ERROR:
       type: object
       properties:
@@ -2180,12 +2191,51 @@ components:
         code: NOT_FOUND
         message: Not found
         issues: []
+    error.BAD_REQUEST:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+          example: Invalid input data
+        code:
+          type: string
+          description: The error code
+          example: BAD_REQUEST
+        issues:
+          description: An array of issues that were responsible for the error
+          example: []
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+            required:
+            - message
+            additionalProperties: false
+      required:
+      - message
+      - code
+      additionalProperties: false
+      title: Invalid input data error (400)
+      description: The error information
+      example:
+        code: BAD_REQUEST
+        message: Invalid input data
+        issues: []
   securitySchemes:
     apiKey:
       type: apiKey
       in: header
       name: x-api-key
       description: API key authentication. Generate an API key from your Dokploy dashboard under Settings > API Keys.
+    x-api-key:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key authentication. Use YOUR-GENERATED-API-KEY
+      x-default: your-key
 externalDocs:
   description: Full documentation
   url: https://docs.dokploy.com

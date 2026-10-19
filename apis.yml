@@ -1430,14 +1430,246 @@ apis:
     url: rate-limits/dokploy-rate-limits.yml
   - type: FinOps
     url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-dnsprovider-api
+  name: Dokploy Dns Provider API
+  description: The dnsProvider API from Dokploy — 11 operation(s) for dnsprovider.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - dnsProvider
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-dnsprovider-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-dockerdiskusage-api
+  name: Dokploy Docker Disk Usage API
+  description: The dockerDiskUsage API from Dokploy — 3 operation(s) for dockerdiskusage.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - dockerDiskUsage
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-dockerdiskusage-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-dockerimage-api
+  name: Dokploy Docker Image API
+  description: The dockerImage API from Dokploy — 3 operation(s) for dockerimage.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - dockerImage
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-dockerimage-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-dockervolume-api
+  name: Dokploy Docker Volume API
+  description: The dockerVolume API from Dokploy — 8 operation(s) for dockervolume.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - dockerVolume
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-dockervolume-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-forwardauth-api
+  name: Dokploy Forward Auth API
+  description: The forwardAuth API from Dokploy — 10 operation(s) for forwardauth.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - forwardAuth
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-forwardauth-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-network-api
+  name: Dokploy Network API
+  description: The network API from Dokploy — 9 operation(s) for network.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - network
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-network-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-overview-api
+  name: Dokploy Overview API
+  description: The overview API from Dokploy — 3 operation(s) for overview.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - overview
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-overview-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-scim-api
+  name: Dokploy SCIM API
+  description: The scim API from Dokploy — 3 operation(s) for scim.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - scim
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-scim-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
+- aid: dokploy:dokploy-vaultprovider-api
+  name: Dokploy Vault Provider API
+  description: The vaultProvider API from Dokploy — 7 operation(s) for vaultprovider.
+  humanURL: https://dokploy.com/
+  baseURL: https://your-dokploy-instance.com/api
+  tags:
+  - vaultProvider
+  properties:
+  - type: OpenAPI
+    url: openapi/dokploy-vaultprovider-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dokploy.com/
+  - type: APIReference
+    url: https://github.com/Dokploy/sdk/blob/main/openapi.json
+  - type: GettingStarted
+    url: https://docs.dokploy.com/docs/core
+  - type: SDKs
+    url: https://github.com/Dokploy/sdk
+  - type: CLI
+    url: https://github.com/Dokploy/cli
+  - type: Plans
+    url: plans/dokploy-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dokploy-rate-limits.yml
+  - type: FinOps
+    url: finops/dokploy-finops.yml
 - aid: dokploy:dokploy-audit-log-api
   name: Dokploy Audit Log API
   description: The Audit Log API from Dokploy — 1 operation(s) for audit log.
   humanURL: https://dokploy.com/
   baseURL: https://your-dokploy-instance.com/api
   tags:
-  - Audit Logs
-  tags_raw:
   - Audit Log
   properties:
   - type: OpenAPI
