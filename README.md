@@ -1,4 +1,4 @@
-# Dokploy (dokploy)
+# Dokploy
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,82 +66,197 @@
 
 Dokploy is an open-source, self-hostable Platform-as-a-Service (PaaS) — an alternative to Heroku, Vercel, and Netlify — that deploys applications, Docker Compose stacks, and managed databases across one or many servers using Docker and Docker Swarm, with Traefik handling routing and TLS.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/dokploy/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/dokploy/refs/heads/main/apis.yml)
+**Areas:** Platform-as-a-Service · Self-Hosted · Open Source · Docker · Docker Swarm · Deployment · Traefik · Database · DevOps
 
-## Scope
+## Dokploy on APIs.io
 
-- **Type:** Index
+Everything profiled for Dokploy is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/dokploy/](https://apis.io/providers/dokploy/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (48)
 
-- PaaS
-- Self-Hosted
-- Open Source
-- Docker
-- Docker Swarm
-- Deployment
-- Traefik
-- Databases
+- [Dokploy Admin API](https://apis.io/apis/dokploy/dokploy-admin-api/) — The admin API from Dokploy — 1 operation(s) for admin.
+- [Dokploy AI API](https://apis.io/apis/dokploy/dokploy-ai-api/) — The ai API from Dokploy — 12 operation(s) for ai.
+- [Dokploy Application API](https://apis.io/apis/dokploy/dokploy-application-api/) — The application API from Dokploy — 31 operation(s) for application.
+- [Dokploy Backup API](https://apis.io/apis/dokploy/dokploy-backup-api/) — The backup API from Dokploy — 12 operation(s) for backup.
+- [Dokploy Bitbucket API](https://apis.io/apis/dokploy/dokploy-bitbucket-api/) — The bitbucket API from Dokploy — 7 operation(s) for bitbucket.
+- [Dokploy Certificates API](https://apis.io/apis/dokploy/dokploy-certificates-api/) — The certificates API from Dokploy — 5 operation(s) for certificates.
+- [Dokploy Cluster API](https://apis.io/apis/dokploy/dokploy-cluster-api/) — The cluster API from Dokploy — 4 operation(s) for cluster.
+- [Dokploy Compose API](https://apis.io/apis/dokploy/dokploy-compose-api/) — The compose API from Dokploy — 31 operation(s) for compose.
+- [Dokploy Custom Role API](https://apis.io/apis/dokploy/dokploy-customrole-api/) — The customRole API from Dokploy — 6 operation(s) for customrole.
+- [Dokploy Deployment API](https://apis.io/apis/dokploy/dokploy-deployment-api/) — The deployment API from Dokploy — 9 operation(s) for deployment.
+- [Dokploy Destination API](https://apis.io/apis/dokploy/dokploy-destination-api/) — The destination API from Dokploy — 6 operation(s) for destination.
+- [Dokploy Docker API](https://apis.io/apis/dokploy/dokploy-docker-api/) — The docker API from Dokploy — 12 operation(s) for docker.
+- [Dokploy Domain API](https://apis.io/apis/dokploy/dokploy-domain-api/) — The domain API from Dokploy — 9 operation(s) for domain.
+- [Dokploy Environment API](https://apis.io/apis/dokploy/dokploy-environment-api/) — The environment API from Dokploy — 7 operation(s) for environment.
+- [Dokploy Gitea API](https://apis.io/apis/dokploy/dokploy-gitea-api/) — The gitea API from Dokploy — 8 operation(s) for gitea.
+- [Dokploy Github API](https://apis.io/apis/dokploy/dokploy-github-api/) — The github API from Dokploy — 6 operation(s) for github.
+- [Dokploy Gitlab API](https://apis.io/apis/dokploy/dokploy-gitlab-api/) — The gitlab API from Dokploy — 7 operation(s) for gitlab.
+- [Dokploy Git Provider API](https://apis.io/apis/dokploy/dokploy-gitprovider-api/) — The gitProvider API from Dokploy — 4 operation(s) for gitprovider.
+- [Dokploy Libsql API](https://apis.io/apis/dokploy/dokploy-libsql-api/) — The libsql API from Dokploy — 14 operation(s) for libsql.
+- [Dokploy License Key API](https://apis.io/apis/dokploy/dokploy-licensekey-api/) — The licenseKey API from Dokploy — 6 operation(s) for licensekey.
+- [Dokploy Mariadb API](https://apis.io/apis/dokploy/dokploy-mariadb-api/) — The mariadb API from Dokploy — 16 operation(s) for mariadb.
+- [Dokploy Mongo API](https://apis.io/apis/dokploy/dokploy-mongo-api/) — The mongo API from Dokploy — 16 operation(s) for mongo.
+- [Dokploy Mounts API](https://apis.io/apis/dokploy/dokploy-mounts-api/) — The mounts API from Dokploy — 6 operation(s) for mounts.
+- [Dokploy Mysql API](https://apis.io/apis/dokploy/dokploy-mysql-api/) — The mysql API from Dokploy — 16 operation(s) for mysql.
+- [Dokploy Notification API](https://apis.io/apis/dokploy/dokploy-notification-api/) — The notification API from Dokploy — 41 operation(s) for notification.
+- [Dokploy Organization API](https://apis.io/apis/dokploy/dokploy-organization-api/) — The organization API from Dokploy — 11 operation(s) for organization.
+- [Dokploy Patch API](https://apis.io/apis/dokploy/dokploy-patch-api/) — The patch API from Dokploy — 12 operation(s) for patch.
+- [Dokploy Port API](https://apis.io/apis/dokploy/dokploy-port-api/) — The port API from Dokploy — 4 operation(s) for port.
+- [Dokploy Postgres API](https://apis.io/apis/dokploy/dokploy-postgres-api/) — The postgres API from Dokploy — 16 operation(s) for postgres.
+- [Dokploy Preview Deployment API](https://apis.io/apis/dokploy/dokploy-previewdeployment-api/) — The previewDeployment API from Dokploy — 4 operation(s) for previewdeployment.
+- [Dokploy Project API](https://apis.io/apis/dokploy/dokploy-project-api/) — The project API from Dokploy — 9 operation(s) for project.
+- [Dokploy Redirects API](https://apis.io/apis/dokploy/dokploy-redirects-api/) — The redirects API from Dokploy — 4 operation(s) for redirects.
+- [Dokploy Redis API](https://apis.io/apis/dokploy/dokploy-redis-api/) — The redis API from Dokploy — 16 operation(s) for redis.
+- [Dokploy Registry API](https://apis.io/apis/dokploy/dokploy-registry-api/) — The registry API from Dokploy — 7 operation(s) for registry.
+- [Dokploy Rollback API](https://apis.io/apis/dokploy/dokploy-rollback-api/) — The rollback API from Dokploy — 2 operation(s) for rollback.
+- [Dokploy Schedule API](https://apis.io/apis/dokploy/dokploy-schedule-api/) — The schedule API from Dokploy — 6 operation(s) for schedule.
+- [Dokploy Security API](https://apis.io/apis/dokploy/dokploy-security-api/) — The security API from Dokploy — 4 operation(s) for security.
+- [Dokploy Server API](https://apis.io/apis/dokploy/dokploy-server-api/) — The server API from Dokploy — 17 operation(s) for server.
+- [Dokploy Settings API](https://apis.io/apis/dokploy/dokploy-settings-api/) — The settings API from Dokploy — 51 operation(s) for settings.
+- [Dokploy SSO API](https://apis.io/apis/dokploy/dokploy-sso-api/) — The sso API from Dokploy — 10 operation(s) for sso.
+- [Dokploy Stripe API](https://apis.io/apis/dokploy/dokploy-stripe-api/) — The stripe API from Dokploy — 8 operation(s) for stripe.
+- [Dokploy Swarm API](https://apis.io/apis/dokploy/dokploy-swarm-api/) — The swarm API from Dokploy — 4 operation(s) for swarm.
+- [Dokploy Tag API](https://apis.io/apis/dokploy/dokploy-tag-api/) — The tag API from Dokploy — 8 operation(s) for tag.
+- [Dokploy User API](https://apis.io/apis/dokploy/dokploy-user-api/) — The user API from Dokploy — 23 operation(s) for user.
+- [Dokploy Volume Backups API](https://apis.io/apis/dokploy/dokploy-volumebackups-api/) — The volumeBackups API from Dokploy — 6 operation(s) for volumebackups.
+- [Dokploy Whitelabeling API](https://apis.io/apis/dokploy/dokploy-whitelabeling-api/) — The whitelabeling API from Dokploy — 4 operation(s) for whitelabeling.
+- [Dokploy Audit Log API](https://apis.io/apis/dokploy/dokploy-audit-log-api/) — The Audit Log API from Dokploy — 1 operation(s) for audit log.
+- [Dokploy SSH Key API](https://apis.io/apis/dokploy/dokploy-ssh-key-api/) — The SSH Key API from Dokploy — 7 operation(s) for ssh key.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-25
-- **Modified:** 2026-05-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### Dokploy
+Model Context Protocol servers that expose the API to agents.
 
-The Dokploy HTTP API exposes every operation the Dokploy UI can perform — projects, applications, Docker Compose services, managed databases (Postgres, MySQL, MariaDB, MongoDB, Redis, LibSQL), domains, certificates, registries, Git providers (GitHub, GitLab, Gitea, Bitbucket), servers, Docker Swarm clusters, backups, schedules, notifications, audit logs, SSO, custom roles, white-labeling, and Stripe billing — across 526 endpoints generated from the project's canonical OpenAPI 3.1 specification.
+- [mcp](https://apis.io/servers/dokploy/mcp/)
 
-- **Human URL:** [https://dokploy.com/](https://dokploy.com/)
-- **Base URL:** `https://your-dokploy-instance.com/api`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- PaaS
-- Self-Hosted
-- Docker
-- Docker Swarm
-- Traefik
-- Deployment
-- Databases
-- Git Providers
-- Domains
-- Notifications
+- [Dokploy Agentic Access](https://apis.io/agentic-access/dokploy/dokploy-agentic-access/)
 
-#### Properties
+#### Collections (48)
 
-- [Documentation](https://docs.dokploy.com/)
-- [API Reference](https://github.com/Dokploy/sdk/blob/main/openapi.json)
-- [Getting Started](https://docs.dokploy.com/docs/core)
-- [OpenAPI](openapi/dokploy-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/dokploy.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/dokploy.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [SDK](https://github.com/Dokploy/sdk)
-- [C L I](https://github.com/Dokploy/cli)
-- [M C P](https://github.com/Dokploy/mcp)
-- [Plans](plans/dokploy-plans-pricing.yml)
-- [Rate Limits](rate-limits/dokploy-rate-limits.yml)
-- [Fin Ops](finops/dokploy-finops.yml)
+Postman and Open Collection request collections.
 
-## Common Properties
+- [Dokploy API](https://apis.io/collections/dokploy/open-dokploy/)
+- [Dokploy admin API](https://apis.io/collections/dokploy/open-dokploy-admin-api/)
+- [Dokploy admin ai API](https://apis.io/collections/dokploy/open-dokploy-ai-api/)
+- [Dokploy admin application API](https://apis.io/collections/dokploy/open-dokploy-application-api/)
+- [Dokploy admin auditLog API](https://apis.io/collections/dokploy/open-dokploy-auditlog-api/)
+- [Dokploy admin backup API](https://apis.io/collections/dokploy/open-dokploy-backup-api/)
+- [Dokploy admin bitbucket API](https://apis.io/collections/dokploy/open-dokploy-bitbucket-api/)
+- [Dokploy admin certificates API](https://apis.io/collections/dokploy/open-dokploy-certificates-api/)
+- [Dokploy admin cluster API](https://apis.io/collections/dokploy/open-dokploy-cluster-api/)
+- [Dokploy admin compose API](https://apis.io/collections/dokploy/open-dokploy-compose-api/)
+- [Dokploy admin customRole API](https://apis.io/collections/dokploy/open-dokploy-customrole-api/)
+- [Dokploy admin deployment API](https://apis.io/collections/dokploy/open-dokploy-deployment-api/)
+- [Dokploy admin destination API](https://apis.io/collections/dokploy/open-dokploy-destination-api/)
+- [Dokploy admin docker API](https://apis.io/collections/dokploy/open-dokploy-docker-api/)
+- [Dokploy admin domain API](https://apis.io/collections/dokploy/open-dokploy-domain-api/)
+- [Dokploy admin environment API](https://apis.io/collections/dokploy/open-dokploy-environment-api/)
+- [Dokploy admin gitea API](https://apis.io/collections/dokploy/open-dokploy-gitea-api/)
+- [Dokploy admin github API](https://apis.io/collections/dokploy/open-dokploy-github-api/)
+- [Dokploy admin gitlab API](https://apis.io/collections/dokploy/open-dokploy-gitlab-api/)
+- [Dokploy admin gitProvider API](https://apis.io/collections/dokploy/open-dokploy-gitprovider-api/)
+- [Dokploy admin libsql API](https://apis.io/collections/dokploy/open-dokploy-libsql-api/)
+- [Dokploy admin licenseKey API](https://apis.io/collections/dokploy/open-dokploy-licensekey-api/)
+- [Dokploy admin mariadb API](https://apis.io/collections/dokploy/open-dokploy-mariadb-api/)
+- [Dokploy admin mongo API](https://apis.io/collections/dokploy/open-dokploy-mongo-api/)
+- [Dokploy admin mounts API](https://apis.io/collections/dokploy/open-dokploy-mounts-api/)
+- …and 23 more published on APIs.io
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Dokploy Authentication](https://apis.io/security/dokploy/dokploy-authentication/)
+- [Dokploy Domain Security](https://apis.io/security/dokploy/dokploy-domain-security/)
+
+#### Plans and pricing (2)
+
+Published plans, tiers and prices.
+
+- [Dokploy Plans Pricing](https://apis.io/plans/dokploy/dokploy-plans-pricing/)
+- [Dokploy Price Estimates](https://apis.io/plans/dokploy/dokploy-price-estimates/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Dokploy Rate Limits](https://apis.io/rate-limits/dokploy/dokploy-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Dokploy Finops](https://apis.io/finops/dokploy/dokploy-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://dokploy.com/)
 - [Documentation](https://docs.dokploy.com/)
-- [API Reference](https://github.com/Dokploy/sdk/blob/main/openapi.json)
+- [API reference](https://github.com/Dokploy/sdk/blob/main/openapi.json)
 - [Pricing](https://dokploy.com/pricing)
-- [Git Hub Org](https://github.com/Dokploy)
-- [GitHub Repository](https://github.com/Dokploy/dokploy)
-- [SDK](https://github.com/Dokploy/sdk)
-- [C L I](https://github.com/Dokploy/cli)
-- [M C P](https://github.com/Dokploy/mcp)
-- [Templates](https://github.com/Dokploy/templates)
-- [Examples](https://github.com/Dokploy/examples)
-- [Discord](https://discord.gg/2tBnJ3jDJc)
-- [License](https://github.com/Dokploy/dokploy/blob/canary/LICENSE.MD)
+- [Blog](https://dokploy.com/rss.xml)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 43.7** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 65.0 |
+| Contract quality | 49.8 |
+| Contract governance | 0.0 |
+| Operational transparency | 39.5 |
+| Developer ergonomics | 61.9 |
+| Access clarity | 42.1 |
+
+**Agent readiness 31.2** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/dokploy/](https://apis.io/providers/dokploy/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Dokploy: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/dokploy/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
